@@ -1,0 +1,149 @@
+/* ==============================
+   CapitalArt Mockup Selector UI
+   Style Sheet — Robbie Mode™
+   ============================== */
+
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  padding: 2em;
+  background: #f9f9f9;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.5em;
+  font-size: 2.2em;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  justify-content: center;
+}
+
+.item {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 1em;
+  border-radius: 8px;
+  width: 240px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.item:hover {
+  transform: scale(1.02);
+}
+
+.item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 0.75em;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+form {
+  margin: 0.4em 0;
+}
+
+select,
+button {
+  font-size: 0.95em;
+  padding: 0.4em;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  margin-top: 0.3em;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #eee;
+}
+
+.composite-btn {
+  display: block;
+  margin: 3em auto 0;
+  padding: 0.75em 1.5em;
+  font-size: 1em;
+  background: #007acc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.composite-btn:hover {
+  background: #005fa3;
+}
+
+/* ==============================
+   CapitalArt Mockup Gallery Styles
+   ============================== */
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.gallery-header h1 {
+  font-size: 2.4em;
+  margin-bottom: 0.3em;
+}
+
+.gallery-header p {
+  font-size: 1.1em;
+  color: #666;
+}
+
+#gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2em;
+  padding: 1em;
+}
+
+.gallery-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 1em;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 0.5em;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.gallery-item h2 {
+  font-size: 1.1em;
+  margin: 0.5em 0 0.2em;
+  color: #007acc;
+}
+
+.gallery-item p {
+  font-size: 0.95em;
+  color: #444;
+}
+
+.gallery-footer {
+  text-align: center;
+  margin-top: 4em;
+  padding: 1em;
+  font-size: 0.9em;
+  color: #777;
+}

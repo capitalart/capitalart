@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CapitalArt Mockup Gallery</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="gallery-header">
+    <h1>🎨 CapitalArt Mockup Gallery</h1>
+    <p>Browse artworks, explore categories, and preview AI-powered Etsy listings</p>
+  </header>
+
+  <main id="gallery">
+    <!-- Artwork mockups dynamically injected here -->
+  </main>
+
+  <footer class="gallery-footer">
+    <p>© Robin Custance • Proudly on Kaurna Country • GitHub Pages Powered</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

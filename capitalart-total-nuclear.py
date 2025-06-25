@@ -4,7 +4,7 @@
 # ===========================================
 # 📦 CapitalArt Project Utility Toolkit
 # 🔧 FILE: capitalart-total-nuclear.py
-# 🧠 RULESET: Robbie's Rules™ — No scaffolding, no placeholders, full functionality
+# 🧠 RULESET: Robbie's Rules™ — Only what matters, no fluff
 # ===========================================
 
 # --- [ 1a: Standard Library Imports | total-nuclear-1a ] ---
@@ -38,29 +38,43 @@ def create_reports_folder() -> Path:
     return folder_path
 
 # ===========================================
-# 4. 🧽 Safe File Collector
+# 4. 🧽 Targeted File Collector
 # ===========================================
 
-def get_filtered_py_files(base_path: Path = Path(".")) -> Generator[Path, None, None]:
+INCLUDE_PATHS = [
+    Path("mockup_selector_ui.py"),
+    Path("mockup_categoriser.py"),
+    Path("main.py"),
+    Path("scripts"),
+    Path("requirements.txt"),
+    Path("generate_folder_tree.py"),
+    Path("templates/index.html"),
+    Path("templates/mockup_selector.html"),
+    Path("static/js/main.js"),
+    Path("static/css/style.css"),
+]
+
+def get_included_py_files() -> Generator[Path, None, None]:
     """
-    Yields `.py` files while excluding virtual environments, git folders, caches, and junk files.
+    Yields only `.py` files from included paths to avoid massive reports.
     """
-    exclude_dirs = {"venv", "__pycache__", ".git", ".vscode", ".idea", "node_modules"}
-    for path in base_path.rglob("*.py"):
-        if any(part in exclude_dirs for part in path.parts):
-            continue
-        yield path
+    for path in INCLUDE_PATHS:
+        if path.is_file() and path.suffix == ".py":
+            yield path
+        elif path.is_dir():
+            for pyfile in path.rglob("*.py"):
+                yield pyfile
 
 # ===========================================
 # 5. 📜 Code Snapshot Generator
 # ===========================================
 
 def gather_code_snapshot(folder: Path) -> Path:
-    """Gathers filtered `.py` files and writes a combined snapshot .md file."""
+    """Creates a compact code snapshot only from selected files."""
     md_path = folder / f"report_code_snapshot_{folder.name.lower()}.md"
     with open(md_path, "w", encoding="utf-8") as md_file:
-        md_file.write(f"# 🧠 Code Snapshot — {folder.name}\n\n")
-        for pyfile in get_filtered_py_files():
+        md_file.write(f"# 🧠 CapitalArt Targeted Snapshot — {folder.name}\n\n")
+        for pyfile in get_included_py_files():
             rel_path = pyfile.relative_to(Path("."))
             md_file.write(f"\n---\n## 📄 {rel_path}\n\n```python\n")
             with open(pyfile, "r", encoding="utf-8") as source:
@@ -70,7 +84,7 @@ def gather_code_snapshot(folder: Path) -> Path:
     return md_path
 
 # ===========================================
-# 6. 🧪 Dependency Check Utilities (Terminal Only)
+# 6. 🧪 Dependency Check Utilities
 # ===========================================
 
 def show_dependency_issues():
@@ -90,7 +104,7 @@ def main():
     reports_folder = create_reports_folder()
     gather_code_snapshot(reports_folder)
     show_dependency_issues()
-    print("🎉 All done! Snapshot generated and pip health shown.")
+    print("🎉 All done! Snapshot slimmed down and system health checked.")
 
 # ===========================================
 # 🔚 Run Script
