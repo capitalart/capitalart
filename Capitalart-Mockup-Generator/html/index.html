@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Artwork Review</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: sans-serif; background: #f4f4f4; padding: 20px; }
+        .artwork { margin: 10px; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); max-width: 600px; }
+        .artwork img { max-width: 100%; border-radius: 4px; }
+        form { margin-top: 10px; }
+        .gallery { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    </style>
+</head>
+<body>
+    <h2>Artwork Feedback Form</h2>
+    <div class="gallery">
+        {% for url in images %}
+        <div class="artwork">
+            <img src="{{ url }}" alt="Artwork {{ loop.index }}">
+            <form method="POST" action="/submit">
+                <input type="hidden" name="image" value="{{ url }}">
+                <label>Rating (1–5):</label>
+                <input type="number" name="rating" min="1" max="5" required><br>
+                <label>Comment:</label><br>
+                <textarea name="comment" rows="2" style="width: 100%;"></textarea><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

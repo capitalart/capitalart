@@ -1,0 +1,1119 @@
+==== Harvey Norman JPEG Batch Log: Sun May 18 19:40:09 ACST 2025 ====
+Processing parameters:
+  Target Chroma Subsampling: 2x2,1x1,1x1
+  Target Density: 300 DPI
+  ICC Profile: /Library/ColorSync/Profiles/sRGB2014.icc
+-----------------------------------------------------
+üîß Processing 12SunlitKangarooAboriginalDotArtPrintAustralia.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/12SunlitKangarooAboriginalDotArtPrintAustralia.jpg
+
+==== 12SunlitKangarooAboriginalDotArtPrintAustralia.jpg - Processing Details ====
+Processing 12SunlitKangarooAboriginalDotArtPrintAustralia.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/12SunlitKangarooAboriginalDotArtPrintAustralia.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/12SunlitKangarooAboriginalDotArtPrintAustralia_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/12SunlitKangarooAboriginalDotArtPrintAustralia_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/12SunlitKangarooAboriginalDotArtPrintAustralia.jpg.
+  jpegtran processing: Success.
+Step 2: Adaptive quality. Size 24296449B > 21299200B. Reducing Q from 90 to 85.
+  New size: 21019678B.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 23727KB. | QDrop Üí85. Size: 20527KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/12SunlitKangarooAboriginalDotArtPrintAustralia.jpg) ---
+Final Specs: Q85, 14400x14400px, 20.05MB (20527KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/12SunlitKangarooAboriginalDotArtPrintAustralia.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 14400x14400, components 3
+-----------------------------------
+‚úÖ 12SunlitKangarooAboriginalDotArtPrintAustralia.jpg: Q85, 14400x14400, 20.05MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing 13KangarooSpiritAboriginalDotArtPrintAustralia.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/13KangarooSpiritAboriginalDotArtPrintAustralia.jpg
+
+==== 13KangarooSpiritAboriginalDotArtPrintAustralia.jpg - Processing Details ====
+Processing 13KangarooSpiritAboriginalDotArtPrintAustralia.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/13KangarooSpiritAboriginalDotArtPrintAustralia.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/13KangarooSpiritAboriginalDotArtPrintAustralia_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/13KangarooSpiritAboriginalDotArtPrintAustralia_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/13KangarooSpiritAboriginalDotArtPrintAustralia.jpg.
+  jpegtran processing: Success.
+Step 2: Adaptive quality. Size 24579387B > 21299200B. Reducing Q from 90 to 85.
+  New size: 20778590B.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 24003KB. | QDrop Üí85. Size: 20291KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/13KangarooSpiritAboriginalDotArtPrintAustralia.jpg) ---
+Final Specs: Q85, 14400x14400px, 19.82MB (20291KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/13KangarooSpiritAboriginalDotArtPrintAustralia.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 14400x14400, components 3
+-----------------------------------
+‚úÖ 13KangarooSpiritAboriginalDotArtPrintAustralia.jpg: Q85, 14400x14400, 19.82MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing 14400px-design-an-aboriginal-dot-painting-of-a-Dingo.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/14400px-design-an-aboriginal-dot-painting-of-a-Dingo.jpg
+
+==== 14400px-design-an-aboriginal-dot-painting-of-a-Dingo.jpg - Processing Details ====
+Processing 14400px-design-an-aboriginal-dot-painting-of-a-Dingo.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/14400px-design-an-aboriginal-dot-painting-of-a-Dingo.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/14400px-design-an-aboriginal-dot-painting-of-a-Dingo_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/14400px-design-an-aboriginal-dot-painting-of-a-Dingo_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/14400px-design-an-aboriginal-dot-painting-of-a-Dingo.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 17499KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/14400px-design-an-aboriginal-dot-painting-of-a-Dingo.jpg) ---
+Final Specs: Q90, 11517x14400px, 17.09MB (17499KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/14400px-design-an-aboriginal-dot-painting-of-a-Dingo.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 11517x14400, components 3
+-----------------------------------
+‚úÖ 14400px-design-an-aboriginal-dot-painting-of-a-Dingo.jpg: Q90, 11517x14400, 17.09MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing 14CosmicEmuDreamingAboriginalArtNo04.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/14CosmicEmuDreamingAboriginalArtNo04.jpg
+
+==== 14CosmicEmuDreamingAboriginalArtNo04.jpg - Processing Details ====
+Processing 14CosmicEmuDreamingAboriginalArtNo04.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/14CosmicEmuDreamingAboriginalArtNo04.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/14CosmicEmuDreamingAboriginalArtNo04_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/14CosmicEmuDreamingAboriginalArtNo04_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/14CosmicEmuDreamingAboriginalArtNo04.jpg.
+  jpegtran processing: Success.
+Step 2: Adaptive quality. Size 24119645B > 21299200B. Reducing Q from 90 to 85.
+  New size: 20762369B.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 23554KB. | QDrop Üí85. Size: 20275KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/14CosmicEmuDreamingAboriginalArtNo04.jpg) ---
+Final Specs: Q85, 11520x14400px, 19.80MB (20275KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/14CosmicEmuDreamingAboriginalArtNo04.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 11520x14400, components 3
+-----------------------------------
+‚úÖ 14CosmicEmuDreamingAboriginalArtNo04.jpg: Q85, 11520x14400, 19.80MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing 14GoldenKangarooAboriginalDotArtPrintAustralia.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/14GoldenKangarooAboriginalDotArtPrintAustralia.jpg
+
+==== 14GoldenKangarooAboriginalDotArtPrintAustralia.jpg - Processing Details ====
+Processing 14GoldenKangarooAboriginalDotArtPrintAustralia.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/14GoldenKangarooAboriginalDotArtPrintAustralia.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/14GoldenKangarooAboriginalDotArtPrintAustralia_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/14GoldenKangarooAboriginalDotArtPrintAustralia_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/14GoldenKangarooAboriginalDotArtPrintAustralia.jpg.
+  jpegtran processing: Success.
+Step 2: Adaptive quality. Size 22835313B > 21299200B. Reducing Q from 90 to 85.
+  New size: 19330712B.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 22300KB. | QDrop Üí85. Size: 18877KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/14GoldenKangarooAboriginalDotArtPrintAustralia.jpg) ---
+Final Specs: Q85, 14400x14400px, 18.44MB (18877KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/14GoldenKangarooAboriginalDotArtPrintAustralia.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 14400x14400, components 3
+-----------------------------------
+‚úÖ 14GoldenKangarooAboriginalDotArtPrintAustralia.jpg: Q85, 14400x14400, 18.44MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing 15SacredKangarooAboriginalDotArtPrintAustralia.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/15SacredKangarooAboriginalDotArtPrintAustralia.jpg
+
+==== 15SacredKangarooAboriginalDotArtPrintAustralia.jpg - Processing Details ====
+Processing 15SacredKangarooAboriginalDotArtPrintAustralia.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/15SacredKangarooAboriginalDotArtPrintAustralia.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/15SacredKangarooAboriginalDotArtPrintAustralia_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/15SacredKangarooAboriginalDotArtPrintAustralia_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/15SacredKangarooAboriginalDotArtPrintAustralia.jpg.
+  jpegtran processing: Success.
+Step 2: Adaptive quality. Size 24802070B > 21299200B. Reducing Q from 90 to 85.
+  New size: 20529719B.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 24220KB. | QDrop Üí85. Size: 20048KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/15SacredKangarooAboriginalDotArtPrintAustralia.jpg) ---
+Final Specs: Q85, 14400x14400px, 19.58MB (20048KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/15SacredKangarooAboriginalDotArtPrintAustralia.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 14400x14400, components 3
+-----------------------------------
+‚úÖ 15SacredKangarooAboriginalDotArtPrintAustralia.jpg: Q85, 14400x14400, 19.58MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing 16EternalKangarooAboriginalDotArtPrintAustralia.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/16EternalKangarooAboriginalDotArtPrintAustralia.jpg
+
+==== 16EternalKangarooAboriginalDotArtPrintAustralia.jpg - Processing Details ====
+Processing 16EternalKangarooAboriginalDotArtPrintAustralia.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/16EternalKangarooAboriginalDotArtPrintAustralia.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/16EternalKangarooAboriginalDotArtPrintAustralia_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/16EternalKangarooAboriginalDotArtPrintAustralia_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/16EternalKangarooAboriginalDotArtPrintAustralia.jpg.
+  jpegtran processing: Success.
+Step 2: Adaptive quality. Size 24164169B > 21299200B. Reducing Q from 90 to 85.
+  New size: 20801183B.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 23597KB. | QDrop Üí85. Size: 20313KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/16EternalKangarooAboriginalDotArtPrintAustralia.jpg) ---
+Final Specs: Q85, 14400x14400px, 19.84MB (20313KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/16EternalKangarooAboriginalDotArtPrintAustralia.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 14400x14400, components 3
+-----------------------------------
+‚úÖ 16EternalKangarooAboriginalDotArtPrintAustralia.jpg: Q85, 14400x14400, 19.84MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing 17SunsetKangarooAboriginalDotArtPrintAustralia.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/17SunsetKangarooAboriginalDotArtPrintAustralia.jpg
+
+==== 17SunsetKangarooAboriginalDotArtPrintAustralia.jpg - Processing Details ====
+Processing 17SunsetKangarooAboriginalDotArtPrintAustralia.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/17SunsetKangarooAboriginalDotArtPrintAustralia.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/17SunsetKangarooAboriginalDotArtPrintAustralia_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/17SunsetKangarooAboriginalDotArtPrintAustralia_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/17SunsetKangarooAboriginalDotArtPrintAustralia.jpg.
+  jpegtran processing: Success.
+Step 2: Adaptive quality. Size 34618645B > 21299200B. Reducing Q from 90 to 75.
+  New size: 25599023B.
+Step 2: Adaptive quality. Size 25599023B > 21299200B. Reducing Q from 75 to 70.
+  New size: 24479260B.
+Step 2: Adaptive quality. Size 24479260B > 21299200B. Reducing Q from 70 to 70.
+  New size: 24479260B.
+  Quality unchanged, breaking loop.
+Step 3: Fine-tune quality. Size 24479260B > 21299200B. Reducing Q from 70 to 69.
+  New size: 24280797B.
+Step 3: Fine-tune quality. Size 24280797B > 21299200B. Reducing Q from 69 to 68.
+  New size: 24128947B.
+Step 3: Fine-tune quality. Size 24128947B > 21299200B. Reducing Q from 68 to 67.
+  New size: 23895477B.
+Step 3: Fine-tune quality. Size 23895477B > 21299200B. Reducing Q from 67 to 66.
+  New size: 23682815B.
+Step 3: Fine-tune quality. Size 23682815B > 21299200B. Reducing Q from 66 to 65.
+  New size: 23552946B.
+Step 3: Fine-tune quality. Size 23552946B > 21299200B. Reducing Q from 65 to 64.
+  New size: 23325146B.
+Step 3: Fine-tune quality. Size 23325146B > 21299200B. Reducing Q from 64 to 63.
+  New size: 23191428B.
+Step 3: Fine-tune quality. Size 23191428B > 21299200B. Reducing Q from 63 to 62.
+  New size: 22883263B.
+Step 3: Fine-tune quality. Size 22883263B > 21299200B. Reducing Q from 62 to 61.
+  New size: 22821597B.
+Step 3: Fine-tune quality. Size 22821597B > 21299200B. Reducing Q from 61 to 60.
+  New size: 22551913B.
+Step 4b: Resize 5%. Size 22551913B > 22528000B. From 14400x14400 to 13680x13680.
+  New size: 26721482B.
+Step 4b: Resize 5%. Size 26721482B > 22528000B. From 13680x13680 to 12996x12996.
+  New size: 24505942B.
+Step 4b: Resize 5%. Size 24505942B > 22528000B. From 12996x12996 to 12346x12346.
+  New size: 22492251B.
+Step 4c: Resize 1%. Size 22492251B > 21299200B. From 12346x12346 to 12222x12222.
+  New size: 21958957B.
+Step 4c: Resize 1%. Size 21958957B > 21299200B. From 12222x12222 to 12099x12099.
+  New size: 21482365B.
+Step 4c: Resize 1%. Size 21482365B > 21299200B. From 12099x12099 to 11978x11978.
+  New size: 21037681B.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 33807KB. | QDrop Üí75. Size: 24999KB. | QDrop Üí70. Size: 23905KB. | QDrop Üí70. Size: 23905KB. | QFineTune Üí69. Size: 23711KB. | QFineTune Üí68. Size: 23563KB. | QFineTune Üí67. Size: 23335KB. | QFineTune Üí66. Size: 23127KB. | QFineTune Üí65. Size: 23000KB. | QFineTune Üí64. Size: 22778KB. | QFineTune Üí63. Size: 22647KB. | QFineTune Üí62. Size: 22346KB. | QFineTune Üí61. Size: 22286KB. | QFineTune Üí60. Size: 22023KB. | Resize5% 14400x14400‚Üí13680x13680. Size: 26095KB. | Resize5% 13680x13680‚Üí12996x12996. Size: 23931KB. | Resize5% 12996x12996‚Üí12346x12346. Size: 21965KB. | Resize1% 12346x12346‚Üí12222x12222. Size: 21444KB. | Resize1% 12222x12222‚Üí12099x12099. Size: 20978KB. | Resize1% 12099x12099‚Üí11978x11978. Size: 20544KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/17SunsetKangarooAboriginalDotArtPrintAustralia.jpg) ---
+Final Specs: Q60, 11978x11978px, 20.06MB (20544KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/17SunsetKangarooAboriginalDotArtPrintAustralia.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 11978x11978, components 3
+-----------------------------------
+‚úÖ 17SunsetKangarooAboriginalDotArtPrintAustralia.jpg: Q60, 11978x11978, 20.06MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing Aboriginal_Dot_Art_Brush_Tailed_Possum_09.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Aboriginal_Dot_Art_Brush_Tailed_Possum_09.jpg
+
+==== Aboriginal_Dot_Art_Brush_Tailed_Possum_09.jpg - Processing Details ====
+Processing Aboriginal_Dot_Art_Brush_Tailed_Possum_09.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Aboriginal_Dot_Art_Brush_Tailed_Possum_09.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Aboriginal_Dot_Art_Brush_Tailed_Possum_09_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Aboriginal_Dot_Art_Brush_Tailed_Possum_09_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Aboriginal_Dot_Art_Brush_Tailed_Possum_09.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 19451KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Aboriginal_Dot_Art_Brush_Tailed_Possum_09.jpg) ---
+Final Specs: Q90, 11517x14400px, 19.00MB (19451KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Aboriginal_Dot_Art_Brush_Tailed_Possum_09.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 11517x14400, components 3
+-----------------------------------
+‚úÖ Aboriginal_Dot_Art_Brush_Tailed_Possum_09.jpg: Q90, 11517x14400, 19.00MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing Abstract-Impression-SA-Outback-by-Robin-Custance-240114.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Abstract-Impression-SA-Outback-by-Robin-Custance-240114.jpg
+
+==== Abstract-Impression-SA-Outback-by-Robin-Custance-240114.jpg - Processing Details ====
+Processing Abstract-Impression-SA-Outback-by-Robin-Custance-240114.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Abstract-Impression-SA-Outback-by-Robin-Custance-240114.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Abstract-Impression-SA-Outback-by-Robin-Custance-240114_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Abstract-Impression-SA-Outback-by-Robin-Custance-240114_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Abstract-Impression-SA-Outback-by-Robin-Custance-240114.jpg.
+  jpegtran processing: Success.
+Step 2: Adaptive quality. Size 22628643B > 21299200B. Reducing Q from 90 to 85.
+  New size: 19700407B.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 22098KB. | QDrop Üí85. Size: 19238KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Abstract-Impression-SA-Outback-by-Robin-Custance-240114.jpg) ---
+Final Specs: Q85, 14400x10846px, 18.79MB (19238KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Abstract-Impression-SA-Outback-by-Robin-Custance-240114.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 14400x10846, components 3
+-----------------------------------
+‚úÖ Abstract-Impression-SA-Outback-by-Robin-Custance-240114.jpg: Q85, 14400x10846, 18.79MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing Abstract-Impression-SA-Outback-by-Robin-Custance-240150.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Abstract-Impression-SA-Outback-by-Robin-Custance-240150.jpg
+
+==== Abstract-Impression-SA-Outback-by-Robin-Custance-240150.jpg - Processing Details ====
+Processing Abstract-Impression-SA-Outback-by-Robin-Custance-240150.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Abstract-Impression-SA-Outback-by-Robin-Custance-240150.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Abstract-Impression-SA-Outback-by-Robin-Custance-240150_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Abstract-Impression-SA-Outback-by-Robin-Custance-240150_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Abstract-Impression-SA-Outback-by-Robin-Custance-240150.jpg.
+  jpegtran processing: Success.
+Step 2: Adaptive quality. Size 21340233B > 21299200B. Reducing Q from 90 to 85.
+  New size: 18613025B.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 20840KB. | QDrop Üí85. Size: 18176KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Abstract-Impression-SA-Outback-by-Robin-Custance-240150.jpg) ---
+Final Specs: Q85, 14400x10846px, 17.75MB (18176KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Abstract-Impression-SA-Outback-by-Robin-Custance-240150.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 14400x10846, components 3
+-----------------------------------
+‚úÖ Abstract-Impression-SA-Outback-by-Robin-Custance-240150.jpg: Q85, 14400x10846, 17.75MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing Artist-Impression-Kakadu-Artwork-by-Robin-240001.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240001.jpg
+
+==== Artist-Impression-Kakadu-Artwork-by-Robin-240001.jpg - Processing Details ====
+Processing Artist-Impression-Kakadu-Artwork-by-Robin-240001.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240001.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240001_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240001_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240001.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 18253KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240001.jpg) ---
+Final Specs: Q90, 14400x8069px, 17.83MB (18253KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240001.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 14400x8069, components 3
+-----------------------------------
+‚úÖ Artist-Impression-Kakadu-Artwork-by-Robin-240001.jpg: Q90, 14400x8069, 17.83MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing Artist-Impression-Kakadu-Artwork-by-Robin-240104.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240104.jpg
+
+==== Artist-Impression-Kakadu-Artwork-by-Robin-240104.jpg - Processing Details ====
+Processing Artist-Impression-Kakadu-Artwork-by-Robin-240104.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240104.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240104_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240104_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240104.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 15947KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240104.jpg) ---
+Final Specs: Q90, 14400x8069px, 15.57MB (15947KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240104.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 14400x8069, components 3
+-----------------------------------
+‚úÖ Artist-Impression-Kakadu-Artwork-by-Robin-240104.jpg: Q90, 14400x8069, 15.57MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing Artist-Impression-Kakadu-Artwork-by-Robin-240111.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240111.jpg
+
+==== Artist-Impression-Kakadu-Artwork-by-Robin-240111.jpg - Processing Details ====
+Processing Artist-Impression-Kakadu-Artwork-by-Robin-240111.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240111.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240111_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240111_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240111.jpg.
+  jpegtran processing: Success.
+Step 2: Adaptive quality. Size 21672525B > 21299200B. Reducing Q from 90 to 85.
+  New size: 19149839B.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 21164KB. | QDrop Üí85. Size: 18701KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240111.jpg) ---
+Final Specs: Q85, 14400x8069px, 18.26MB (18701KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240111.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 14400x8069, components 3
+-----------------------------------
+‚úÖ Artist-Impression-Kakadu-Artwork-by-Robin-240111.jpg: Q85, 14400x8069, 18.26MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing Artist-Impression-Kakadu-Artwork-by-Robin-240112.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240112.jpg
+
+==== Artist-Impression-Kakadu-Artwork-by-Robin-240112.jpg - Processing Details ====
+Processing Artist-Impression-Kakadu-Artwork-by-Robin-240112.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240112.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240112_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240112_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240112.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 19960KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240112.jpg) ---
+Final Specs: Q90, 14400x8069px, 19.49MB (19960KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240112.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 14400x8069, components 3
+-----------------------------------
+‚úÖ Artist-Impression-Kakadu-Artwork-by-Robin-240112.jpg: Q90, 14400x8069, 19.49MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing Artist-Impression-Kakadu-Artwork-by-Robin-240113.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240113.jpg
+
+==== Artist-Impression-Kakadu-Artwork-by-Robin-240113.jpg - Processing Details ====
+Processing Artist-Impression-Kakadu-Artwork-by-Robin-240113.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240113.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240113_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240113_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240113.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 20355KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240113.jpg) ---
+Final Specs: Q90, 14400x8069px, 19.88MB (20355KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240113.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 14400x8069, components 3
+-----------------------------------
+‚úÖ Artist-Impression-Kakadu-Artwork-by-Robin-240113.jpg: Q90, 14400x8069, 19.88MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing Artist-Impression-Kakadu-Artwork-by-Robin-240162.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240162.jpg
+
+==== Artist-Impression-Kakadu-Artwork-by-Robin-240162.jpg - Processing Details ====
+Processing Artist-Impression-Kakadu-Artwork-by-Robin-240162.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240162.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240162_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240162_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240162.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 14014KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240162.jpg) ---
+Final Specs: Q90, 14400x8069px, 13.69MB (14014KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-Artwork-by-Robin-240162.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 14400x8069, components 3
+-----------------------------------
+‚úÖ Artist-Impression-Kakadu-Artwork-by-Robin-240162.jpg: Q90, 14400x8069, 13.69MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing Artist-Impression-Kakadu-by-Robin-Custance-240121.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240121.jpg
+
+==== Artist-Impression-Kakadu-by-Robin-Custance-240121.jpg - Processing Details ====
+Processing Artist-Impression-Kakadu-by-Robin-Custance-240121.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240121.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240121_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240121_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240121.jpg.
+  jpegtran processing: Success.
+Step 2: Adaptive quality. Size 22120321B > 21299200B. Reducing Q from 90 to 85.
+  New size: 18733763B.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 21601KB. | QDrop Üí85. Size: 18294KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240121.jpg) ---
+Final Specs: Q85, 14400x14400px, 17.87MB (18294KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240121.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 14400x14400, components 3
+-----------------------------------
+‚úÖ Artist-Impression-Kakadu-by-Robin-Custance-240121.jpg: Q85, 14400x14400, 17.87MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing Artist-Impression-Kakadu-by-Robin-Custance-240148.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240148.jpg
+
+==== Artist-Impression-Kakadu-by-Robin-Custance-240148.jpg - Processing Details ====
+Processing Artist-Impression-Kakadu-by-Robin-Custance-240148.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240148.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240148_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240148_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240148.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 17987KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240148.jpg) ---
+Final Specs: Q90, 14400x8068px, 17.57MB (17987KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240148.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 14400x8068, components 3
+-----------------------------------
+‚úÖ Artist-Impression-Kakadu-by-Robin-Custance-240148.jpg: Q90, 14400x8068, 17.57MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing Artist-Impression-Kakadu-by-Robin-Custance-240149.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240149.jpg
+
+==== Artist-Impression-Kakadu-by-Robin-Custance-240149.jpg - Processing Details ====
+Processing Artist-Impression-Kakadu-by-Robin-Custance-240149.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240149.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240149_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240149_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240149.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 17755KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240149.jpg) ---
+Final Specs: Q90, 14400x8069px, 17.34MB (17755KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240149.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 14400x8069, components 3
+-----------------------------------
+‚úÖ Artist-Impression-Kakadu-by-Robin-Custance-240149.jpg: Q90, 14400x8069, 17.34MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing Artist-Impression-Kakadu-by-Robin-Custance-240159.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240159.jpg
+
+==== Artist-Impression-Kakadu-by-Robin-Custance-240159.jpg - Processing Details ====
+Processing Artist-Impression-Kakadu-by-Robin-Custance-240159.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240159.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240159_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240159_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240159.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 16822KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240159.jpg) ---
+Final Specs: Q90, 14400x8069px, 16.43MB (16822KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240159.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 14400x8069, components 3
+-----------------------------------
+‚úÖ Artist-Impression-Kakadu-by-Robin-Custance-240159.jpg: Q90, 14400x8069, 16.43MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing Artist-Impression-Kakadu-by-Robin-Custance-240161.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240161.jpg
+
+==== Artist-Impression-Kakadu-by-Robin-Custance-240161.jpg - Processing Details ====
+Processing Artist-Impression-Kakadu-by-Robin-Custance-240161.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240161.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240161_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240161_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240161.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 15527KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240161.jpg) ---
+Final Specs: Q90, 14400x8068px, 15.16MB (15527KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Artist-Impression-Kakadu-by-Robin-Custance-240161.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 14400x8068, components 3
+-----------------------------------
+‚úÖ Artist-Impression-Kakadu-by-Robin-Custance-240161.jpg: Q90, 14400x8068, 15.16MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing Autumn_Possum_Whispers_by_Robin_Custance.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Autumn_Possum_Whispers_by_Robin_Custance.jpg
+
+==== Autumn_Possum_Whispers_by_Robin_Custance.jpg - Processing Details ====
+Processing Autumn_Possum_Whispers_by_Robin_Custance.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Autumn_Possum_Whispers_by_Robin_Custance.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Autumn_Possum_Whispers_by_Robin_Custance_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Autumn_Possum_Whispers_by_Robin_Custance_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Autumn_Possum_Whispers_by_Robin_Custance.jpg.
+  jpegtran processing: Success.
+Step 2: Adaptive quality. Size 25789175B > 21299200B. Reducing Q from 90 to 85.
+  New size: 22488428B.
+Step 2: Adaptive quality. Size 22488428B > 21299200B. Reducing Q from 85 to 80.
+  New size: 21227343B.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 25184KB. | QDrop Üí85. Size: 21961KB. | QDrop Üí80. Size: 20729KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Autumn_Possum_Whispers_by_Robin_Custance.jpg) ---
+Final Specs: Q80, 11520x14400px, 20.24MB (20729KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Autumn_Possum_Whispers_by_Robin_Custance.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 11520x14400, components 3
+-----------------------------------
+‚úÖ Autumn_Possum_Whispers_by_Robin_Custance.jpg: Q80, 11520x14400, 20.24MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing BirdAmongBottlebrushBloomsbyRobinCustance.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/BirdAmongBottlebrushBloomsbyRobinCustance.jpg
+
+==== BirdAmongBottlebrushBloomsbyRobinCustance.jpg - Processing Details ====
+Processing BirdAmongBottlebrushBloomsbyRobinCustance.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/BirdAmongBottlebrushBloomsbyRobinCustance.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/BirdAmongBottlebrushBloomsbyRobinCustance_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/BirdAmongBottlebrushBloomsbyRobinCustance_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/BirdAmongBottlebrushBloomsbyRobinCustance.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 12292KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/BirdAmongBottlebrushBloomsbyRobinCustance.jpg) ---
+Final Specs: Q90, 11520x14400px, 12.00MB (12292KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/BirdAmongBottlebrushBloomsbyRobinCustance.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 11520x14400, components 3
+-----------------------------------
+‚úÖ BirdAmongBottlebrushBloomsbyRobinCustance.jpg: Q90, 11520x14400, 12.00MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing blooming-boab-tree-dreaming-by-robin-custance.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/blooming-boab-tree-dreaming-by-robin-custance.jpg
+
+==== blooming-boab-tree-dreaming-by-robin-custance.jpg - Processing Details ====
+Processing blooming-boab-tree-dreaming-by-robin-custance.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/blooming-boab-tree-dreaming-by-robin-custance.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/blooming-boab-tree-dreaming-by-robin-custance_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/blooming-boab-tree-dreaming-by-robin-custance_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/blooming-boab-tree-dreaming-by-robin-custance.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 16040KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/blooming-boab-tree-dreaming-by-robin-custance.jpg) ---
+Final Specs: Q90, 14400x8070px, 15.66MB (16040KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/blooming-boab-tree-dreaming-by-robin-custance.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 14400x8070, components 3
+-----------------------------------
+‚úÖ blooming-boab-tree-dreaming-by-robin-custance.jpg: Q90, 14400x8070, 15.66MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing Bool-Lagoon-Dreaming-AboriginalDigital-Artwork-by-Robin-Custance.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Bool-Lagoon-Dreaming-AboriginalDigital-Artwork-by-Robin-Cu.jpg
+
+==== Bool-Lagoon-Dreaming-AboriginalDigital-Artwork-by-Robin-Cu.jpg - Processing Details ====
+Processing Bool-Lagoon-Dreaming-AboriginalDigital-Artwork-by-Robin-Custance.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Bool-Lagoon-Dreaming-AboriginalDigital-Artwork-by-Robin-Cu.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Bool-Lagoon-Dreaming-AboriginalDigital-Artwork-by-Robin-Cu_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Bool-Lagoon-Dreaming-AboriginalDigital-Artwork-by-Robin-Cu_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Bool-Lagoon-Dreaming-AboriginalDigital-Artwork-by-Robin-Cu.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 18746KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Bool-Lagoon-Dreaming-AboriginalDigital-Artwork-by-Robin-Cu.jpg) ---
+Final Specs: Q90, 14400x11520px, 18.31MB (18746KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Bool-Lagoon-Dreaming-AboriginalDigital-Artwork-by-Robin-Cu.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 14400x11520, components 3
+-----------------------------------
+‚úÖ Bool-Lagoon-Dreaming-AboriginalDigital-Artwork-by-Robin-Cu.jpg: Q90, 14400x11520, 18.31MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing celestial-horizon-australian-sun-digital-art-robin-custance.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/celestial-horizon-australian-sun-digital-art-robin-custanc.jpg
+
+==== celestial-horizon-australian-sun-digital-art-robin-custanc.jpg - Processing Details ====
+Processing celestial-horizon-australian-sun-digital-art-robin-custance.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/celestial-horizon-australian-sun-digital-art-robin-custanc.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/celestial-horizon-australian-sun-digital-art-robin-custanc_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/celestial-horizon-australian-sun-digital-art-robin-custanc_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/celestial-horizon-australian-sun-digital-art-robin-custanc.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 18843KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/celestial-horizon-australian-sun-digital-art-robin-custanc.jpg) ---
+Final Specs: Q90, 11520x14400px, 18.40MB (18843KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/celestial-horizon-australian-sun-digital-art-robin-custanc.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 11520x14400, components 3
+-----------------------------------
+‚úÖ celestial-horizon-australian-sun-digital-art-robin-custanc.jpg: Q90, 11520x14400, 18.40MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing Cosmic-Koala-Aust-Aboriginal-Art-by-Robin-Custance-ABRC-00-00-164.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Cosmic-Koala-Aust-Aboriginal-Art-by-Robin-Custance-ABRC-00.jpg
+
+==== Cosmic-Koala-Aust-Aboriginal-Art-by-Robin-Custance-ABRC-00.jpg - Processing Details ====
+Processing Cosmic-Koala-Aust-Aboriginal-Art-by-Robin-Custance-ABRC-00-00-164.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Cosmic-Koala-Aust-Aboriginal-Art-by-Robin-Custance-ABRC-00.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Cosmic-Koala-Aust-Aboriginal-Art-by-Robin-Custance-ABRC-00_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Cosmic-Koala-Aust-Aboriginal-Art-by-Robin-Custance-ABRC-00_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Cosmic-Koala-Aust-Aboriginal-Art-by-Robin-Custance-ABRC-00.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 20484KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Cosmic-Koala-Aust-Aboriginal-Art-by-Robin-Custance-ABRC-00.jpg) ---
+Final Specs: Q90, 10800x14400px, 20.00MB (20484KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Cosmic-Koala-Aust-Aboriginal-Art-by-Robin-Custance-ABRC-00.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 10800x14400, components 3
+-----------------------------------
+‚úÖ Cosmic-Koala-Aust-Aboriginal-Art-by-Robin-Custance-ABRC-00.jpg: Q90, 10800x14400, 20.00MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing CosmicEmuDreamingAboriginalArt.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CosmicEmuDreamingAboriginalArt.jpg
+
+==== CosmicEmuDreamingAboriginalArt.jpg - Processing Details ====
+Processing CosmicEmuDreamingAboriginalArt.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CosmicEmuDreamingAboriginalArt.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CosmicEmuDreamingAboriginalArt_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CosmicEmuDreamingAboriginalArt_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CosmicEmuDreamingAboriginalArt.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 19640KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CosmicEmuDreamingAboriginalArt.jpg) ---
+Final Specs: Q90, 11520x14400px, 19.18MB (19640KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CosmicEmuDreamingAboriginalArt.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 11520x14400, components 3
+-----------------------------------
+‚úÖ CosmicEmuDreamingAboriginalArt.jpg: Q90, 11520x14400, 19.18MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing CosmicEmuDreamingAboriginalArtNo03.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CosmicEmuDreamingAboriginalArtNo03.jpg
+
+==== CosmicEmuDreamingAboriginalArtNo03.jpg - Processing Details ====
+Processing CosmicEmuDreamingAboriginalArtNo03.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CosmicEmuDreamingAboriginalArtNo03.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CosmicEmuDreamingAboriginalArtNo03_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CosmicEmuDreamingAboriginalArtNo03_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CosmicEmuDreamingAboriginalArtNo03.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 17492KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CosmicEmuDreamingAboriginalArtNo03.jpg) ---
+Final Specs: Q90, 11520x14400px, 17.08MB (17492KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CosmicEmuDreamingAboriginalArtNo03.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 11520x14400, components 3
+-----------------------------------
+‚úÖ CosmicEmuDreamingAboriginalArtNo03.jpg: Q90, 11520x14400, 17.08MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing CosmicEmuDreamingAboriginalArtNo2.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CosmicEmuDreamingAboriginalArtNo2.jpg
+
+==== CosmicEmuDreamingAboriginalArtNo2.jpg - Processing Details ====
+Processing CosmicEmuDreamingAboriginalArtNo2.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CosmicEmuDreamingAboriginalArtNo2.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CosmicEmuDreamingAboriginalArtNo2_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CosmicEmuDreamingAboriginalArtNo2_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CosmicEmuDreamingAboriginalArtNo2.jpg.
+  jpegtran processing: Success.
+Step 2: Adaptive quality. Size 23191978B > 21299200B. Reducing Q from 90 to 85.
+  New size: 18641190B.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 22648KB. | QDrop Üí85. Size: 18204KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CosmicEmuDreamingAboriginalArtNo2.jpg) ---
+Final Specs: Q85, 11520x14400px, 17.78MB (18204KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CosmicEmuDreamingAboriginalArtNo2.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 11520x14400, components 3
+-----------------------------------
+‚úÖ CosmicEmuDreamingAboriginalArtNo2.jpg: Q85, 11520x14400, 17.78MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing CuriousRing-TailedPossumAutumnBlossomsWildlifeArt.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CuriousRing-TailedPossumAutumnBlossomsWildlifeArt.jpg
+
+==== CuriousRing-TailedPossumAutumnBlossomsWildlifeArt.jpg - Processing Details ====
+Processing CuriousRing-TailedPossumAutumnBlossomsWildlifeArt.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CuriousRing-TailedPossumAutumnBlossomsWildlifeArt.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CuriousRing-TailedPossumAutumnBlossomsWildlifeArt_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CuriousRing-TailedPossumAutumnBlossomsWildlifeArt_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CuriousRing-TailedPossumAutumnBlossomsWildlifeArt.jpg.
+  jpegtran processing: Success.
+Step 2: Adaptive quality. Size 27129502B > 21299200B. Reducing Q from 90 to 80.
+  New size: 22864514B.
+Step 2: Adaptive quality. Size 22864514B > 21299200B. Reducing Q from 80 to 75.
+  New size: 21570240B.
+Step 2: Adaptive quality. Size 21570240B > 21299200B. Reducing Q from 75 to 70.
+  New size: 20953151B.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 26493KB. | QDrop Üí80. Size: 22328KB. | QDrop Üí75. Size: 21064KB. | QDrop Üí70. Size: 20462KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CuriousRing-TailedPossumAutumnBlossomsWildlifeArt.jpg) ---
+Final Specs: Q70, 11520x14400px, 19.98MB (20462KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/CuriousRing-TailedPossumAutumnBlossomsWildlifeArt.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 11520x14400, components 3
+-----------------------------------
+‚úÖ CuriousRing-TailedPossumAutumnBlossomsWildlifeArt.jpg: Q70, 11520x14400, 19.98MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing DelicateWildflowerSerenadeVintageBotanicalArtbyRobinCustance.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/DelicateWildflowerSerenadeVintageBotanicalArtbyRobinCustan.jpg
+
+==== DelicateWildflowerSerenadeVintageBotanicalArtbyRobinCustan.jpg - Processing Details ====
+Processing DelicateWildflowerSerenadeVintageBotanicalArtbyRobinCustance.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/DelicateWildflowerSerenadeVintageBotanicalArtbyRobinCustan.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/DelicateWildflowerSerenadeVintageBotanicalArtbyRobinCustan_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/DelicateWildflowerSerenadeVintageBotanicalArtbyRobinCustan_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/DelicateWildflowerSerenadeVintageBotanicalArtbyRobinCustan.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 18493KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/DelicateWildflowerSerenadeVintageBotanicalArtbyRobinCustan.jpg) ---
+Final Specs: Q90, 11520x14400px, 18.06MB (18493KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/DelicateWildflowerSerenadeVintageBotanicalArtbyRobinCustan.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 11520x14400, components 3
+-----------------------------------
+‚úÖ DelicateWildflowerSerenadeVintageBotanicalArtbyRobinCustan.jpg: Q90, 11520x14400, 18.06MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing Dreaming-Kangaroo-Sky-Aboriginal-Dot-Art-Digital-Download.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Dreaming-Kangaroo-Sky-Aboriginal-Dot-Art-Digital-Download.jpg
+
+==== Dreaming-Kangaroo-Sky-Aboriginal-Dot-Art-Digital-Download.jpg - Processing Details ====
+Processing Dreaming-Kangaroo-Sky-Aboriginal-Dot-Art-Digital-Download.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Dreaming-Kangaroo-Sky-Aboriginal-Dot-Art-Digital-Download.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Dreaming-Kangaroo-Sky-Aboriginal-Dot-Art-Digital-Download_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Dreaming-Kangaroo-Sky-Aboriginal-Dot-Art-Digital-Download_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Dreaming-Kangaroo-Sky-Aboriginal-Dot-Art-Digital-Download.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 20596KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Dreaming-Kangaroo-Sky-Aboriginal-Dot-Art-Digital-Download.jpg) ---
+Final Specs: Q90, 11520x14400px, 20.11MB (20596KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/Dreaming-Kangaroo-Sky-Aboriginal-Dot-Art-Digital-Download.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 11520x14400, components 3
+-----------------------------------
+‚úÖ Dreaming-Kangaroo-Sky-Aboriginal-Dot-Art-Digital-Download.jpg: Q90, 11520x14400, 20.11MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing dreaming-under-the-southern-stars-digital-art-robin-custance.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/dreaming-under-the-southern-stars-digital-art-robin-custan.jpg
+
+==== dreaming-under-the-southern-stars-digital-art-robin-custan.jpg - Processing Details ====
+Processing dreaming-under-the-southern-stars-digital-art-robin-custance.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/dreaming-under-the-southern-stars-digital-art-robin-custan.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/dreaming-under-the-southern-stars-digital-art-robin-custan_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/dreaming-under-the-southern-stars-digital-art-robin-custan_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/dreaming-under-the-southern-stars-digital-art-robin-custan.jpg.
+  jpegtran processing: Success.
+Step 2: Adaptive quality. Size 25984653B > 21299200B. Reducing Q from 90 to 85.
+  New size: 22253395B.
+Step 2: Adaptive quality. Size 22253395B > 21299200B. Reducing Q from 85 to 80.
+  New size: 20806159B.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 25375KB. | QDrop Üí85. Size: 21731KB. | QDrop Üí80. Size: 20318KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/dreaming-under-the-southern-stars-digital-art-robin-custan.jpg) ---
+Final Specs: Q80, 11520x14400px, 19.84MB (20318KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/dreaming-under-the-southern-stars-digital-art-robin-custan.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 11520x14400, components 3
+-----------------------------------
+‚úÖ dreaming-under-the-southern-stars-digital-art-robin-custan.jpg: Q80, 11520x14400, 19.84MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing dreaming-under-the-sunset-digital-art-robin-custance.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/dreaming-under-the-sunset-digital-art-robin-custance.jpg
+
+==== dreaming-under-the-sunset-digital-art-robin-custance.jpg - Processing Details ====
+Processing dreaming-under-the-sunset-digital-art-robin-custance.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/dreaming-under-the-sunset-digital-art-robin-custance.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/dreaming-under-the-sunset-digital-art-robin-custance_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/dreaming-under-the-sunset-digital-art-robin-custance_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/dreaming-under-the-sunset-digital-art-robin-custance.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 17365KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/dreaming-under-the-sunset-digital-art-robin-custance.jpg) ---
+Final Specs: Q90, 11520x14400px, 16.96MB (17365KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/dreaming-under-the-sunset-digital-art-robin-custance.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 11520x14400, components 3
+-----------------------------------
+‚úÖ dreaming-under-the-sunset-digital-art-robin-custance.jpg: Q90, 11520x14400, 16.96MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing dreamtime-landscape-sunrise-robin-custance.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/dreamtime-landscape-sunrise-robin-custance.jpg
+
+==== dreamtime-landscape-sunrise-robin-custance.jpg - Processing Details ====
+Processing dreamtime-landscape-sunrise-robin-custance.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/dreamtime-landscape-sunrise-robin-custance.jpg
+Step 1: Initial conversion (Q90, 2x2,1x1,1x1, 300dpi).
+  ImageMagick initial conversion to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/dreamtime-landscape-sunrise-robin-custance_tmp1.jpg: Success.
+Step 1b: Embedding ICC Profile (/Library/ColorSync/Profiles/sRGB2014.icc) into /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/dreamtime-landscape-sunrise-robin-custance_tmp2.jpg.
+  ICC profile embedded: Success.
+Step 1c: Running jpegtran (copy none, optimize, perfect) to /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/dreamtime-landscape-sunrise-robin-custance.jpg.
+  jpegtran processing: Success.
+
+--- Summary of Transformations ---
+Initial Q90, 2x2,1x1,1x1, 300dpi. Size: 17862KB.
+--- Final File Validation (/Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/dreamtime-landscape-sunrise-robin-custance.jpg) ---
+Final Specs: Q90, 14400x8070px, 17.44MB (17862KB)
+ICC Profile Name: Not set or unreadable
+JFIF Version: 1.01
+Colorspace (from metadata): 
+Bits Per Sample: 8
+Compression Type: 
+JPEG Process (Interlace): N/A (Baseline expected)
+Chroma Subsampling: YCbCr4:2:0 (2 2)
+Resolution: 300x300 inches
+Adobe APP14 Flags: Not Present
+EXIF Data: PRESENT (This is unexpected after -strip and jpegtran -copy none)
+File Command Output: /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/dreamtime-landscape-sunrise-robin-custance.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 14400x8070, components 3
+-----------------------------------
+‚úÖ dreamtime-landscape-sunrise-robin-custance.jpg: Q90, 14400x8070, 17.44MB. Chroma: YCbCr4:2:0 (2 2). JFIF: 1.01.
+üîß Processing DreamtimeKangarooAboriginalDotArt.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/DreamtimeKangarooAboriginalDotArt.jpg
+‚ö†Ô∏è WARNING: Failed to embed ICC profile '/Library/ColorSync/Profiles/sRGB2014.icc' for DreamtimeKangarooAboriginalDotArt.jpg. Using /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/DreamtimeKangarooAboriginalDotArt_tmp1.jpg as /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/DreamtimeKangarooAboriginalDotArt_tmp2.jpg.

@@ -1,0 +1,2 @@
+==== Harvey Norman JPEG Batch Log: Sun May 18 19:18:01 ACST 2025 ====
+🔧 Processing 12SunlitKangarooAboriginalDotArtPrintAustralia.jpg -> /Users/robin/Documents/01-Artwork-Workshop/Harvey-Norman-Safe-Workshop/HN-Safe-Final/12SunlitKangarooAboriginalDotArtPrintAustralia.jpg
