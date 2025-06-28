@@ -27,4 +27,7 @@
 <form method="post" action="{{ url_for('reset') }}">
   <button class="composite-btn" type="submit">Start Over</button>
 </form>
+<div style="text-align:center;margin-top:1.5em;">
+  <a href="{{ url_for('composites_specific', seo_folder=artwork.seo_name) }}" class="composite-btn" style="background:#666;">Preview Composites</a>
+</div>
 {% endblock %}

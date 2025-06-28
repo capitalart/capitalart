@@ -32,6 +32,10 @@
   <button class="composite-btn" type="submit">✅ Generate Composites</button>
 </form>
 <div style="text-align:center;margin-top:1em;">
-  <a href="{{ url_for('composites_preview') }}" class="composite-btn" style="background:#666;">👁️ View Generated Composites</a>
+  {% if session.latest_seo_folder %}
+    <a href="{{ url_for('composites_specific', seo_folder=session.latest_seo_folder) }}" class="composite-btn" style="background:#666;">👁️ Preview Composites</a>
+  {% else %}
+    <a href="{{ url_for('composites_preview') }}" class="composite-btn" style="background:#666;">👁️ Preview Composites</a>
+  {% endif %}
 </div>
 {% endblock %}

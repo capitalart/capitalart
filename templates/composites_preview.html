@@ -1,20 +1,32 @@
 {% extends "main.html" %}
-{% block title %}Composite Mockup Previews | CapitalArt{% endblock %}
+{% block title %}Composite Preview | CapitalArt{% endblock %}
 {% block content %}
-<h1>Composite Mockup Previews</h1>
+<h1 style="text-align:center;">Composite Preview: {{ seo_folder }}</h1>
+{% if listing %}
+  <div style="text-align:center;margin-bottom:1.5em;">
+    <img src="{{ url_for('processed_image', seo_folder=seo_folder, filename=seo_folder+'.jpg') }}" alt="artwork" style="max-width:260px;border-radius:8px;box-shadow:0 2px 6px #0002;">
+  </div>
+{% endif %}
 {% if images %}
 <div class="grid">
   {% for img in images %}
   <div class="item">
-    <img src="{{ url_for('composite_img', folder=folder, filename=img) }}" alt="{{ img }}">
-    <div style="font-size:0.9em;color:#555;word-break:break-all;">{{ img }}</div>
+    <img src="{{ url_for('processed_image', seo_folder=seo_folder, filename=img.filename) }}" alt="{{ img.filename }}">
+    <div style="font-size:0.9em;color:#555;word-break:break-all;">{{ img.filename }}</div>
+    {% if img.category %}<div style="color:#888;font-size:0.9em;">{{ img.category }}</div>{% endif %}
+    <form method="post" action="{{ url_for('regenerate_composite', seo_folder=seo_folder, slot_index=img.index) }}">
+      <button type="submit" class="btn btn-reject">Regenerate</button>
+    </form>
   </div>
   {% endfor %}
 </div>
+<form method="post" action="{{ url_for('approve_composites', seo_folder=seo_folder) }}" style="text-align:center;margin-top:2em;">
+  <button type="submit" class="composite-btn">Finalize &amp; Approve</button>
+</form>
 {% else %}
-<p style="text-align:center;margin:2em 0;">No composites found. Generate some first.</p>
+<p style="text-align:center;margin:2em 0;">No composites found.</p>
 {% endif %}
 <div style="text-align:center;margin-top:2em;">
-  <a href="{{ url_for('select') }}" class="composite-btn">Back to Mockup Selector</a>
+  <a href="{{ url_for('select') }}" class="composite-btn" style="background:#666;">Back to Selector</a>
 </div>
 {% endblock %}
