@@ -116,14 +116,23 @@ def get_aspect_ratio(image_path: Path) -> str:
 
 
 def pick_mockups(aspect: str, max_count: int = 8) -> list:
-    aspect_dir = MOCKUPS_DIR / aspect
-    if not aspect_dir.exists():
-        logger.warning(f"Mockup folder not found for aspect {aspect}")
+    """Select mockup images for the given aspect with graceful fallbacks."""
+    primary_dir = MOCKUPS_DIR / f"{aspect}-categorised"
+    fallback_dir = MOCKUPS_DIR / aspect
+
+    if primary_dir.exists():
+        use_dir = primary_dir
+    elif fallback_dir.exists():
+        logger.warning(f"Categorised mockup folder missing for {aspect}; using fallback")
+        use_dir = fallback_dir
+    else:
+        logger.error(f"No mockup folder found for aspect {aspect}")
         return []
-    candidates = [f for f in aspect_dir.glob("**/*") if f.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp")]
+
+    candidates = [f for f in use_dir.glob("**/*") if f.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp")]
     random.shuffle(candidates)
     selection = [str(f.resolve()) for f in candidates[:max_count]]
-    logger.info(f"Selected {len(selection)} mockups for {aspect}")
+    logger.info(f"Selected {len(selection)} mockups from {use_dir.name} for {aspect}")
     return selection
 
 
@@ -149,46 +158,71 @@ def slugify(text: str) -> str:
 def parse_text_fallback(text: str) -> dict:
     """Extract key fields from a non-JSON AI response."""
     data = {"fallback_text": text}
+
     tag_match = re.search(r"Tags:\s*(.*)", text, re.IGNORECASE)
     if tag_match:
         data["tags"] = [t.strip() for t in tag_match.group(1).split(",") if t.strip()]
+    else:
+        data["tags"] = []
+
     mat_match = re.search(r"Materials:\s*(.*)", text, re.IGNORECASE)
     if mat_match:
         data["materials"] = [m.strip() for m in mat_match.group(1).split(",") if m.strip()]
+    else:
+        data["materials"] = []
+
     title_match = re.search(r"(?:Title|Artwork Title|Listing Title)\s*[:\-]\s*(.+)", text, re.IGNORECASE)
     if title_match:
         data["title"] = title_match.group(1).strip()
-    seo_match = re.search(r"(?:seo[_ ]filename|seo file|filename)\s*[:\-]\s*(.+\.jpg)", text, re.IGNORECASE)
+
+    seo_match = re.search(r"(?:seo[_ ]filename|seo file|filename)\s*[:\-]\s*(.+\.jpe?g)", text, re.IGNORECASE)
     if seo_match:
         data["seo_filename"] = seo_match.group(1).strip()
+
     prim_match = re.search(r"Primary Colour\s*[:\-]\s*(.+)", text, re.IGNORECASE)
     if prim_match:
         data["primary_colour"] = prim_match.group(1).strip()
     sec_match = re.search(r"Secondary Colour\s*[:\-]\s*(.+)", text, re.IGNORECASE)
     if sec_match:
         data["secondary_colour"] = sec_match.group(1).strip()
+
     desc_match = re.search(r"(?:Description|Artwork Description)\s*[:\-]\s*(.+)", text, re.IGNORECASE | re.DOTALL)
     if desc_match:
         data["description"] = desc_match.group(1).strip()
+
     return data
 
 
-def extract_seo_filename(ai_listing, fallback_base: str) -> str:
-    if isinstance(ai_listing, dict):
-        if "seo_filename" in ai_listing:
-            name = os.path.splitext(ai_listing["seo_filename"])[0]
-            return slugify(name)
-        if "title" in ai_listing:
-            return slugify(ai_listing["title"])
-    elif isinstance(ai_listing, str):
-        match = re.search(r"(SEO_FILENAME|SEO FILE|FILENAME)\s*[:\-]\s*(.+)", ai_listing, re.IGNORECASE)
-        if match:
-            base = os.path.splitext(match.group(2).strip())[0]
-            return slugify(base)
-        title_match = re.search(r"(Title|Listing Title)\s*[:\-]\s*(.+)", ai_listing, re.IGNORECASE)
-        if title_match:
-            return slugify(title_match.group(2).strip())
-    return slugify(fallback_base)
+def extract_seo_filename_from_text(text: str, fallback_base: str) -> tuple[str, str]:
+    """Attempt to extract an SEO filename from plain text."""
+    patterns = [r"^\s*(?:SEO Filename|SEO_FILENAME|SEO FILE|FILENAME)\s*[:\-]\s*(.+)$"]
+    for line in text.splitlines():
+        for pat in patterns:
+            m = re.search(pat, line, re.IGNORECASE)
+            if m:
+                base = re.sub(r"\.jpe?g$", "", m.group(1).strip(), flags=re.IGNORECASE)
+                return slugify(base), "regex"
+
+    m = re.search(r"([\w\-]+\.jpe?g)", text, re.IGNORECASE)
+    if m:
+        base = os.path.splitext(m.group(1))[0]
+        return slugify(base), "jpg"
+
+    return slugify(fallback_base), "fallback"
+
+
+def extract_seo_filename(ai_listing: dict | None, raw_text: str, fallback_base: str) -> tuple[str, bool, str]:
+    """Return SEO slug, whether fallback was used, and extraction method."""
+    if ai_listing and isinstance(ai_listing, dict) and ai_listing.get("seo_filename"):
+        name = os.path.splitext(str(ai_listing["seo_filename"]))[0]
+        return slugify(name), False, "json"
+
+    if ai_listing and isinstance(ai_listing, dict) and ai_listing.get("title"):
+        slug = slugify(str(ai_listing["title"]))
+        return slug, True, "title"
+
+    slug, method = extract_seo_filename_from_text(raw_text, fallback_base)
+    return slug, True, method
 
 
 def make_preview_2000px_max(src_jpg: Path, dest_jpg: Path, target_long_edge: int = 2000, target_kb: int = 700, min_quality: int = 60) -> None:
@@ -213,6 +247,7 @@ def make_preview_2000px_max(src_jpg: Path, dest_jpg: Path, target_long_edge: int
 def save_finalised_artwork(original_path: Path, seo_name: str, output_base_dir: Path):
     target_folder = Path(output_base_dir) / seo_name
     target_folder.mkdir(parents=True, exist_ok=True)
+    logger.info(f"Created/using folder {target_folder}")
 
     orig_filename = original_path.name
     seo_main_jpg = target_folder / f"{seo_name}.jpg"
@@ -222,7 +257,9 @@ def save_finalised_artwork(original_path: Path, seo_name: str, output_base_dir: 
     shutil.copy2(original_path, orig_jpg)
     shutil.copy2(original_path, seo_main_jpg)
     logger.info(f"Copied original files for {seo_name}")
+
     make_preview_2000px_max(seo_main_jpg, thumb_jpg, 2000, 700, 60)
+    logger.info(f"Finalised files saved to {target_folder}")
 
     return str(seo_main_jpg), str(orig_jpg), str(thumb_jpg), str(target_folder)
 
@@ -303,7 +340,7 @@ def get_dominant_colours(img_path: Path, n: int = 2):
 
 # ========================= [ 5. OPENAI HANDLER ] ===========================
 
-def generate_ai_listing(system_prompt: str, image_filename: str, aspect: str, feedback: str | None = None):
+def generate_ai_listing(system_prompt: str, image_filename: str, aspect: str, feedback: str | None = None) -> tuple[dict, bool, str]:
     user_message = (
         f"Artwork filename: {image_filename}\n"
         f"Aspect ratio: {aspect}\n"
@@ -329,12 +366,13 @@ def generate_ai_listing(system_prompt: str, image_filename: str, aspect: str, fe
     try:
         parsed = json.loads(content)
         logger.info("Parsed JSON response successfully")
-        return parsed
+        return parsed, True, content
     except Exception:
         logger.warning("OpenAI response not valid JSON; applying fallback parser")
+        logger.warning(f"Raw response sample: {content[:200]}")
         fallback = parse_text_fallback(content)
         logger.warning(f"Fallback extracted keys: {list(fallback.keys())}")
-        return fallback
+        return fallback, False, content
 
 
 # ======================== [ 6. MAIN ANALYSIS LOGIC ] ========================
@@ -353,24 +391,31 @@ def analyze_single(image_path: Path, system_prompt: str, feedback_text: str | No
         fallback_base = image_path.stem
 
         try:
-            ai_listing = generate_ai_listing(system_prompt, image_path.name, aspect, feedback_text)
+            ai_listing, was_json, raw_response = generate_ai_listing(system_prompt, image_path.name, aspect, feedback_text)
         except Exception as e:
             logger.error(f"OpenAI call failed for {image_path.name}: {e}")
             logger.error(traceback.format_exc())
             raise
 
-        if not isinstance(ai_listing, dict):
-            logger.warning(f"AI listing for {image_path.name} is not structured JSON")
-            ai_listing = parse_text_fallback(str(ai_listing))
+        if not was_json:
+            logger.warning(f"AI listing for {image_path.name} is not valid JSON")
 
-        seo_name = extract_seo_filename(ai_listing, fallback_base)
-        if not seo_name:
-            logger.warning("Could not extract SEO filename; using fallback")
-            seo_name = fallback_base
+        seo_name, used_fallback_naming, naming_method = extract_seo_filename(ai_listing if was_json else None, raw_response, fallback_base)
+        if used_fallback_naming:
+            logger.warning(f"SEO filename derived by {naming_method} for {image_path.name}: {seo_name}")
+        else:
+            logger.info(f"SEO filename from JSON for {image_path.name}: {seo_name}")
 
         main_jpg, orig_jpg, thumb_jpg, folder_path = save_finalised_artwork(image_path, seo_name, OUTPUT_PROCESSED_ROOT)
-
+        
         primary_colour, secondary_colour = get_dominant_colours(Path(main_jpg), 2)
+
+        tags = ai_listing.get("tags", []) if isinstance(ai_listing, dict) else []
+        materials = ai_listing.get("materials", []) if isinstance(ai_listing, dict) else []
+        if not tags:
+            logger.warning(f"No tags extracted for {image_path.name}")
+        if not materials:
+            logger.warning(f"No materials extracted for {image_path.name}")
 
         per_artwork_json = Path(folder_path) / f"{seo_name}-listing.json"
         artwork_entry = {
@@ -380,15 +425,19 @@ def analyze_single(image_path: Path, system_prompt: str, feedback_text: str | No
             "generic_text": generic_text,
             "ai_listing": ai_listing,
             "seo_name": seo_name,
+            "used_fallback_naming": used_fallback_naming,
             "main_jpg_path": main_jpg,
             "orig_jpg_path": orig_jpg,
             "thumb_jpg_path": thumb_jpg,
             "processed_folder": str(folder_path),
             "primary_colour": primary_colour,
             "secondary_colour": secondary_colour,
+            "tags": tags,
+            "materials": materials,
         }
         with open(per_artwork_json, "w", encoding="utf-8") as af:
             json.dump(artwork_entry, af, indent=2, ensure_ascii=False)
+        logger.info(f"Wrote listing JSON to {per_artwork_json}")
         queue_file = OUTPUT_PROCESSED_ROOT / "pending_mockups.json"
         add_to_pending_mockups_queue(main_jpg, str(queue_file))
 

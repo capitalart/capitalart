@@ -2,6 +2,10 @@ import os
 from dotenv import load_dotenv
 from openai import OpenAI
 
+if os.getenv("SKIP_OPENAI_TESTS", "1") == "1":
+    import pytest
+    pytest.skip("Skipping OpenAI vision test during automated runs", allow_module_level=True)
+
 # === FULL SETUP ===
 
 # Load environment variables
