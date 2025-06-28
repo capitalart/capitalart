@@ -34,14 +34,10 @@ def init_slots():
     cats = get_categories()
     session["slots"] = [{"category": c, "image": random_image(c)} for c in cats]
 
-def compute_remaining(slots):
-    """For each slot, list other swappable categories."""
-    used = [s["category"] for s in slots]
+def compute_options(slots):
+    """Return the full category list for every slot."""
     cats = get_categories()
-    return [
-        [c for c in cats if c not in used or c == slot["category"]]
-        for slot in slots
-    ]
+    return [cats for _ in slots]
 
 # --- [ ROUTES ] ---
 
@@ -54,7 +50,7 @@ def select():
     if "slots" not in session or request.args.get("reset") == "1":
         init_slots()
     slots = session["slots"]
-    options = compute_remaining(slots)
+    options = compute_options(slots)
     zipped = list(zip(slots, options))
     return render_template("mockup_selector.html", zipped=zipped)
 
