@@ -1,40 +1,53 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# ======================== [ DreamArtMachine Lite | analyze_artwork.py ] ========================
-# Professional, production-ready, fully sectioned and sub-sectioned “Robbie Mode™” script.
-# - Analyzes art using OpenAI, onboarding prompt, and generic text per aspect.
-# - Moves/copies files to /outputs/processed/{SEO_NAME}/ for easy uploading.
-# - Outputs: original JPG, SEO-named JPG, 2000px preview (<700KB), ready for mockups.
-# - Detects primary and secondary Etsy colours per artwork.
-# - Full paths and all metadata are saved to artwork_listing_master.json.
-# - Supports single-image CLI (from Flask) or batch mode (manual).
-# ==============================================================================================
+"""DreamArtMachine Lite | analyze_artwork.py
+===============================================================
+Professional, production-ready, fully sectioned and sub-sectioned
+Robbie Mode™ script for analyzing artworks with OpenAI.
 
-import os
-import sys
+This revision adds comprehensive logging, robust error handling and
+optional feedback injection for AI analysis. All activity is written to
+``capitalart/logs/analyze-artwork-YYYY-MM-DD-HHMM.log``.
+
+Output JSON logic, filename conventions and colour detection remain
+compatible with the previous version.
+"""
+
+# ============================== [ Imports ] ===============================
+import argparse
+import datetime as _dt
 import json
+import logging
+import os
 import random
-import shutil
 import re
+import shutil
+import sys
+import traceback
 from pathlib import Path
+
 from PIL import Image
 from dotenv import load_dotenv
 from openai import OpenAI
 
 Image.MAX_IMAGE_PIXELS = None
-import warnings
-warnings.filterwarnings("ignore", category=Image.DecompressionBombWarning)
+
+load_dotenv()
+client = OpenAI()
+
 
 # ======================= [ 1. CONFIGURATION & PATHS ] =======================
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
 ARTWORKS_DIR = PROJECT_ROOT / "inputs" / "artworks"
 MOCKUPS_DIR = PROJECT_ROOT / "inputs" / "mockups"
 GENERIC_TEXTS_DIR = PROJECT_ROOT / "generic_texts"
 ONBOARDING_PATH = PROJECT_ROOT / "settings" / "Master-Etsy-Listing-Description-Writing-Onboarding.txt"
 OUTPUT_JSON = PROJECT_ROOT / "outputs" / "artwork_listing_master.json"
 OUTPUT_PROCESSED_ROOT = PROJECT_ROOT / "outputs" / "processed"
-MOCKUPS_PER_LISTING = 9  # 1 thumb + 9 mockups = 10 Etsy images total
+LOGS_DIR = PROJECT_ROOT / "logs"
+MOCKUPS_PER_LISTING = 9  # 1 thumb + 9 mockups
 
 # --- [ 1.3: Etsy Colour Palette ]
 ETSY_COLOURS = {
@@ -45,45 +58,98 @@ ETSY_COLOURS = {
     'Silver': (170, 174, 179), 'White': (242, 242, 243), 'Yellow': (242, 207, 46)
 }
 
-# ======================= [ 2. UTILITY FUNCTIONS ] ==========================
 
-def get_aspect_ratio(image_path):
+# ====================== [ 2. LOGGING CONFIGURATION ] ========================
+START_TS = _dt.datetime.now().strftime("%Y-%m-%d-%H%M")
+LOGS_DIR.mkdir(exist_ok=True)
+LOG_FILE = LOGS_DIR / f"analyze-artwork-{START_TS}.log"
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[logging.FileHandler(LOG_FILE, encoding="utf-8")]
+)
+logger = logging.getLogger("analyze_artwork")
+
+
+class _Tee:
+    """Simple tee to duplicate stdout/stderr to the log file."""
+
+    def __init__(self, original, log_file):
+        self._original = original
+        self._log = log_file
+
+    def write(self, data):
+        self._original.write(data)
+        self._original.flush()
+        self._log.write(data)
+        self._log.flush()
+
+    def flush(self):
+        self._original.flush()
+        self._log.flush()
+
+
+_log_fp = open(LOG_FILE, "a", encoding="utf-8")
+sys.stdout = _Tee(sys.stdout, _log_fp)
+sys.stderr = _Tee(sys.stderr, _log_fp)
+
+
+logger.info("=== DreamArtMachine Lite: OpenAI Analyzer Started ===")
+
+
+# ======================== [ 3. UTILITY FUNCTIONS ] ==========================
+
+def get_aspect_ratio(image_path: Path) -> str:
+    """Return closest aspect ratio label for given image."""
     with Image.open(image_path) as img:
         w, h = img.size
     aspect_map = [
-        ("1x1", 1/1), ("2x3", 2/3), ("3x2", 3/2), ("3x4", 3/4), ("4x3", 4/3),
-        ("4x5", 4/5), ("5x4", 5/4), ("5x7", 5/7), ("7x5", 7/5), ("9x16", 9/16),
-        ("16x9", 16/9), ("A-Series-Horizontal", 1.414/1), ("A-Series-Vertical", 1/1.414)
+        ("1x1", 1 / 1), ("2x3", 2 / 3), ("3x2", 3 / 2), ("3x4", 3 / 4), ("4x3", 4 / 3),
+        ("4x5", 4 / 5), ("5x4", 5 / 4), ("5x7", 5 / 7), ("7x5", 7 / 5), ("9x16", 9 / 16),
+        ("16x9", 16 / 9), ("A-Series-Horizontal", 1.414 / 1), ("A-Series-Vertical", 1 / 1.414),
     ]
     ar = round(w / h, 4)
     best = min(aspect_map, key=lambda tup: abs(ar - tup[1]))
+    logger.info(f"Aspect ratio for {image_path.name}: {best[0]}")
     return best[0]
 
-def pick_mockups(aspect, max_count=8):
+
+def pick_mockups(aspect: str, max_count: int = 8) -> list:
     aspect_dir = MOCKUPS_DIR / aspect
     if not aspect_dir.exists():
+        logger.warning(f"Mockup folder not found for aspect {aspect}")
         return []
     candidates = [f for f in aspect_dir.glob("**/*") if f.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp")]
     random.shuffle(candidates)
-    return [str(f.resolve()) for f in candidates[:max_count]]
+    selection = [str(f.resolve()) for f in candidates[:max_count]]
+    logger.info(f"Selected {len(selection)} mockups for {aspect}")
+    return selection
 
-def read_generic_text(aspect):
+
+def read_generic_text(aspect: str) -> str:
     txt_path = GENERIC_TEXTS_DIR / f"{aspect}.txt"
-    return txt_path.read_text(encoding="utf-8") if txt_path.exists() else ""
+    if txt_path.exists():
+        logger.info(f"Loaded generic text for {aspect}")
+        return txt_path.read_text(encoding="utf-8")
+    logger.warning(f"No generic text found for {aspect}")
+    return ""
 
-def read_onboarding_prompt():
+
+def read_onboarding_prompt() -> str:
     return Path(ONBOARDING_PATH).read_text(encoding="utf-8")
 
-def slugify(text):
-    text = re.sub(r"[^\w\- ]+", '', text)
-    text = text.strip().replace(' ', '-')
-    return re.sub('-+', '-', text).lower()
 
-def extract_seo_filename(ai_listing, fallback_base):
+def slugify(text: str) -> str:
+    text = re.sub(r"[^\w\- ]+", "", text)
+    text = text.strip().replace(" ", "-")
+    return re.sub("-+", "-", text).lower()
+
+
+def extract_seo_filename(ai_listing, fallback_base: str) -> str:
     if isinstance(ai_listing, dict):
         if "seo_filename" in ai_listing:
-            name = ai_listing["seo_filename"]
-            name = os.path.splitext(name)[0]
+            name = os.path.splitext(ai_listing["seo_filename"])[0]
             return slugify(name)
         if "title" in ai_listing:
             return slugify(ai_listing["title"])
@@ -97,7 +163,8 @@ def extract_seo_filename(ai_listing, fallback_base):
             return slugify(title_match.group(2).strip())
     return slugify(fallback_base)
 
-def make_preview_2000px_max(src_jpg, dest_jpg, target_long_edge=2000, target_kb=700, min_quality=60):
+
+def make_preview_2000px_max(src_jpg: Path, dest_jpg: Path, target_long_edge: int = 2000, target_kb: int = 700, min_quality: int = 60) -> None:
     with Image.open(src_jpg) as im:
         w, h = im.size
         scale = target_long_edge / max(w, h)
@@ -105,6 +172,7 @@ def make_preview_2000px_max(src_jpg, dest_jpg, target_long_edge=2000, target_kb=
             im = im.resize((int(w * scale), int(h * scale)), Image.LANCZOS)
         else:
             im = im.copy()
+
         q = 92
         for _ in range(12):
             im.save(dest_jpg, "JPEG", quality=q, optimize=True)
@@ -112,48 +180,27 @@ def make_preview_2000px_max(src_jpg, dest_jpg, target_long_edge=2000, target_kb=
             if kb <= target_kb or q <= min_quality:
                 break
             q -= 7
-        print(f"      → Saved 2000px preview as {os.path.basename(dest_jpg)} ({kb:.1f} KB, Q={q})")
+    logger.info(f"Saved preview {dest_jpg.name} ({kb:.1f} KB, Q={q})")
 
-def save_finalised_artwork(original_path, seo_name, output_base_dir):
+
+def save_finalised_artwork(original_path: Path, seo_name: str, output_base_dir: Path):
     target_folder = Path(output_base_dir) / seo_name
     target_folder.mkdir(parents=True, exist_ok=True)
-    orig_filename = Path(original_path).name
+
+    orig_filename = original_path.name
     seo_main_jpg = target_folder / f"{seo_name}.jpg"
     orig_jpg = target_folder / f"original-{orig_filename}"
     thumb_jpg = target_folder / f"{seo_name}-THUMB.jpg"
+
     shutil.copy2(original_path, orig_jpg)
     shutil.copy2(original_path, seo_main_jpg)
+    logger.info(f"Copied original files for {seo_name}")
     make_preview_2000px_max(seo_main_jpg, thumb_jpg, 2000, 700, 60)
+
     return str(seo_main_jpg), str(orig_jpg), str(thumb_jpg), str(target_folder)
 
-def is_image(filename):
-    return filename.lower().endswith(('.jpg', '.jpeg', '.png', '.webp'))
 
-def generate_ai_listing(system_prompt, image_filename, aspect):
-    user_message = (
-        f"Artwork filename: {image_filename}\n"
-        f"Aspect ratio: {aspect}\n"
-        "Describe and analyze the artwork visually, then generate the listing as per the instructions above."
-    )
-    messages = [
-        {"role": "system", "content": system_prompt},
-        {"role": "user", "content": user_message}
-    ]
-    print(f"  → OpenAI: {image_filename} [{aspect}] ...")
-    response = client.chat.completions.create(
-        model=os.getenv("OPENAI_PRIMARY_MODEL", "gpt-4.1"),
-        messages=messages,
-        max_tokens=2100,
-        temperature=0.92,
-    )
-    content = response.choices[0].message.content.strip()
-    try:
-        parsed = json.loads(content)
-        return parsed
-    except Exception:
-        return content
-
-def add_to_pending_mockups_queue(image_path, queue_file):
+def add_to_pending_mockups_queue(image_path: str, queue_file: str) -> None:
     try:
         if os.path.exists(queue_file):
             with open(queue_file, "r", encoding="utf-8") as f:
@@ -168,8 +215,10 @@ def add_to_pending_mockups_queue(image_path, queue_file):
         queue.append(image_path)
     with open(queue_file, "w", encoding="utf-8") as f:
         json.dump(queue, f, indent=2)
+    logger.info(f"Added to pending mockups queue: {image_path}")
 
-# === [ 2.1: Colour Detection & Mapping ] ===
+
+# ===================== [ 4. COLOUR DETECTION & MAPPING ] ====================
 
 def closest_colour(rgb_tuple):
     min_dist = float('inf')
@@ -181,109 +230,201 @@ def closest_colour(rgb_tuple):
             best_colour = name
     return best_colour
 
-def get_dominant_colours(img_path, n=2):
+
+def get_dominant_colours(img_path: Path, n: int = 2):
     from sklearn.cluster import KMeans
     import numpy as np
-    with Image.open(img_path) as img:
-        img = img.convert("RGB")
-        img = img.resize((100, 100))
-        arr = np.asarray(img).reshape(-1, 3)
-    k = max(3, n+1)
-    kmeans = KMeans(n_clusters=k, n_init='auto' if hasattr(KMeans, 'n_init') else 10)
-    labels = kmeans.fit_predict(arr)
-    counts = np.bincount(labels)
-    sorted_idx = counts.argsort()[::-1]
-    seen = set()
-    colours = []
-    for i in sorted_idx:
-        rgb = tuple(int(c) for c in kmeans.cluster_centers_[i])
-        name = closest_colour(rgb)
-        if name not in seen:
-            seen.add(name)
-            colours.append(name)
-        if len(colours) >= n:
-            break
-    if len(colours) < 2:
-        colours = (colours + ["White", "Black"])[:2]
+
+    try:
+        with Image.open(img_path) as img:
+            img = img.convert("RGB")
+            img = img.resize((100, 100))
+            arr = np.asarray(img).reshape(-1, 3)
+
+        k = max(3, n + 1)
+        kmeans = KMeans(n_clusters=k, n_init='auto' if hasattr(KMeans, 'n_init') else 10)
+        labels = kmeans.fit_predict(arr)
+        counts = np.bincount(labels)
+        sorted_idx = counts.argsort()[::-1]
+        seen = set()
+        colours = []
+        for i in sorted_idx:
+            rgb = tuple(int(c) for c in kmeans.cluster_centers_[i])
+            name = closest_colour(rgb)
+            if name not in seen:
+                seen.add(name)
+                colours.append(name)
+            if len(colours) >= n:
+                break
+        if len(colours) < 2:
+            colours = (colours + ["White", "Black"])[:2]
+    except Exception as e:
+        logger.error(f"Colour detection failed for {img_path}: {e}")
+        logger.error(traceback.format_exc())
+        colours = ["White", "Black"]
+
+    logger.info(f"Colours for {img_path.name}: {colours}")
     return colours
 
-# ==================== [ 3. MAIN ANALYSIS LOGIC ] ==========================
 
-def analyze_single(image_path, system_prompt):
-    """Analyze and process a single image path (Flask or batch mode). Always runs (no skip)."""
-    if not Path(image_path).is_file():
-        print(f"❌ Not found: {image_path}")
-        return None
-    # Always process, even if already processed (for forced re-analyze)
-    aspect = get_aspect_ratio(image_path)
-    mockups = pick_mockups(aspect, MOCKUPS_PER_LISTING)
-    generic_text = read_generic_text(aspect)
-    fallback_base = os.path.splitext(Path(image_path).name)[0]
-    try:
-        ai_listing = generate_ai_listing(system_prompt, Path(image_path).name, aspect)
-    except Exception as e:
-        print(f"  [OpenAI ERROR] Skipping {Path(image_path).name}: {e}")
-        return None
-    seo_name = extract_seo_filename(ai_listing, fallback_base)
-    if not seo_name:
-        print(f"  [SEO Name ERROR] Could not extract SEO name. Using fallback.")
-        seo_name = fallback_base
-    main_jpg_path, orig_jpg_path, thumb_jpg_path, folder_path = save_finalised_artwork(
-        str(image_path), seo_name, OUTPUT_PROCESSED_ROOT
+# ========================= [ 5. OPENAI HANDLER ] ===========================
+
+def generate_ai_listing(system_prompt: str, image_filename: str, aspect: str, feedback: str | None = None):
+    user_message = (
+        f"Artwork filename: {image_filename}\n"
+        f"Aspect ratio: {aspect}\n"
+        "Describe and analyze the artwork visually, then generate the listing as per the instructions above."
     )
 
-    # [COLOUR DETECTION STEP]
-    primary_colour, secondary_colour = get_dominant_colours(main_jpg_path, 2)
+    messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_message}
+    ]
+    if feedback:
+        messages.append({"role": "user", "content": feedback})
 
-    per_artwork_json = os.path.join(folder_path, f"{seo_name}-listing.json")
-    artwork_entry = {
-        "filename": Path(image_path).name,
-        "aspect_ratio": aspect,
-        "mockups": mockups,
-        "generic_text": generic_text,
-        "ai_listing": ai_listing,
-        "seo_name": seo_name,
-        "main_jpg_path": main_jpg_path,
-        "orig_jpg_path": orig_jpg_path,
-        "thumb_jpg_path": thumb_jpg_path,
-        "processed_folder": str(folder_path),
-        "primary_colour": primary_colour,
-        "secondary_colour": secondary_colour
-    }
-    with open(per_artwork_json, "w", encoding="utf-8") as af:
-        json.dump(artwork_entry, af, indent=2, ensure_ascii=False)
-    queue_file = OUTPUT_PROCESSED_ROOT / "pending_mockups.json"
-    add_to_pending_mockups_queue(main_jpg_path, str(queue_file))
-    return artwork_entry
+    logger.info(f"OpenAI API call for {image_filename} [{aspect}]")
+    response = client.chat.completions.create(
+        model=os.getenv("OPENAI_PRIMARY_MODEL", "gpt-4.1"),
+        messages=messages,
+        max_tokens=2100,
+        temperature=0.92,
+    )
+    content = response.choices[0].message.content.strip()
+    try:
+        parsed = json.loads(content)
+        return parsed
+    except Exception:
+        return content
 
-# ======================== [ 4. MAIN ENTRY POINT ] ==========================
 
-def main():
+# ======================== [ 6. MAIN ANALYSIS LOGIC ] ========================
+
+def analyze_single(image_path: Path, system_prompt: str, feedback_text: str | None, statuses: list):
+    """Analyze and process a single image path."""
+
+    status = {"file": str(image_path), "success": False, "error": ""}
+    try:
+        if not image_path.is_file():
+            raise FileNotFoundError(str(image_path))
+
+        aspect = get_aspect_ratio(image_path)
+        mockups = pick_mockups(aspect, MOCKUPS_PER_LISTING)
+        generic_text = read_generic_text(aspect)
+        fallback_base = image_path.stem
+
+        try:
+            ai_listing = generate_ai_listing(system_prompt, image_path.name, aspect, feedback_text)
+        except Exception as e:
+            logger.error(f"OpenAI call failed for {image_path.name}: {e}")
+            logger.error(traceback.format_exc())
+            raise
+
+        seo_name = extract_seo_filename(ai_listing, fallback_base)
+        if not seo_name:
+            logger.warning("Could not extract SEO filename; using fallback")
+            seo_name = fallback_base
+
+        main_jpg, orig_jpg, thumb_jpg, folder_path = save_finalised_artwork(image_path, seo_name, OUTPUT_PROCESSED_ROOT)
+
+        primary_colour, secondary_colour = get_dominant_colours(Path(main_jpg), 2)
+
+        per_artwork_json = Path(folder_path) / f"{seo_name}-listing.json"
+        artwork_entry = {
+            "filename": image_path.name,
+            "aspect_ratio": aspect,
+            "mockups": mockups,
+            "generic_text": generic_text,
+            "ai_listing": ai_listing,
+            "seo_name": seo_name,
+            "main_jpg_path": main_jpg,
+            "orig_jpg_path": orig_jpg,
+            "thumb_jpg_path": thumb_jpg,
+            "processed_folder": str(folder_path),
+            "primary_colour": primary_colour,
+            "secondary_colour": secondary_colour,
+        }
+        with open(per_artwork_json, "w", encoding="utf-8") as af:
+            json.dump(artwork_entry, af, indent=2, ensure_ascii=False)
+        queue_file = OUTPUT_PROCESSED_ROOT / "pending_mockups.json"
+        add_to_pending_mockups_queue(main_jpg, str(queue_file))
+
+        status["success"] = True
+        logger.info(f"Completed analysis for {image_path.name}")
+        return artwork_entry
+
+    except Exception as e:  # noqa: BLE001
+        status["error"] = str(e)
+        logger.error(f"Failed processing {image_path}: {e}")
+        logger.error(traceback.format_exc())
+        return None
+    finally:
+        statuses.append(status)
+
+
+# ============================ [ 7. MAIN ENTRY ] ============================
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Analyze artwork(s) with OpenAI")
+    parser.add_argument("image", nargs="?", help="Single image path to process")
+    parser.add_argument("--feedback", help="Optional feedback text file")
+    return parser.parse_args()
+
+
+def main() -> None:
     print("\n===== DreamArtMachine Lite: OpenAI Analyzer =====\n")
     try:
         system_prompt = read_onboarding_prompt()
-    except Exception as e:
-        print(f"❌ Error: Could not read onboarding prompt: {e}")
+    except Exception as e:  # noqa: BLE001
+        logger.error(f"Could not read onboarding prompt: {e}")
+        logger.error(traceback.format_exc())
+        print(f"Error: Could not read onboarding prompt. See log at {LOG_FILE}")
         sys.exit(1)
-    single_path = sys.argv[1] if len(sys.argv) > 1 else None
+
+    args = parse_args()
+    feedback_text = None
+    if args.feedback:
+        try:
+            feedback_text = Path(args.feedback).read_text(encoding="utf-8")
+            logger.info(f"Loaded feedback from {args.feedback}")
+        except Exception as e:  # noqa: BLE001
+            logger.error(f"Failed to read feedback file {args.feedback}: {e}")
+            logger.error(traceback.format_exc())
+
+    single_path = Path(args.image) if args.image else None
+
     results = []
+    statuses: list = []
+
     if single_path:
-        print(f"→ Single-image mode: {single_path}")
-        entry = analyze_single(single_path, system_prompt)
+        logger.info(f"Single-image mode: {single_path}")
+        entry = analyze_single(single_path, system_prompt, feedback_text, statuses)
         if entry:
             results.append(entry)
     else:
         all_images = [f for f in ARTWORKS_DIR.rglob("*.jpg") if f.is_file()]
+        logger.info(f"Batch mode: {len(all_images)} images found")
         for idx, img_path in enumerate(sorted(all_images), 1):
-            print(f"[{idx}/{len(all_images)}] Processing: {img_path.relative_to(ARTWORKS_DIR)}")
-            entry = analyze_single(str(img_path), system_prompt)
+            print(f"[{idx}/{len(all_images)}] {img_path.relative_to(ARTWORKS_DIR)}")
+            entry = analyze_single(img_path, system_prompt, feedback_text, statuses)
             if entry:
                 results.append(entry)
+
     if results:
         OUTPUT_JSON.parent.mkdir(exist_ok=True)
         with open(OUTPUT_JSON, "w", encoding="utf-8") as out_f:
             json.dump(results, out_f, indent=2, ensure_ascii=False)
-        print(f"\n✅ Listings processed! Output saved to: {OUTPUT_JSON}")
+        logger.info(f"Wrote master JSON to {OUTPUT_JSON}")
+
+    success_count = len([s for s in statuses if s["success"]])
+    fail_count = len(statuses) - success_count
+    logger.info(f"Analysis complete. Success: {success_count}, Failures: {fail_count}")
+
+    print(f"\nListings processed! See logs at: {LOG_FILE}")
+    if fail_count:
+        print(f"{fail_count} file(s) failed. Check the log for details.")
+
 
 if __name__ == "__main__":
     main()
+
