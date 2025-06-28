@@ -13,33 +13,30 @@
   </div>
 
   <div class="desc-panel" style="margin-bottom:2em;">
-    <h2 style="margin-bottom:10px;">Listing Description</h2>
-    <div style="background:#fafbfc;border-radius:8px;box-shadow:0 1px 4px #0001;padding:16px;min-height:110px;max-height:350px;overflow-y:auto;white-space:pre-line;font-size:1.05em;">
-      {{ artwork.description }}
-    </div>
+    <h2 style="margin-bottom:10px;">📝 AI-Generated Listing Description</h2>
+    <pre style="white-space: pre-wrap;background:#fafbfc;border-radius:8px;box-shadow:0 1px 4px #0001;padding:16px;min-height:110px;max-height:350px;overflow-y:auto;font-size:1.05em;">{{ ai_description }}</pre>
+    {% if tags %}
+      <div style="margin-top:0.6em;"><strong>Tags:</strong> {{ tags|join(', ') }}</div>
+    {% endif %}
+    {% if materials %}
+      <div><strong>Materials:</strong> {{ materials|join(', ') }}</div>
+    {% endif %}
+    {% if used_fallback_naming %}
+      <div style="color: orange;">⚠️ SEO Filename used fallback extraction.</div>
+    {% endif %}
   </div>
 
+  <h3>About the Artist</h3>
+  <div style="background:#fafbfc;border-radius:8px;box-shadow:0 1px 4px #0001;padding:16px;white-space:pre-line;font-size:1.05em;margin-bottom:2em;">{{ generic_text|safe }}</div>
+
+  {% if raw_ai_output %}
+  <details style="margin-bottom:2em;">
+    <summary>Debug: Raw AI Output</summary>
+    <pre style="white-space: pre-wrap;background:#f0f0f0;padding:10px;">{{ raw_ai_output }}</pre>
+  </details>
+  {% endif %}
+
   <div style="display:flex;gap:22px;justify-content:center;margin-bottom:2.2em;">
-    <div style="flex:1 1 0;min-width:160px;max-width:220px;">
-      <div style="font-weight:600;font-size:1.02em;margin-bottom:5px;">Tags</div>
-      <div style="background:#fcfcfc;border-radius:7px;border:1px solid #e2e4e8;min-height:38px;padding:7px 12px;font-size:0.97em;white-space:pre-line;overflow-x:auto;">
-        {% if artwork.tags and artwork.tags|length > 0 %}
-          {{ artwork.tags | join(', ') }}
-        {% else %}
-          &mdash;
-        {% endif %}
-      </div>
-    </div>
-    <div style="flex:1 1 0;min-width:160px;max-width:220px;">
-      <div style="font-weight:600;font-size:1.02em;margin-bottom:5px;">Materials</div>
-      <div style="background:#fcfcfc;border-radius:7px;border:1px solid #e2e4e8;min-height:38px;padding:7px 12px;font-size:0.97em;white-space:pre-line;overflow-x:auto;">
-        {% if artwork.materials and artwork.materials|length > 0 %}
-          {{ artwork.materials | join(', ') }}
-        {% else %}
-          &mdash;
-        {% endif %}
-      </div>
-    </div>
     <!-- COLOUR FIELDS BELOW -->
     <div style="flex:1 1 0;min-width:120px;max-width:160px;">
       <div style="font-weight:600;font-size:1.02em;margin-bottom:5px;">Primary Colour</div>

@@ -186,41 +186,52 @@ def review_artwork(aspect, filename):
                 "tags": [],
                 "materials": [],
                 "primary_colour": "",
-                "secondary_colour": ""
+                "secondary_colour": "",
             },
-            menu=get_menu()
+            ai_listing=None,
+            ai_description="(No AI listing description found)",
+            fallback_text=None,
+            tags=[],
+            materials=[],
+            used_fallback_naming=False,
+            generic_text="",
+            raw_ai_output="",
+            menu=get_menu(),
         )
     ai_listing = listing_json.get("ai_listing", {})
-    tags = []
-    materials = []
+    desc = None
+    fallback_text = None
     ai_title = None
-    ai_description = None
     if isinstance(ai_listing, dict):
         ai_title = ai_listing.get("title")
-        ai_description = ai_listing.get("description")
-        tags = ai_listing.get("tags", [])
-        materials = ai_listing.get("materials", [])
+        desc = ai_listing.get("description")
+        fallback_text = ai_listing.get("fallback_text")
     elif isinstance(ai_listing, str):
-        ai_description = ai_listing
-    if not tags:
-        tags = listing_json.get("tags", [])
-    if not materials:
-        materials = listing_json.get("materials", [])
-    generic_text = ""
-    generic_path = Path("generic_texts") / f"{aspect}.txt"
-    if generic_path.exists():
-        generic_text = generic_path.read_text(encoding="utf-8").strip()
-    else:
-        alt_path = Path.cwd() / "generic_texts" / f"{aspect}.txt"
-        if alt_path.exists():
-            generic_text = alt_path.read_text(encoding="utf-8").strip()
-    combined_description = ""
-    if ai_description:
-        combined_description += ai_description.strip() + "\n\n"
+        desc = ai_listing
+
+    if not desc and isinstance(ai_listing, dict) and "fallback_text" in ai_listing:
+        fallback_text = ai_listing["fallback_text"]
+        desc = fallback_text
+
+    if not desc:
+        desc = listing_json.get("generic_text", "(No AI listing description found)")
+
+    tags = listing_json.get("tags") or (ai_listing.get("tags", []) if isinstance(ai_listing, dict) else [])
+    materials = listing_json.get("materials") or (ai_listing.get("materials", []) if isinstance(ai_listing, dict) else [])
+
+    generic_text = listing_json.get("generic_text", "")
+
+    combined_description = desc.strip()
     if generic_text:
-        combined_description += generic_text.strip() + "\n\n"
+        combined_description += "\n\n" + generic_text.strip()
+
     primary_colour = listing_json.get("primary_colour", "")
     secondary_colour = listing_json.get("secondary_colour", "")
+    used_fallback_naming = bool(listing_json.get("used_fallback_naming", False))
+    if isinstance(ai_listing, (dict, list)):
+        raw_ai_output = json.dumps(ai_listing, indent=2, ensure_ascii=False)[:800]
+    else:
+        raw_ai_output = str(ai_listing)[:800]
     artwork = {
         "seo_name": seo_folder,
         "title": ai_title or listing_json.get("title") or seo_folder.replace("-", " ").title(),
@@ -238,7 +249,15 @@ def review_artwork(aspect, filename):
     return render_template(
         "review_artwork.html",
         artwork=artwork,
-        menu=get_menu()
+        ai_listing=ai_listing,
+        ai_description=desc,
+        fallback_text=fallback_text,
+        tags=tags,
+        materials=materials,
+        used_fallback_naming=used_fallback_naming,
+        generic_text=generic_text,
+        raw_ai_output=raw_ai_output,
+        menu=get_menu(),
     )
 
 @app.route("/static/outputs/processed/<seo_folder>/<filename>")
