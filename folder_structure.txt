@@ -7,7 +7,7 @@ capitalart
 │   ├── mockups
 │   └── style.css
 ├── capitalart-total-nuclear.py
-├── capitalart_ui.py
+├── capitalart.py
 ├── descriptions
 │   ├── artworks.json
 │   ├── autojourney_downloader_export_26_06_2025_15_02_55.csv
@@ -381,7 +381,8 @@ capitalart
 │   │   ├── 3x4
 │   │   ├── 4x3
 │   │   ├── 4x5
-│   │   │   └── tawny-frogmouth-generate-an-aboriginal-dot-painting-of-a-tawny-frogmouth-podargus-strigoides-perched-1.jpg
+│   │   │   ├── moon-over-fire-country-storylines-of-regrowth-full-moon-in-dotted-concentric-halos-tree-lines-beneat-1.jpg
+│   │   │   └── native-hibiscus-alyogyne-huegelii-generate-an-aboriginal-dot-painting-of-a-native-hibiscus-alyogyne-1.jpg
 │   │   ├── 5x4
 │   │   ├── 5x7
 │   │   ├── 7x5
@@ -477,7 +478,6 @@ capitalart
 │           │   ├── 4x5-mockup-37.png
 │           │   └── 4x5-mockup-38.png
 │           └── Uncategorised
-├── main.py
 ├── mockup_categorisation_log.txt
 ├── mockup_categoriser.py
 ├── mockup_selector_ui.py
@@ -518,21 +518,7 @@ capitalart
 │   │   └── A-Series-Vertical
 │   ├── artwork_listing_master.json
 │   └── processed
-│       ├── pending_mockups.json
-│       └── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047
-│           ├── original-tawny-frogmouth-generate-an-aboriginal-dot-painting-of-a-tawny-frogmouth-podargus-strigoides-perched-1.jpg
-│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-MU-01.jpg
-│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-MU-02.jpg
-│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-MU-03.jpg
-│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-MU-04.jpg
-│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-MU-05.jpg
-│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-MU-06.jpg
-│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-MU-07.jpg
-│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-MU-08.jpg
-│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-MU-09.jpg
-│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-THUMB.jpg
-│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-listing.json
-│           └── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047.jpg
+│       └── pending_mockups.json
 ├── reports
 │   ├── REPORTS-25-JUN-2025-04-18PM
 │   │   └── report_code_snapshot_reports-25-jun-2025-04-18pm.md
@@ -558,8 +544,10 @@ capitalart
 │   │   └── report_code_snapshot_reports-26-jun-2025-02-47pm.md
 │   ├── REPORTS-27-JUN-2025-11-19PM
 │   │   └── report_code_snapshot_reports-27-jun-2025-11-19pm.md
-│   └── REPORTS-28-JUN-2025-10-51AM
-│       └── report_code_snapshot_reports-28-jun-2025-10-51am.md
+│   ├── REPORTS-28-JUN-2025-10-51AM
+│   │   └── report_code_snapshot_reports-28-jun-2025-10-51am.md
+│   └── REPORTS-28-JUN-2025-11-40AM
+│       └── report_code_snapshot_reports-28-jun-2025-11-40am.md
 ├── requirements.txt
 ├── scripts
 │   ├── analyze.js
@@ -575,6 +563,7 @@ capitalart
 │   └── js
 │       └── main.js
 └── templates
+    ├── gallery.html
     ├── index.html
     ├── main.html
     ├── mockup_selector.html

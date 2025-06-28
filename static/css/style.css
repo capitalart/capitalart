@@ -309,4 +309,19 @@ input:focus, textarea:focus { border-color: var(--accent); }
   margin: 2em auto 3em auto;
 }
 
+/* ----- Artworks Gallery styling ----- */
+.analyze-btn {
+    margin-top: 10px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.analyze-btn:hover { background: #0056b3; }
+
+
 /* ----- End CapitalArt Approval UI Stylesheet — Robbie Mode™ ----- */

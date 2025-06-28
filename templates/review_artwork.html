@@ -1,0 +1,65 @@
+{% extends "main.html" %}
+{% block title %}Review Artwork | CapitalArt{% endblock %}
+{% block content %}
+<div style="max-width:660px;margin:2.5em auto;">
+  <h1 style="font-size:2em;line-height:1.3;text-align:center;">{{ artwork.title }}</h1>
+  <div style="text-align:center;margin:1.5em 0;">
+    <a href="{{ url_for('processed_image', seo_folder=artwork.seo_name, filename=artwork.main_image.split('/')[-1]) }}" target="_blank">
+      <img src="{{ url_for('processed_image', seo_folder=artwork.seo_name, filename=artwork.thumb.split('/')[-1]) }}"
+        alt="{{ artwork.title }} thumbnail"
+        style="max-width:320px;border-radius:10px;box-shadow:0 2px 8px #0002;cursor:pointer;">
+    </a>
+    <div style="font-size:0.98em;color:#888;margin-top:0.4em;">Click thumbnail for full size</div>
+  </div>
+
+  <div class="desc-panel" style="margin-bottom:2em;">
+    <h2 style="margin-bottom:10px;">Listing Description</h2>
+    <div style="background:#fafbfc;border-radius:8px;box-shadow:0 1px 4px #0001;padding:16px;min-height:110px;max-height:350px;overflow-y:auto;white-space:pre-line;font-size:1.05em;">
+      {{ artwork.description }}
+    </div>
+  </div>
+
+  <div style="display:flex;gap:22px;justify-content:center;margin-bottom:2.2em;">
+    <div style="flex:1 1 0;min-width:160px;max-width:220px;">
+      <div style="font-weight:600;font-size:1.02em;margin-bottom:5px;">Tags</div>
+      <div style="background:#fcfcfc;border-radius:7px;border:1px solid #e2e4e8;min-height:38px;padding:7px 12px;font-size:0.97em;white-space:pre-line;overflow-x:auto;">
+        {% if artwork.tags and artwork.tags|length > 0 %}
+          {{ artwork.tags | join(', ') }}
+        {% else %}
+          &mdash;
+        {% endif %}
+      </div>
+    </div>
+    <div style="flex:1 1 0;min-width:160px;max-width:220px;">
+      <div style="font-weight:600;font-size:1.02em;margin-bottom:5px;">Materials</div>
+      <div style="background:#fcfcfc;border-radius:7px;border:1px solid #e2e4e8;min-height:38px;padding:7px 12px;font-size:0.97em;white-space:pre-line;overflow-x:auto;">
+        {% if artwork.materials and artwork.materials|length > 0 %}
+          {{ artwork.materials | join(', ') }}
+        {% else %}
+          &mdash;
+        {% endif %}
+      </div>
+    </div>
+    <!-- COLOUR FIELDS BELOW -->
+    <div style="flex:1 1 0;min-width:120px;max-width:160px;">
+      <div style="font-weight:600;font-size:1.02em;margin-bottom:5px;">Primary Colour</div>
+      <div style="background:#fcfcfc;border-radius:7px;border:1px solid #e2e4e8;min-height:38px;padding:7px 12px;font-size:0.97em;white-space:pre-line;overflow-x:auto;">
+        {{ artwork.primary_colour if artwork.primary_colour else "&mdash;" }}
+      </div>
+    </div>
+    <div style="flex:1 1 0;min-width:120px;max-width:160px;">
+      <div style="font-weight:600;font-size:1.02em;margin-bottom:5px;">Secondary Colour</div>
+      <div style="background:#fcfcfc;border-radius:7px;border:1px solid #e2e4e8;min-height:38px;padding:7px 12px;font-size:0.97em;white-space:pre-line;overflow-x:auto;">
+        {{ artwork.secondary_colour if artwork.secondary_colour else "&mdash;" }}
+      </div>
+    </div>
+  </div>
+
+  <form method="POST" action="{{ url_for('analyze_artwork', aspect=artwork.aspect, filename=artwork.seo_name + '.jpg') }}" style="max-width:420px;margin:0 auto;text-align:center;">
+    <div style="margin-bottom:10px;font-size:1.07em;font-weight:500;">Re-analyse Artwork</div>
+    <textarea name="feedback" placeholder="Add feedback or changes for next analysis..." rows="3" style="width:100%;max-width:400px;padding:10px;border-radius:7px;border:1px solid #ccd2da;resize:vertical;font-size:1em;margin-bottom:9px;"></textarea>
+    <br>
+    <button type="submit" class="btn btn-primary" style="font-size:1.04em;padding:7px 28px;border-radius:7px;">Re-analyse</button>
+  </form>
+</div>
+{% endblock %}

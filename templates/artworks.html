@@ -1,0 +1,36 @@
+{% extends "main.html" %}
+{% block title %}Artwork Gallery | CapitalArt{% endblock %}
+{% block content %}
+<h2 style="margin-top: 16px;">🖼️ Artwork Gallery</h2>
+<div class="artwork-grid" style="display: flex; gap: 2rem; flex-wrap: wrap;">
+  {% for art in artworks %}
+  <div class="artwork-card" style="border:1px solid #eee;border-radius:8px;background:#fff;box-shadow:0 2px 8px #0001;padding:12px;width:340px;display:inline-block;">
+    <img src="{{ url_for('artwork_image', aspect=art.aspect, filename=art.filename) }}"
+         alt="{{ art.title }}"
+         style="width:100%;height:auto;border-radius:8px;margin-bottom:8px;" />
+    <div style="font-weight:bold;font-size:1.1em;line-height:1.3;margin-bottom:4px;">
+      {{ art.title }}
+    </div>
+    <div style="font-size:0.95em;color:#888;">{{ art.aspect }}</div>
+    <form method="post"
+          action="{{ url_for('analyze_artwork', aspect=art.aspect, filename=art.filename) }}"
+          style="margin-top:12px;">
+      <button type="submit" class="analyze-btn" style="padding:8px 14px;font-size:1em;border-radius:5px;background:#1976d2;color:#fff;border:none;">
+        🔍 Analyse
+      </button>
+    </form>
+  </div>
+  {% endfor %}
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.analyze-btn').forEach(btn => {
+      btn.closest('form').onsubmit = function() {
+        let overlay = document.createElement('div');
+        overlay.innerHTML = '<div style="position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:rgba(255,255,255,0.8);display:flex;align-items:center;justify-content:center;"><div style="font-size:2em;color:#333;">🔄 Analyzing... Please wait.</div></div>';
+        document.body.appendChild(overlay);
+      }
+    });
+  });
+</script>
+{% endblock %}
