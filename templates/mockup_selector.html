@@ -31,4 +31,7 @@
 <form method="post" action="{{ url_for('proceed') }}">
   <button class="composite-btn" type="submit">✅ Generate Composites</button>
 </form>
+<div style="text-align:center;margin-top:1em;">
+  <a href="{{ url_for('composites_preview') }}" class="composite-btn" style="background:#666;">👁️ View Generated Composites</a>
+</div>
 {% endblock %}

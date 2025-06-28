@@ -28,6 +28,7 @@ ARTWORKS_DIR = BASE_DIR / "inputs" / "artworks"
 ARTWORK_PROCESSED_DIR = BASE_DIR / "outputs" / "processed"
 SELECTIONS_DIR = BASE_DIR / "outputs" / "selections"
 LOGS_DIR = BASE_DIR / "logs"
+COMPOSITES_DIR = BASE_DIR / "outputs" / "composites"
 
 ANALYZE_SCRIPT_PATH = BASE_DIR / "scripts" / "analyze_artwork.py"
 
@@ -137,7 +138,8 @@ def proceed():
         with open(log_file, "a") as log:
             log.write(f"\n\n=== Exception ===\n{str(e)}")
         flash("Error running the composite generator.", "danger")
-    return redirect(url_for("select"))
+    # After generation, show latest composites preview
+    return redirect(url_for("composites_preview"))
 
 @app.route("/review")
 def review():
@@ -261,6 +263,27 @@ def artworks():
 @app.route("/mockup-img/<category>/<filename>")
 def mockup_img(category, filename):
     return send_from_directory(MOCKUPS_DIR / category, filename)
+
+@app.route("/composite-img/<folder>/<filename>")
+def composite_img(folder, filename):
+    """Serve generated composite images from disk."""
+    return send_from_directory(COMPOSITES_DIR / folder, filename)
+
+@app.route("/composites-preview")
+def composites_preview():
+    """Show a grid preview of the most recently generated composites."""
+    COMPOSITES_DIR.mkdir(parents=True, exist_ok=True)
+    subdirs = [d for d in COMPOSITES_DIR.iterdir() if d.is_dir()]
+    if not subdirs:
+        return render_template("composites_preview.html", images=None, menu=get_menu())
+    latest = max(subdirs, key=lambda d: d.stat().st_mtime)
+    images = sorted([f.name for f in latest.glob("*.jpg")])
+    return render_template(
+        "composites_preview.html",
+        images=images,
+        folder=latest.name,
+        menu=get_menu()
+    )
 
 @app.route("/reset", methods=["POST"])
 def reset():

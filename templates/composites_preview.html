@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+{% block title %}Composite Mockup Previews | CapitalArt{% endblock %}
+{% block content %}
+<h1>Composite Mockup Previews</h1>
+{% if images %}
+<div class="grid">
+  {% for img in images %}
+  <div class="item">
+    <img src="{{ url_for('composite_img', folder=folder, filename=img) }}" alt="{{ img }}">
+    <div style="font-size:0.9em;color:#555;word-break:break-all;">{{ img }}</div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<p style="text-align:center;margin:2em 0;">No composites found. Generate some first.</p>
+{% endif %}
+<div style="text-align:center;margin-top:2em;">
+  <a href="{{ url_for('select') }}" class="composite-btn">Back to Mockup Selector</a>
+</div>
+{% endblock %}
