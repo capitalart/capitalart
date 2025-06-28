@@ -146,6 +146,33 @@ def slugify(text: str) -> str:
     return re.sub("-+", "-", text).lower()
 
 
+def parse_text_fallback(text: str) -> dict:
+    """Extract key fields from a non-JSON AI response."""
+    data = {"fallback_text": text}
+    tag_match = re.search(r"Tags:\s*(.*)", text, re.IGNORECASE)
+    if tag_match:
+        data["tags"] = [t.strip() for t in tag_match.group(1).split(",") if t.strip()]
+    mat_match = re.search(r"Materials:\s*(.*)", text, re.IGNORECASE)
+    if mat_match:
+        data["materials"] = [m.strip() for m in mat_match.group(1).split(",") if m.strip()]
+    title_match = re.search(r"(?:Title|Artwork Title|Listing Title)\s*[:\-]\s*(.+)", text, re.IGNORECASE)
+    if title_match:
+        data["title"] = title_match.group(1).strip()
+    seo_match = re.search(r"(?:seo[_ ]filename|seo file|filename)\s*[:\-]\s*(.+\.jpg)", text, re.IGNORECASE)
+    if seo_match:
+        data["seo_filename"] = seo_match.group(1).strip()
+    prim_match = re.search(r"Primary Colour\s*[:\-]\s*(.+)", text, re.IGNORECASE)
+    if prim_match:
+        data["primary_colour"] = prim_match.group(1).strip()
+    sec_match = re.search(r"Secondary Colour\s*[:\-]\s*(.+)", text, re.IGNORECASE)
+    if sec_match:
+        data["secondary_colour"] = sec_match.group(1).strip()
+    desc_match = re.search(r"(?:Description|Artwork Description)\s*[:\-]\s*(.+)", text, re.IGNORECASE | re.DOTALL)
+    if desc_match:
+        data["description"] = desc_match.group(1).strip()
+    return data
+
+
 def extract_seo_filename(ai_listing, fallback_base: str) -> str:
     if isinstance(ai_listing, dict):
         if "seo_filename" in ai_listing:
@@ -238,6 +265,13 @@ def get_dominant_colours(img_path: Path, n: int = 2):
     try:
         with Image.open(img_path) as img:
             img = img.convert("RGB")
+            w, h = img.size
+            crop = img.crop((max(0, w // 2 - 25), max(0, h // 2 - 25), min(w, w // 2 + 25), min(h, h // 2 + 25)))
+            crop_dir = LOGS_DIR / "crops"
+            crop_dir.mkdir(exist_ok=True)
+            crop_path = crop_dir / f"{img_path.stem}-crop.jpg"
+            crop.save(crop_path, "JPEG", quality=80)
+            logger.debug(f"Saved crop for colour check: {crop_path}")
             img = img.resize((100, 100))
             arr = np.asarray(img).reshape(-1, 3)
 
@@ -291,11 +325,16 @@ def generate_ai_listing(system_prompt: str, image_filename: str, aspect: str, fe
         temperature=0.92,
     )
     content = response.choices[0].message.content.strip()
+    logger.debug(f"Raw OpenAI response: {content}")
     try:
         parsed = json.loads(content)
+        logger.info("Parsed JSON response successfully")
         return parsed
     except Exception:
-        return content
+        logger.warning("OpenAI response not valid JSON; applying fallback parser")
+        fallback = parse_text_fallback(content)
+        logger.warning(f"Fallback extracted keys: {list(fallback.keys())}")
+        return fallback
 
 
 # ======================== [ 6. MAIN ANALYSIS LOGIC ] ========================
@@ -319,6 +358,10 @@ def analyze_single(image_path: Path, system_prompt: str, feedback_text: str | No
             logger.error(f"OpenAI call failed for {image_path.name}: {e}")
             logger.error(traceback.format_exc())
             raise
+
+        if not isinstance(ai_listing, dict):
+            logger.warning(f"AI listing for {image_path.name} is not structured JSON")
+            ai_listing = parse_text_fallback(str(ai_listing))
 
         seo_name = extract_seo_filename(ai_listing, fallback_base)
         if not seo_name:
