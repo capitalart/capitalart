@@ -1,25 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CapitalArt Mockup Gallery</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-  <header class="gallery-header">
-    <h1>🎨 CapitalArt Mockup Gallery</h1>
-    <p>Browse artworks, explore categories, and preview AI-powered Etsy listings</p>
-  </header>
-
-  <main id="gallery">
-    <!-- Artwork mockups dynamically injected here -->
-  </main>
-
-  <footer class="gallery-footer">
-    <p>© Robin Custance • Proudly on Kaurna Country • GitHub Pages Powered</p>
-  </footer>
-
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-</body>
-</html>
+{% extends "main.html" %}
+{% block title %}CapitalArt Home{% endblock %}
+{% block content %}
+<div class="home-hero">
+  <h1>🎨 Welcome to CapitalArt Listing Machine</h1>
+  <p style="font-size:1.15em; max-width:600px; margin:1em auto 2em auto;">
+    G’day! This is your one-stop hub for prepping, previewing, and perfecting your artwork listings, mockups, and all things gallery magic.  
+    <br><br>
+    <strong>Workflow:</strong> Select your dream mockup lineup, review the listing with full Pulitzer-worthy description, and get everything export-ready for Etsy, Sellbrite, or wherever your art’s headed.
+  </p>
+</div>
+<div class="home-actions" style="display:flex;flex-wrap:wrap;justify-content:center;gap:2em;">
+  <a href="{{ url_for('select') }}" class="composite-btn" style="min-width:200px;text-align:center;">🖼️ Start Mockup Selection</a>
+  <a href="{{ url_for('review') }}" class="composite-btn" style="background:#666;">🔎 Review Latest Listing</a>
+</div>
+<section style="max-width:700px;margin:3em auto 0 auto;text-align:left;">
+  <h2>How It Works</h2>
+  <ol style="font-size:1.08em;line-height:1.6;">
+    <li><b>Mockup Selector:</b> Pick one hero image from each room/category. Regenerate or swap till you love the lineup.</li>
+    <li><b>Review:</b> See all chosen mockups, the main artwork, and your custom AI-powered listing description in one tidy spot.</li>
+    <li><b>Approval & Export:</b> When you’re happy, lock it in for final export—ready for uploading and selling. (Export coming soon!)</li>
+  </ol>
+</section>
+{% endblock %}

@@ -1,39 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>CapitalArt Mockup Selector</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-  <h1>🖼️ Select Your Mockup Lineup</h1>
-  <div class="grid">
-    {% for slot, options in zipped %}
-    <div class="item">
-      {% if slot.image %}
-      <img src="{{ url_for('static', filename=slot.category + '/' + slot.image) }}" alt="{{ slot.category }}" />
-      {% else %}
+{% extends "main.html" %}
+{% block title %}Select Mockups | CapitalArt{% endblock %}
+{% block content %}
+<h1>🖼️ Select Your Mockup Lineup</h1>
+<div class="grid">
+  {% for slot, options in zipped %}
+  <div class="item">
+    {% if slot.image %}
+      <img src="{{ url_for('mockup_img', category=slot.category, filename=slot.image) }}" alt="{{ slot.category }}" />
+    {% else %}
       <p>No images for {{ slot.category }}</p>
-      {% endif %}
-      <strong>{{ slot.category }}</strong>
-      <form method="post" action="{{ url_for('regenerate') }}">
-        <input type="hidden" name="slot" value="{{ loop.index0 }}" />
-        <button type="submit">🔄 Regenerate</button>
-      </form>
-      <form method="post" action="{{ url_for('swap') }}">
-        <input type="hidden" name="slot" value="{{ loop.index0 }}" />
-        <select name="new_category">
-          {% for c in options %}
-          <option value="{{ c }}" {% if c==slot.category %}selected{% endif %}>{{ c }}</option>
-          {% endfor %}
-        </select>
-        <button type="submit">🔁 Swap</button>
-      </form>
-    </div>
-    {% endfor %}
+    {% endif %}
+    <strong>{{ slot.category }}</strong>
+    <form method="post" action="{{ url_for('regenerate') }}">
+      <input type="hidden" name="slot" value="{{ loop.index0 }}" />
+      <button type="submit">🔄 Regenerate</button>
+    </form>
+    <form method="post" action="{{ url_for('swap') }}">
+      <input type="hidden" name="slot" value="{{ loop.index0 }}" />
+      <select name="new_category">
+        <!-- DEBUG: Options for slot {{ loop.index0 }}: {{ options|join(", ") }} -->
+        {% for c in options %}
+        <option value="{{ c }}" {% if c == slot.category %}selected{% endif %}>{{ c }}</option>
+        {% endfor %}
+      </select>
+      <button type="submit">🔁 Swap</button>
+    </form>
   </div>
-  <form method="post" action="{{ url_for('proceed') }}">
-    <button class="composite-btn" type="submit">✅ Proceed to Composite</button>
-  </form>
-</body>
-</html>
+  {% endfor %}
+</div>
+<form method="post" action="{{ url_for('proceed') }}">
+  <button class="composite-btn" type="submit">✅ Proceed to Composite</button>
+</form>
+{% endblock %}

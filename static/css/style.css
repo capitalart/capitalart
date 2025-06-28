@@ -1,149 +1,312 @@
 /* ==============================
-   CapitalArt Mockup Selector UI
-   Style Sheet — Robbie Mode™
+   CapitalArt Mockup Selector & Approval UI
+   Full Style Sheet — Robbie Mode™
    ============================== */
 
+/* --------- [ 0. Global Styles & Variables ] --------- */
+:root {
+  --main-bg: #f9f9f9;
+  --main-txt: #222;
+  --accent: #007acc;
+  --accent-dark: #005fa3;
+  --border: #ddd;
+  --card-bg: #fff;
+  --shadow: 0 2px 6px rgba(0,0,0,0.06);
+  --radius: 8px;
+  --thumb-radius: 5px;
+  --menu-height: 64px;
+  --gallery-gap: 2em;
+}
+
 body {
-  font-family: system-ui, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--main-bg);
+  color: var(--main-txt);
   margin: 0;
-  padding: 2em;
-  background: #f9f9f9;
-  color: #333;
+  padding: 0;
+  min-height: 100vh;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 1.5em;
-  font-size: 2.2em;
-}
-
-.grid {
+/* --------- [ 1. Header/Menu/Nav ] --------- */
+header, nav {
+  background: var(--accent);
+  color: #fff;
+  height: var(--menu-height);
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5em;
-  justify-content: center;
+  align-items: center;
+  padding: 0 2em;
+  font-size: 1.08em;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 2em;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color 0.2s;
+}
+nav a:hover,
+nav a.active {
+  color: #ffe873;
+}
+.logo {
+  font-size: 1.22em;
+  font-weight: bold;
+  margin-right: 2.5em;
+  letter-spacing: 0.04em;
 }
 
-.item {
-  background: #fff;
-  border: 1px solid #ddd;
+/* --------- [ 2. Main Layout ] --------- */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5em 1em 2em 1em;
+}
+@media (max-width: 700px) {
+  main { padding: 1.1em 0.4em; }
+}
+
+/* --------- [ 3. Gallery/Grid View ] --------- */
+.grid,
+#gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--gallery-gap);
+  margin-bottom: 2em;
+  padding: 1em 0;
+}
+@media (max-width: 600px) {
+  .grid, #gallery {
+    grid-template-columns: 1fr;
+    gap: 1.1em;
+  }
+}
+
+.item, .gallery-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   padding: 1em;
-  border-radius: 8px;
-  width: 240px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  box-shadow: var(--shadow);
   text-align: center;
-  transition: transform 0.2s ease;
+  transition: transform 0.18s cubic-bezier(.5,1.4,.6,.9), box-shadow 0.18s;
+  position: relative;
 }
-
-.item:hover {
-  transform: scale(1.02);
+.item:hover, .gallery-item:hover {
+  transform: scale(1.027);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.10);
+  z-index: 3;
 }
-
-.item img {
+.item img, .gallery-item img {
   max-width: 100%;
   height: auto;
-  border-radius: 4px;
-  margin-bottom: 0.75em;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  border-radius: var(--thumb-radius);
+  margin-bottom: 0.7em;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.09);
+  background: #eee;
+  cursor: pointer;
+  transition: box-shadow 0.15s;
+}
+.item img:focus,
+.gallery-item img:focus {
+  outline: 2.5px solid var(--accent);
 }
 
-form {
-  margin: 0.4em 0;
-}
-
-select,
-button {
-  font-size: 0.95em;
-  padding: 0.4em;
+/* --------- [ 4. Approval/Action Buttons ] --------- */
+.btn,
+button,
+select {
+  font-size: 1em;
+  padding: 0.47em 1.1em;
   border: 1px solid #bbb;
   border-radius: 4px;
-  margin-top: 0.3em;
+  margin: 0.15em 0.12em;
   cursor: pointer;
+  background: #f7f7f7;
+  transition: background 0.2s, border 0.18s;
 }
-
-button:hover {
-  background-color: #eee;
-}
+.btn-approve { background: #5cb85c; color: #fff; border: none; }
+.btn-reject { background: #ef4e4e; color: #fff; border: none; }
+.btn-fullscreen { background: var(--accent); color: #fff; border: none; }
+.btn:hover,
+button:hover,
+select:hover,
+.btn-approve:hover { background: #d1f8da; }
+.btn-reject:hover { background: #ffd1d1; color: #b91c1c; }
+.btn-fullscreen:hover { background: var(--accent-dark); }
 
 .composite-btn {
   display: block;
   margin: 3em auto 0;
-  padding: 0.75em 1.5em;
-  font-size: 1em;
-  background: #007acc;
+  padding: 0.75em 2em;
+  font-size: 1.09em;
+  background: var(--accent);
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 7px;
   cursor: pointer;
-  transition: background 0.2s ease;
+  font-weight: 600;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.09);
+  transition: background 0.22s;
+}
+.composite-btn:hover { background: var(--accent-dark); }
+
+input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-right: 0.5em;
 }
 
-.composite-btn:hover {
-  background: #005fa3;
-}
-
-/* ==============================
-   CapitalArt Mockup Gallery Styles
-   ============================== */
-
-.gallery-header {
-  text-align: center;
-  margin-bottom: 2em;
-}
-
-.gallery-header h1 {
-  font-size: 2.4em;
-  margin-bottom: 0.3em;
-}
-
-.gallery-header p {
-  font-size: 1.1em;
-  color: #666;
-}
-
-#gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2em;
-  padding: 1em;
-}
-
-.gallery-item {
-  background: #fff;
-  border: 1px solid #ddd;
-  padding: 1em;
+/* --------- [ 5. Description Panel (Etsy Style) ] --------- */
+.desc-panel {
+  background: #fafaff;
+  border: 1.5px solid #dde1e9;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease;
+  padding: 1.7em 2em;
+  color: #232324;
+  font-family: "Graphik Webfont", -apple-system, "Helvetica Neue", "Droid Sans", Arial, sans-serif;
+  font-size: 1.08em;
+  line-height: 1.7;
+  max-width: 470px;
+  margin: 2em auto 1em auto;
+  overflow-x: auto;
+  transition: box-shadow 0.15s;
+  box-shadow: 0 2px 7px rgba(0,0,0,0.04);
 }
-
-.gallery-item:hover {
-  transform: scale(1.02);
+.desc-panel h2 {
+  font-size: 1.24em;
+  color: var(--accent);
+  margin-top: 0;
 }
-
-.gallery-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 6px;
-  margin-bottom: 0.5em;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-}
-
-.gallery-item h2 {
-  font-size: 1.1em;
-  margin: 0.5em 0 0.2em;
-  color: #007acc;
-}
-
-.gallery-item p {
+.desc-panel .expand-toggle {
+  color: #888;
   font-size: 0.95em;
-  color: #444;
+  margin-left: 0.7em;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: underline;
+}
+.desc-panel .expand-toggle:hover { color: var(--accent); }
+.desc-short { max-height: 160px; overflow: hidden; position: relative; }
+.desc-short::after {
+  content: '...';
+  position: absolute; right: 0; bottom: 0; background: #fafaff; padding: 0 0.4em;
+}
+@media (max-width: 600px) {
+  .desc-panel { max-width: 97vw; padding: 1em 0.7em; font-size: 1em; }
 }
 
-.gallery-footer {
+/* --------- [ 6. Modal/Fullscreen Image View ] --------- */
+.modal-bg {
+  display: none;
+  position: fixed; z-index: 99;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(34,34,34,0.68);
+}
+.modal-bg.active { display: flex; align-items: center; justify-content: center; }
+.modal-img {
+  background: #fff;
+  border-radius: 11px;
+  padding: 0.8em;
+  max-width: 94vw;
+  max-height: 93vh;
+  box-shadow: 0 5px 26px rgba(0,0,0,0.22);
+}
+.modal-img img {
+  max-width: 88vw;
+  max-height: 80vh;
+  border-radius: 7px;
+}
+.modal-close {
+  position: absolute;
+  top: 2.3vh;
+  right: 2.6vw;
+  font-size: 2em;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 101;
+  text-shadow: 0 2px 6px #000;
+}
+.modal-close:focus { outline: 2px solid #ffe873; }
+
+/* --------- [ 7. Footer ] --------- */
+footer, .gallery-footer {
   text-align: center;
   margin-top: 4em;
-  padding: 1em;
-  font-size: 0.9em;
+  padding: 1.2em 0;
+  font-size: 1em;
   color: #777;
+  background: #f2f2f2;
+  border-top: 1px solid #ececec;
+  letter-spacing: 0.01em;
 }
+footer a { color: var(--accent); text-decoration: underline; }
+footer a:hover { color: var(--accent-dark); }
+
+/* --------- [ 8. Light/Dark Mode Ready (toggle with class .dark) ] --------- */
+body.dark, .dark main {
+  background: #191e23 !important;
+  color: #f1f1f1 !important;
+}
+body.dark header, body.dark nav {
+  background: #14171a;
+  color: #eee;
+}
+body.dark .item, body.dark .gallery-item,
+body.dark .desc-panel, body.dark .modal-img {
+  background: #252b30;
+  color: #eaeaea;
+  border-color: #444;
+}
+body.dark .desc-panel { box-shadow: 0 3px 10px rgba(0,0,0,0.33); }
+body.dark .gallery-footer, body.dark footer {
+  background: #1a1a1a;
+  color: #bbb;
+  border-top: 1px solid #252b30;
+}
+
+/* --------- [ 9. Accessibility/Print/Safe Tweaks ] --------- */
+:focus-visible {
+  outline: 2.2px solid #ffa52a;
+  outline-offset: 1.5px;
+}
+@media print {
+  header, nav, .composite-btn, .btn, button, select, .gallery-footer, footer { display: none !important; }
+  .desc-panel { border: none !important; box-shadow: none !important; }
+  body { background: #fff !important; color: #222 !important; }
+  main { padding: 0 !important; }
+}
+
+/* --------- [ 10. Misc — Spacing, Inputs, Forms ] --------- */
+form { margin: 0.4em 0; }
+label { display: inline-block; margin-bottom: 0.2em; font-weight: 500; }
+input, textarea {
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  padding: 0.3em 0.55em;
+  font-size: 1em;
+  background: #fff;
+  color: #232324;
+}
+input:focus, textarea:focus { border-color: var(--accent); }
+
+::-webkit-scrollbar {
+  width: 9px; background: #eee; border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc; border-radius: 7px;
+}
+::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+/* ----- Home styling ----- */
+.home-hero {
+  text-align: center;
+  margin: 2em auto 1em auto;
+}
+.home-actions {
+  margin: 2em auto 3em auto;
+}
+
+/* ----- End CapitalArt Approval UI Stylesheet — Robbie Mode™ ----- */

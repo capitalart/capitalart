@@ -1,524 +1,538 @@
 capitalart
 ├── .env
 ├── .gitignore
-├── .nojekyll
-├── Capitalart-Mockup-Generator
-│   ├── Input
-│   │   ├── Artworks
-│   │   │   ├── 16x9
-│   │   │   ├── 1x1
-│   │   │   ├── 2x3
-│   │   │   ├── 3x2
-│   │   │   ├── 3x4
-│   │   │   ├── 4x3
-│   │   │   ├── 4x5
-│   │   │   │   └── Quokka-Aboriginal-Dot-Art-Digital-Download-Artwork-by-Robin-Custance-RJC-0045.jpg
-│   │   │   ├── 5x4
-│   │   │   ├── 5x7
-│   │   │   ├── 7x5
-│   │   │   ├── 9x16
-│   │   │   ├── A-Series-Horizontal
-│   │   │   └── A-Series-Vertical
-│   │   ├── Coordinates
-│   │   │   ├── 16x9
-│   │   │   │   ├── 16x9-Mockup-1.json
-│   │   │   │   ├── 16x9-Mockup-10.json
-│   │   │   │   ├── 16x9-Mockup-11.json
-│   │   │   │   ├── 16x9-Mockup-12.json
-│   │   │   │   ├── 16x9-Mockup-13.json
-│   │   │   │   ├── 16x9-Mockup-14.json
-│   │   │   │   ├── 16x9-Mockup-15.json
-│   │   │   │   ├── 16x9-Mockup-16.json
-│   │   │   │   ├── 16x9-Mockup-17.json
-│   │   │   │   ├── 16x9-Mockup-18.json
-│   │   │   │   ├── 16x9-Mockup-19.json
-│   │   │   │   ├── 16x9-Mockup-2.json
-│   │   │   │   ├── 16x9-Mockup-20.json
-│   │   │   │   ├── 16x9-Mockup-21.json
-│   │   │   │   ├── 16x9-Mockup-22.json
-│   │   │   │   ├── 16x9-Mockup-23.json
-│   │   │   │   ├── 16x9-Mockup-24.json
-│   │   │   │   ├── 16x9-Mockup-25.json
-│   │   │   │   ├── 16x9-Mockup-26.json
-│   │   │   │   ├── 16x9-Mockup-27.json
-│   │   │   │   ├── 16x9-Mockup-28.json
-│   │   │   │   ├── 16x9-Mockup-29.json
-│   │   │   │   ├── 16x9-Mockup-3.json
-│   │   │   │   ├── 16x9-Mockup-30.json
-│   │   │   │   ├── 16x9-Mockup-31.json
-│   │   │   │   ├── 16x9-Mockup-32.json
-│   │   │   │   ├── 16x9-Mockup-33.json
-│   │   │   │   ├── 16x9-Mockup-34.json
-│   │   │   │   ├── 16x9-Mockup-35.json
-│   │   │   │   ├── 16x9-Mockup-36.json
-│   │   │   │   ├── 16x9-Mockup-37.json
-│   │   │   │   ├── 16x9-Mockup-38.json
-│   │   │   │   ├── 16x9-Mockup-39.json
-│   │   │   │   ├── 16x9-Mockup-4.json
-│   │   │   │   ├── 16x9-Mockup-40.json
-│   │   │   │   ├── 16x9-Mockup-41.json
-│   │   │   │   ├── 16x9-Mockup-42.json
-│   │   │   │   ├── 16x9-Mockup-43.json
-│   │   │   │   ├── 16x9-Mockup-44.json
-│   │   │   │   ├── 16x9-Mockup-45.json
-│   │   │   │   ├── 16x9-Mockup-46.json
-│   │   │   │   ├── 16x9-Mockup-47.json
-│   │   │   │   ├── 16x9-Mockup-48.json
-│   │   │   │   ├── 16x9-Mockup-49.json
-│   │   │   │   ├── 16x9-Mockup-5.json
-│   │   │   │   ├── 16x9-Mockup-50.json
-│   │   │   │   ├── 16x9-Mockup-51.json
-│   │   │   │   ├── 16x9-Mockup-52.json
-│   │   │   │   ├── 16x9-Mockup-53.json
-│   │   │   │   ├── 16x9-Mockup-54.json
-│   │   │   │   ├── 16x9-Mockup-6.json
-│   │   │   │   ├── 16x9-Mockup-7.json
-│   │   │   │   ├── 16x9-Mockup-8.json
-│   │   │   │   └── 16x9-Mockup-9.json
-│   │   │   ├── 1x1
-│   │   │   │   ├── 1x1-Mockup-1.json
-│   │   │   │   ├── 1x1-Mockup-10.json
-│   │   │   │   ├── 1x1-Mockup-11.json
-│   │   │   │   ├── 1x1-Mockup-12.json
-│   │   │   │   ├── 1x1-Mockup-13.json
-│   │   │   │   ├── 1x1-Mockup-14.json
-│   │   │   │   ├── 1x1-Mockup-15.json
-│   │   │   │   ├── 1x1-Mockup-16.json
-│   │   │   │   ├── 1x1-Mockup-17.json
-│   │   │   │   ├── 1x1-Mockup-18.json
-│   │   │   │   ├── 1x1-Mockup-19.json
-│   │   │   │   ├── 1x1-Mockup-2.json
-│   │   │   │   ├── 1x1-Mockup-20.json
-│   │   │   │   ├── 1x1-Mockup-21.json
-│   │   │   │   ├── 1x1-Mockup-22.json
-│   │   │   │   ├── 1x1-Mockup-23.json
-│   │   │   │   ├── 1x1-Mockup-24.json
-│   │   │   │   ├── 1x1-Mockup-25.json
-│   │   │   │   ├── 1x1-Mockup-26.json
-│   │   │   │   ├── 1x1-Mockup-27.json
-│   │   │   │   ├── 1x1-Mockup-28.json
-│   │   │   │   ├── 1x1-Mockup-29.json
-│   │   │   │   ├── 1x1-Mockup-3.json
-│   │   │   │   ├── 1x1-Mockup-30.json
-│   │   │   │   ├── 1x1-Mockup-31.json
-│   │   │   │   ├── 1x1-Mockup-32.json
-│   │   │   │   ├── 1x1-Mockup-33.json
-│   │   │   │   ├── 1x1-Mockup-34.json
-│   │   │   │   ├── 1x1-Mockup-35.json
-│   │   │   │   ├── 1x1-Mockup-36.json
-│   │   │   │   ├── 1x1-Mockup-37.json
-│   │   │   │   ├── 1x1-Mockup-38.json
-│   │   │   │   ├── 1x1-Mockup-39.json
-│   │   │   │   ├── 1x1-Mockup-4.json
-│   │   │   │   ├── 1x1-Mockup-40.json
-│   │   │   │   ├── 1x1-Mockup-41.json
-│   │   │   │   ├── 1x1-Mockup-42.json
-│   │   │   │   ├── 1x1-Mockup-43.json
-│   │   │   │   ├── 1x1-Mockup-44.json
-│   │   │   │   ├── 1x1-Mockup-45.json
-│   │   │   │   ├── 1x1-Mockup-46.json
-│   │   │   │   ├── 1x1-Mockup-47.json
-│   │   │   │   ├── 1x1-Mockup-48.json
-│   │   │   │   ├── 1x1-Mockup-49.json
-│   │   │   │   ├── 1x1-Mockup-5.json
-│   │   │   │   ├── 1x1-Mockup-50.json
-│   │   │   │   ├── 1x1-Mockup-51.json
-│   │   │   │   ├── 1x1-Mockup-52.json
-│   │   │   │   ├── 1x1-Mockup-53.json
-│   │   │   │   ├── 1x1-Mockup-54.json
-│   │   │   │   ├── 1x1-Mockup-55.json
-│   │   │   │   ├── 1x1-Mockup-56.json
-│   │   │   │   ├── 1x1-Mockup-57.json
-│   │   │   │   ├── 1x1-Mockup-58.json
-│   │   │   │   ├── 1x1-Mockup-59.json
-│   │   │   │   ├── 1x1-Mockup-6.json
-│   │   │   │   ├── 1x1-Mockup-60.json
-│   │   │   │   ├── 1x1-Mockup-61.json
-│   │   │   │   ├── 1x1-Mockup-62.json
-│   │   │   │   ├── 1x1-Mockup-63.json
-│   │   │   │   ├── 1x1-Mockup-64.json
-│   │   │   │   ├── 1x1-Mockup-65.json
-│   │   │   │   ├── 1x1-Mockup-66.json
-│   │   │   │   ├── 1x1-Mockup-67.json
-│   │   │   │   ├── 1x1-Mockup-68.json
-│   │   │   │   ├── 1x1-Mockup-69.json
-│   │   │   │   ├── 1x1-Mockup-7.json
-│   │   │   │   ├── 1x1-Mockup-70.json
-│   │   │   │   ├── 1x1-Mockup-71.json
-│   │   │   │   ├── 1x1-Mockup-72.json
-│   │   │   │   ├── 1x1-Mockup-73.json
-│   │   │   │   ├── 1x1-Mockup-74.json
-│   │   │   │   ├── 1x1-Mockup-8.json
-│   │   │   │   └── 1x1-Mockup-9.json
-│   │   │   ├── 2x3
-│   │   │   │   ├── 2x3-Mockup-1.json
-│   │   │   │   ├── 2x3-Mockup-10.json
-│   │   │   │   ├── 2x3-Mockup-11.json
-│   │   │   │   ├── 2x3-Mockup-12.json
-│   │   │   │   ├── 2x3-Mockup-13.json
-│   │   │   │   ├── 2x3-Mockup-14.json
-│   │   │   │   ├── 2x3-Mockup-15.json
-│   │   │   │   ├── 2x3-Mockup-16.json
-│   │   │   │   ├── 2x3-Mockup-17.json
-│   │   │   │   ├── 2x3-Mockup-18.json
-│   │   │   │   ├── 2x3-Mockup-19.json
-│   │   │   │   ├── 2x3-Mockup-2.json
-│   │   │   │   ├── 2x3-Mockup-20.json
-│   │   │   │   ├── 2x3-Mockup-21.json
-│   │   │   │   ├── 2x3-Mockup-22.json
-│   │   │   │   ├── 2x3-Mockup-23.json
-│   │   │   │   ├── 2x3-Mockup-24.json
-│   │   │   │   ├── 2x3-Mockup-25.json
-│   │   │   │   ├── 2x3-Mockup-26.json
-│   │   │   │   ├── 2x3-Mockup-3.json
-│   │   │   │   ├── 2x3-Mockup-4.json
-│   │   │   │   ├── 2x3-Mockup-5.json
-│   │   │   │   ├── 2x3-Mockup-6.json
-│   │   │   │   ├── 2x3-Mockup-7.json
-│   │   │   │   ├── 2x3-Mockup-8.json
-│   │   │   │   └── 2x3-Mockup-9.json
-│   │   │   ├── 3x2
-│   │   │   │   ├── 3x2-Mockup-1.json
-│   │   │   │   ├── 3x2-Mockup-10.json
-│   │   │   │   ├── 3x2-Mockup-11.json
-│   │   │   │   ├── 3x2-Mockup-12.json
-│   │   │   │   ├── 3x2-Mockup-13.json
-│   │   │   │   ├── 3x2-Mockup-14.json
-│   │   │   │   ├── 3x2-Mockup-15.json
-│   │   │   │   ├── 3x2-Mockup-16.json
-│   │   │   │   ├── 3x2-Mockup-17.json
-│   │   │   │   ├── 3x2-Mockup-18.json
-│   │   │   │   ├── 3x2-Mockup-19.json
-│   │   │   │   ├── 3x2-Mockup-2.json
-│   │   │   │   ├── 3x2-Mockup-20.json
-│   │   │   │   ├── 3x2-Mockup-3.json
-│   │   │   │   ├── 3x2-Mockup-4.json
-│   │   │   │   ├── 3x2-Mockup-5.json
-│   │   │   │   ├── 3x2-Mockup-6.json
-│   │   │   │   ├── 3x2-Mockup-7.json
-│   │   │   │   ├── 3x2-Mockup-8.json
-│   │   │   │   └── 3x2-Mockup-9.json
-│   │   │   ├── 3x4
-│   │   │   │   ├── 3x4-Mockup-1.json
-│   │   │   │   ├── 3x4-Mockup-10.json
-│   │   │   │   ├── 3x4-Mockup-11.json
-│   │   │   │   ├── 3x4-Mockup-12.json
-│   │   │   │   ├── 3x4-Mockup-13.json
-│   │   │   │   ├── 3x4-Mockup-14.json
-│   │   │   │   ├── 3x4-Mockup-15.json
-│   │   │   │   ├── 3x4-Mockup-16.json
-│   │   │   │   ├── 3x4-Mockup-17.json
-│   │   │   │   ├── 3x4-Mockup-18.json
-│   │   │   │   ├── 3x4-Mockup-19.json
-│   │   │   │   ├── 3x4-Mockup-2.json
-│   │   │   │   ├── 3x4-Mockup-20.json
-│   │   │   │   ├── 3x4-Mockup-3.json
-│   │   │   │   ├── 3x4-Mockup-4.json
-│   │   │   │   ├── 3x4-Mockup-5.json
-│   │   │   │   ├── 3x4-Mockup-6.json
-│   │   │   │   ├── 3x4-Mockup-7.json
-│   │   │   │   ├── 3x4-Mockup-8.json
-│   │   │   │   └── 3x4-Mockup-9.json
-│   │   │   ├── 4x3
-│   │   │   │   ├── 4x3-Mockup-1.json
-│   │   │   │   ├── 4x3-Mockup-10.json
-│   │   │   │   ├── 4x3-Mockup-11.json
-│   │   │   │   ├── 4x3-Mockup-12.json
-│   │   │   │   ├── 4x3-Mockup-13.json
-│   │   │   │   ├── 4x3-Mockup-15.json
-│   │   │   │   ├── 4x3-Mockup-16.json
-│   │   │   │   ├── 4x3-Mockup-17.json
-│   │   │   │   ├── 4x3-Mockup-19.json
-│   │   │   │   ├── 4x3-Mockup-20.json
-│   │   │   │   ├── 4x3-Mockup-3.json
-│   │   │   │   ├── 4x3-Mockup-4.json
-│   │   │   │   ├── 4x3-Mockup-5.json
-│   │   │   │   ├── 4x3-Mockup-7.json
-│   │   │   │   ├── 4x3-Mockup-8.json
-│   │   │   │   └── 4x3-Mockup-9.json
-│   │   │   ├── 4x5
-│   │   │   │   ├── 4x5-mockup-01.json
-│   │   │   │   ├── 4x5-mockup-02.json
-│   │   │   │   ├── 4x5-mockup-03.json
-│   │   │   │   ├── 4x5-mockup-04.json
-│   │   │   │   ├── 4x5-mockup-05.json
-│   │   │   │   ├── 4x5-mockup-06.json
-│   │   │   │   ├── 4x5-mockup-07.json
-│   │   │   │   ├── 4x5-mockup-08.json
-│   │   │   │   ├── 4x5-mockup-09.json
-│   │   │   │   ├── 4x5-mockup-10.json
-│   │   │   │   ├── 4x5-mockup-11.json
-│   │   │   │   ├── 4x5-mockup-12.json
-│   │   │   │   ├── 4x5-mockup-13.json
-│   │   │   │   ├── 4x5-mockup-14.json
-│   │   │   │   ├── 4x5-mockup-15.json
-│   │   │   │   ├── 4x5-mockup-16.json
-│   │   │   │   ├── 4x5-mockup-17.json
-│   │   │   │   ├── 4x5-mockup-18.json
-│   │   │   │   ├── 4x5-mockup-19.json
-│   │   │   │   ├── 4x5-mockup-20.json
-│   │   │   │   ├── 4x5-mockup-21.json
-│   │   │   │   ├── 4x5-mockup-22.json
-│   │   │   │   ├── 4x5-mockup-23.json
-│   │   │   │   ├── 4x5-mockup-24.json
-│   │   │   │   ├── 4x5-mockup-25.json
-│   │   │   │   ├── 4x5-mockup-26.json
-│   │   │   │   ├── 4x5-mockup-27.json
-│   │   │   │   ├── 4x5-mockup-28.json
-│   │   │   │   ├── 4x5-mockup-29.json
-│   │   │   │   ├── 4x5-mockup-30.json
-│   │   │   │   ├── 4x5-mockup-31.json
-│   │   │   │   ├── 4x5-mockup-32.json
-│   │   │   │   ├── 4x5-mockup-33.json
-│   │   │   │   ├── 4x5-mockup-34.json
-│   │   │   │   ├── 4x5-mockup-35.json
-│   │   │   │   ├── 4x5-mockup-36.json
-│   │   │   │   ├── 4x5-mockup-37.json
-│   │   │   │   ├── 4x5-mockup-38.json
-│   │   │   │   ├── 4x5-mockup-39.json
-│   │   │   │   ├── 4x5-mockup-40.json
-│   │   │   │   ├── 4x5-mockup-41.json
-│   │   │   │   ├── 4x5-mockup-42.json
-│   │   │   │   ├── 4x5-mockup-43.json
-│   │   │   │   ├── 4x5-mockup-44.json
-│   │   │   │   ├── 4x5-mockup-45.json
-│   │   │   │   ├── 4x5-mockup-46.json
-│   │   │   │   ├── 4x5-mockup-47.json
-│   │   │   │   ├── 4x5-mockup-48.json
-│   │   │   │   ├── 4x5-mockup-49.json
-│   │   │   │   ├── 4x5-mockup-50.json
-│   │   │   │   ├── 4x5-mockup-51.json
-│   │   │   │   ├── 4x5-mockup-52.json
-│   │   │   │   ├── 4x5-mockup-53.json
-│   │   │   │   ├── 4x5-mockup-54.json
-│   │   │   │   ├── 4x5-mockup-55.json
-│   │   │   │   ├── 4x5-mockup-56.json
-│   │   │   │   ├── 4x5-mockup-57.json
-│   │   │   │   ├── 4x5-mockup-58.json
-│   │   │   │   ├── 4x5-mockup-59.json
-│   │   │   │   ├── 4x5-mockup-60.json
-│   │   │   │   ├── 4x5-mockup-61.json
-│   │   │   │   ├── 4x5-mockup-62.json
-│   │   │   │   ├── 4x5-mockup-63.json
-│   │   │   │   ├── 4x5-mockup-64.json
-│   │   │   │   ├── 4x5-mockup-65.json
-│   │   │   │   ├── 4x5-mockup-66.json
-│   │   │   │   ├── 4x5-mockup-67.json
-│   │   │   │   ├── 4x5-mockup-68.json
-│   │   │   │   ├── 4x5-mockup-69.json
-│   │   │   │   ├── 4x5-mockup-70.json
-│   │   │   │   ├── 4x5-mockup-71.json
-│   │   │   │   ├── 4x5-mockup-72.json
-│   │   │   │   ├── 4x5-mockup-73.json
-│   │   │   │   ├── 4x5-mockup-74.json
-│   │   │   │   ├── 4x5-mockup-75.json
-│   │   │   │   ├── 4x5-mockup-76.json
-│   │   │   │   ├── 4x5-mockup-77.json
-│   │   │   │   └── 4x5-mockup-78.json
-│   │   │   ├── 5x4
-│   │   │   │   ├── 5x4-Mockup-1.json
-│   │   │   │   ├── 5x4-Mockup-10.json
-│   │   │   │   ├── 5x4-Mockup-11.json
-│   │   │   │   ├── 5x4-Mockup-12.json
-│   │   │   │   ├── 5x4-Mockup-13.json
-│   │   │   │   ├── 5x4-Mockup-14.json
-│   │   │   │   ├── 5x4-Mockup-15.json
-│   │   │   │   ├── 5x4-Mockup-16.json
-│   │   │   │   ├── 5x4-Mockup-17.json
-│   │   │   │   ├── 5x4-Mockup-18.json
-│   │   │   │   ├── 5x4-Mockup-19.json
-│   │   │   │   ├── 5x4-Mockup-2.json
-│   │   │   │   ├── 5x4-Mockup-20.json
-│   │   │   │   ├── 5x4-Mockup-21.json
-│   │   │   │   ├── 5x4-Mockup-22.json
-│   │   │   │   ├── 5x4-Mockup-3.json
-│   │   │   │   ├── 5x4-Mockup-4.json
-│   │   │   │   ├── 5x4-Mockup-5.json
-│   │   │   │   ├── 5x4-Mockup-6.json
-│   │   │   │   ├── 5x4-Mockup-7.json
-│   │   │   │   ├── 5x4-Mockup-8.json
-│   │   │   │   └── 5x4-Mockup-9.json
-│   │   │   └── 9x16
-│   │   │       ├── 9x16-Mockup-1.json
-│   │   │       ├── 9x16-Mockup-10.json
-│   │   │       ├── 9x16-Mockup-11.json
-│   │   │       ├── 9x16-Mockup-12.json
-│   │   │       ├── 9x16-Mockup-13.json
-│   │   │       ├── 9x16-Mockup-14.json
-│   │   │       ├── 9x16-Mockup-15.json
-│   │   │       ├── 9x16-Mockup-16.json
-│   │   │       ├── 9x16-Mockup-17.json
-│   │   │       ├── 9x16-Mockup-18.json
-│   │   │       ├── 9x16-Mockup-19.json
-│   │   │       ├── 9x16-Mockup-2.json
-│   │   │       ├── 9x16-Mockup-20.json
-│   │   │       ├── 9x16-Mockup-21.json
-│   │   │       ├── 9x16-Mockup-22.json
-│   │   │       ├── 9x16-Mockup-23.json
-│   │   │       ├── 9x16-Mockup-24.json
-│   │   │       ├── 9x16-Mockup-3.json
-│   │   │       ├── 9x16-Mockup-4.json
-│   │   │       ├── 9x16-Mockup-5.json
-│   │   │       ├── 9x16-Mockup-6.json
-│   │   │       ├── 9x16-Mockup-7.json
-│   │   │       ├── 9x16-Mockup-8.json
-│   │   │       └── 9x16-Mockup-9.json
-│   │   └── Mockups
-│   │       ├── 4x5
-│   │       └── 4x5-categorised
-│   │           ├── Bedroom
-│   │           │   ├── 4x5-mockup-10.png
-│   │           │   ├── 4x5-mockup-11.png
-│   │           │   ├── 4x5-mockup-12.png
-│   │           │   └── 4x5-mockup-13.png
-│   │           ├── Closeup
-│   │           │   ├── 4x5-mockup-06.png
-│   │           │   ├── 4x5-mockup-07.png
-│   │           │   ├── 4x5-mockup-08.png
-│   │           │   ├── 4x5-mockup-09.png
-│   │           │   ├── 4x5-mockup-16.png
-│   │           │   ├── 4x5-mockup-17.png
-│   │           │   ├── 4x5-mockup-18.png
-│   │           │   ├── 4x5-mockup-19.png
-│   │           │   ├── 4x5-mockup-20.png
-│   │           │   ├── 4x5-mockup-22.png
-│   │           │   ├── 4x5-mockup-23.png
-│   │           │   ├── 4x5-mockup-46.png
-│   │           │   ├── 4x5-mockup-48.png
-│   │           │   ├── 4x5-mockup-49.png
-│   │           │   ├── 4x5-mockup-50.png
-│   │           │   ├── 4x5-mockup-59.png
-│   │           │   ├── 4x5-mockup-65.png
-│   │           │   └── 4x5-mockup-72.png
-│   │           ├── Dining-Room
-│   │           │   ├── 4x5-mockup-75.png
-│   │           │   └── 4x5-mockup-76.png
-│   │           ├── Gallery-Wall
-│   │           │   ├── 4x5-mockup-63.png
-│   │           │   └── 4x5-mockup-64.png
-│   │           ├── Hallway
-│   │           │   ├── 4x5-mockup-25.png
-│   │           │   ├── 4x5-mockup-55.png
-│   │           │   ├── 4x5-mockup-60.png
-│   │           │   └── 4x5-mockup-70.png
-│   │           ├── Living Room
-│   │           │   ├── 4x5-mockup-01.png
-│   │           │   ├── 4x5-mockup-02.png
-│   │           │   ├── 4x5-mockup-04.png
-│   │           │   ├── 4x5-mockup-21.png
-│   │           │   ├── 4x5-mockup-26.png
-│   │           │   ├── 4x5-mockup-27.png
-│   │           │   ├── 4x5-mockup-28.png
-│   │           │   ├── 4x5-mockup-39.png
-│   │           │   ├── 4x5-mockup-40.png
-│   │           │   ├── 4x5-mockup-41.png
-│   │           │   ├── 4x5-mockup-42.png
-│   │           │   ├── 4x5-mockup-43.png
-│   │           │   ├── 4x5-mockup-45.png
-│   │           │   ├── 4x5-mockup-47.png
-│   │           │   ├── 4x5-mockup-51.png
-│   │           │   ├── 4x5-mockup-52.png
-│   │           │   ├── 4x5-mockup-53.png
-│   │           │   ├── 4x5-mockup-54.png
-│   │           │   ├── 4x5-mockup-56.png
-│   │           │   ├── 4x5-mockup-66.png
-│   │           │   ├── 4x5-mockup-67.png
-│   │           │   ├── 4x5-mockup-71.png
-│   │           │   ├── 4x5-mockup-73.png
-│   │           │   ├── 4x5-mockup-74.png
-│   │           │   └── 4x5-mockup-78.png
-│   │           ├── Nursery
-│   │           │   ├── 4x5-mockup-03.png
-│   │           │   └── 4x5-mockup-05.png
-│   │           ├── Office
-│   │           │   ├── 4x5-mockup-14.png
-│   │           │   ├── 4x5-mockup-15.png
-│   │           │   ├── 4x5-mockup-57.png
-│   │           │   ├── 4x5-mockup-58.png
-│   │           │   ├── 4x5-mockup-61.png
-│   │           │   ├── 4x5-mockup-62.png
-│   │           │   ├── 4x5-mockup-68.png
-│   │           │   ├── 4x5-mockup-69.png
-│   │           │   └── 4x5-mockup-77.png
-│   │           ├── Outdoors
-│   │           │   ├── 4x5-mockup-24.png
-│   │           │   ├── 4x5-mockup-29.png
-│   │           │   ├── 4x5-mockup-30.png
-│   │           │   ├── 4x5-mockup-31.png
-│   │           │   ├── 4x5-mockup-32.png
-│   │           │   ├── 4x5-mockup-33.png
-│   │           │   ├── 4x5-mockup-34.png
-│   │           │   ├── 4x5-mockup-35.png
-│   │           │   ├── 4x5-mockup-36.png
-│   │           │   ├── 4x5-mockup-37.png
-│   │           │   └── 4x5-mockup-38.png
-│   │           └── Uncategorised
-│   ├── JSON-Files
-│   │   └── .env
-│   ├── Output
-│   │   ├── Analysis
-│   │   │   └── 4x5
-│   │   ├── Composites
-│   │   │   ├── 16x9
-│   │   │   ├── 1x1
-│   │   │   ├── 2x3
-│   │   │   ├── 3x2
-│   │   │   ├── 3x4
-│   │   │   ├── 4x3
-│   │   │   ├── 4x5
-│   │   │   ├── 5x4
-│   │   │   ├── 5x7
-│   │   │   ├── 7x5
-│   │   │   ├── 9x16
-│   │   │   ├── A-Series
-│   │   │   ├── A-Series-Horizontal
-│   │   │   └── A-Series-Vertical
-│   │   └── Debug_Warped
-│   ├── backups
-│   ├── composite_log.txt
-│   ├── copy_mockup_generator_clean.py
-│   ├── csv-files
-│   ├── folder-structure-full.txt
-│   ├── folder-structure-no-images_Tue-13-May-2025_11-17PM.txt
-│   ├── hn-safe-final-LOG-20250518-1918.txt
-│   ├── hn-safe-final-LOG-20250518-1940.txt
-│   ├── html
-│   │   └── index.html
-│   ├── new-mockups
-│   ├── package-lock.json
-│   ├── package.json
-│   ├── reports
-│   └── scripts
-│       ├── ai-jpeg-reset.sh
-│       ├── backup_mockup_generator.sh
-│       ├── backup_mockup_structure.sh
-│       ├── compatible-image-generator.jsx
-│       ├── dupe-png-files-and-rename.py
-│       ├── export-artwork-layers.jsx
-│       ├── find-matching-png-files.py
-│       ├── fix_srgb_profiles.py
-│       ├── gather_mockup_code_to_text.sh
-│       ├── generate_all_coordinates.py
-│       ├── generate_composites.py
-│       ├── generate_folder_structure.py
-│       ├── google_vision_basic_analyzer.py
-│       ├── openai_vision_test.py
-│       ├── organise-jpg-and-png-files.py
-│       ├── rename-4x5-mockup-layers.jsx
-│       ├── utils.py
-│       └── write_all_composite_generators.py
 ├── LICENSE
 ├── README.md
 ├── assets
 │   ├── mockups
 │   └── style.css
 ├── capitalart-total-nuclear.py
+├── capitalart_ui.py
 ├── descriptions
-│   └── artworks.json
+│   ├── artworks.json
+│   ├── autojourney_downloader_export_26_06_2025_15_02_55.csv
+│   └── autojourney_downloader_export_26_06_2025_15_03_12.json
+├── folder_structure.txt
 ├── generate_folder_tree.py
+├── generic_texts
+│   ├── 16x9.txt
+│   ├── 1x1.txt
+│   ├── 2x3.txt
+│   ├── 3x2.txt
+│   ├── 3x4.txt
+│   ├── 4x3.txt
+│   ├── 4x5.txt
+│   ├── 5x4.txt
+│   ├── 5x7.txt
+│   ├── 7x5.txt
+│   ├── 9x16.txt
+│   ├── A-Series-Horizontal.txt
+│   └── A-Series-Verical.txt
+├── inputs
+│   ├── Coordinates
+│   │   ├── 16x9
+│   │   │   ├── 16x9-Mockup-1.json
+│   │   │   ├── 16x9-Mockup-10.json
+│   │   │   ├── 16x9-Mockup-11.json
+│   │   │   ├── 16x9-Mockup-12.json
+│   │   │   ├── 16x9-Mockup-13.json
+│   │   │   ├── 16x9-Mockup-14.json
+│   │   │   ├── 16x9-Mockup-15.json
+│   │   │   ├── 16x9-Mockup-16.json
+│   │   │   ├── 16x9-Mockup-17.json
+│   │   │   ├── 16x9-Mockup-18.json
+│   │   │   ├── 16x9-Mockup-19.json
+│   │   │   ├── 16x9-Mockup-2.json
+│   │   │   ├── 16x9-Mockup-20.json
+│   │   │   ├── 16x9-Mockup-21.json
+│   │   │   ├── 16x9-Mockup-22.json
+│   │   │   ├── 16x9-Mockup-23.json
+│   │   │   ├── 16x9-Mockup-24.json
+│   │   │   ├── 16x9-Mockup-25.json
+│   │   │   ├── 16x9-Mockup-26.json
+│   │   │   ├── 16x9-Mockup-27.json
+│   │   │   ├── 16x9-Mockup-28.json
+│   │   │   ├── 16x9-Mockup-29.json
+│   │   │   ├── 16x9-Mockup-3.json
+│   │   │   ├── 16x9-Mockup-30.json
+│   │   │   ├── 16x9-Mockup-31.json
+│   │   │   ├── 16x9-Mockup-32.json
+│   │   │   ├── 16x9-Mockup-33.json
+│   │   │   ├── 16x9-Mockup-34.json
+│   │   │   ├── 16x9-Mockup-35.json
+│   │   │   ├── 16x9-Mockup-36.json
+│   │   │   ├── 16x9-Mockup-37.json
+│   │   │   ├── 16x9-Mockup-38.json
+│   │   │   ├── 16x9-Mockup-39.json
+│   │   │   ├── 16x9-Mockup-4.json
+│   │   │   ├── 16x9-Mockup-40.json
+│   │   │   ├── 16x9-Mockup-41.json
+│   │   │   ├── 16x9-Mockup-42.json
+│   │   │   ├── 16x9-Mockup-43.json
+│   │   │   ├── 16x9-Mockup-44.json
+│   │   │   ├── 16x9-Mockup-45.json
+│   │   │   ├── 16x9-Mockup-46.json
+│   │   │   ├── 16x9-Mockup-47.json
+│   │   │   ├── 16x9-Mockup-48.json
+│   │   │   ├── 16x9-Mockup-49.json
+│   │   │   ├── 16x9-Mockup-5.json
+│   │   │   ├── 16x9-Mockup-50.json
+│   │   │   ├── 16x9-Mockup-51.json
+│   │   │   ├── 16x9-Mockup-52.json
+│   │   │   ├── 16x9-Mockup-53.json
+│   │   │   ├── 16x9-Mockup-54.json
+│   │   │   ├── 16x9-Mockup-6.json
+│   │   │   ├── 16x9-Mockup-7.json
+│   │   │   ├── 16x9-Mockup-8.json
+│   │   │   └── 16x9-Mockup-9.json
+│   │   ├── 1x1
+│   │   │   ├── 1x1-Mockup-1.json
+│   │   │   ├── 1x1-Mockup-10.json
+│   │   │   ├── 1x1-Mockup-11.json
+│   │   │   ├── 1x1-Mockup-12.json
+│   │   │   ├── 1x1-Mockup-13.json
+│   │   │   ├── 1x1-Mockup-14.json
+│   │   │   ├── 1x1-Mockup-15.json
+│   │   │   ├── 1x1-Mockup-16.json
+│   │   │   ├── 1x1-Mockup-17.json
+│   │   │   ├── 1x1-Mockup-18.json
+│   │   │   ├── 1x1-Mockup-19.json
+│   │   │   ├── 1x1-Mockup-2.json
+│   │   │   ├── 1x1-Mockup-20.json
+│   │   │   ├── 1x1-Mockup-21.json
+│   │   │   ├── 1x1-Mockup-22.json
+│   │   │   ├── 1x1-Mockup-23.json
+│   │   │   ├── 1x1-Mockup-24.json
+│   │   │   ├── 1x1-Mockup-25.json
+│   │   │   ├── 1x1-Mockup-26.json
+│   │   │   ├── 1x1-Mockup-27.json
+│   │   │   ├── 1x1-Mockup-28.json
+│   │   │   ├── 1x1-Mockup-29.json
+│   │   │   ├── 1x1-Mockup-3.json
+│   │   │   ├── 1x1-Mockup-30.json
+│   │   │   ├── 1x1-Mockup-31.json
+│   │   │   ├── 1x1-Mockup-32.json
+│   │   │   ├── 1x1-Mockup-33.json
+│   │   │   ├── 1x1-Mockup-34.json
+│   │   │   ├── 1x1-Mockup-35.json
+│   │   │   ├── 1x1-Mockup-36.json
+│   │   │   ├── 1x1-Mockup-37.json
+│   │   │   ├── 1x1-Mockup-38.json
+│   │   │   ├── 1x1-Mockup-39.json
+│   │   │   ├── 1x1-Mockup-4.json
+│   │   │   ├── 1x1-Mockup-40.json
+│   │   │   ├── 1x1-Mockup-41.json
+│   │   │   ├── 1x1-Mockup-42.json
+│   │   │   ├── 1x1-Mockup-43.json
+│   │   │   ├── 1x1-Mockup-44.json
+│   │   │   ├── 1x1-Mockup-45.json
+│   │   │   ├── 1x1-Mockup-46.json
+│   │   │   ├── 1x1-Mockup-47.json
+│   │   │   ├── 1x1-Mockup-48.json
+│   │   │   ├── 1x1-Mockup-49.json
+│   │   │   ├── 1x1-Mockup-5.json
+│   │   │   ├── 1x1-Mockup-50.json
+│   │   │   ├── 1x1-Mockup-51.json
+│   │   │   ├── 1x1-Mockup-52.json
+│   │   │   ├── 1x1-Mockup-53.json
+│   │   │   ├── 1x1-Mockup-54.json
+│   │   │   ├── 1x1-Mockup-55.json
+│   │   │   ├── 1x1-Mockup-56.json
+│   │   │   ├── 1x1-Mockup-57.json
+│   │   │   ├── 1x1-Mockup-58.json
+│   │   │   ├── 1x1-Mockup-59.json
+│   │   │   ├── 1x1-Mockup-6.json
+│   │   │   ├── 1x1-Mockup-60.json
+│   │   │   ├── 1x1-Mockup-61.json
+│   │   │   ├── 1x1-Mockup-62.json
+│   │   │   ├── 1x1-Mockup-63.json
+│   │   │   ├── 1x1-Mockup-64.json
+│   │   │   ├── 1x1-Mockup-65.json
+│   │   │   ├── 1x1-Mockup-66.json
+│   │   │   ├── 1x1-Mockup-67.json
+│   │   │   ├── 1x1-Mockup-68.json
+│   │   │   ├── 1x1-Mockup-69.json
+│   │   │   ├── 1x1-Mockup-7.json
+│   │   │   ├── 1x1-Mockup-70.json
+│   │   │   ├── 1x1-Mockup-71.json
+│   │   │   ├── 1x1-Mockup-72.json
+│   │   │   ├── 1x1-Mockup-73.json
+│   │   │   ├── 1x1-Mockup-74.json
+│   │   │   ├── 1x1-Mockup-8.json
+│   │   │   └── 1x1-Mockup-9.json
+│   │   ├── 2x3
+│   │   │   ├── 2x3-Mockup-1.json
+│   │   │   ├── 2x3-Mockup-10.json
+│   │   │   ├── 2x3-Mockup-11.json
+│   │   │   ├── 2x3-Mockup-12.json
+│   │   │   ├── 2x3-Mockup-13.json
+│   │   │   ├── 2x3-Mockup-14.json
+│   │   │   ├── 2x3-Mockup-15.json
+│   │   │   ├── 2x3-Mockup-16.json
+│   │   │   ├── 2x3-Mockup-17.json
+│   │   │   ├── 2x3-Mockup-18.json
+│   │   │   ├── 2x3-Mockup-19.json
+│   │   │   ├── 2x3-Mockup-2.json
+│   │   │   ├── 2x3-Mockup-20.json
+│   │   │   ├── 2x3-Mockup-21.json
+│   │   │   ├── 2x3-Mockup-22.json
+│   │   │   ├── 2x3-Mockup-23.json
+│   │   │   ├── 2x3-Mockup-24.json
+│   │   │   ├── 2x3-Mockup-25.json
+│   │   │   ├── 2x3-Mockup-26.json
+│   │   │   ├── 2x3-Mockup-3.json
+│   │   │   ├── 2x3-Mockup-4.json
+│   │   │   ├── 2x3-Mockup-5.json
+│   │   │   ├── 2x3-Mockup-6.json
+│   │   │   ├── 2x3-Mockup-7.json
+│   │   │   ├── 2x3-Mockup-8.json
+│   │   │   └── 2x3-Mockup-9.json
+│   │   ├── 3x2
+│   │   │   ├── 3x2-Mockup-1.json
+│   │   │   ├── 3x2-Mockup-10.json
+│   │   │   ├── 3x2-Mockup-11.json
+│   │   │   ├── 3x2-Mockup-12.json
+│   │   │   ├── 3x2-Mockup-13.json
+│   │   │   ├── 3x2-Mockup-14.json
+│   │   │   ├── 3x2-Mockup-15.json
+│   │   │   ├── 3x2-Mockup-16.json
+│   │   │   ├── 3x2-Mockup-17.json
+│   │   │   ├── 3x2-Mockup-18.json
+│   │   │   ├── 3x2-Mockup-19.json
+│   │   │   ├── 3x2-Mockup-2.json
+│   │   │   ├── 3x2-Mockup-20.json
+│   │   │   ├── 3x2-Mockup-3.json
+│   │   │   ├── 3x2-Mockup-4.json
+│   │   │   ├── 3x2-Mockup-5.json
+│   │   │   ├── 3x2-Mockup-6.json
+│   │   │   ├── 3x2-Mockup-7.json
+│   │   │   ├── 3x2-Mockup-8.json
+│   │   │   └── 3x2-Mockup-9.json
+│   │   ├── 3x4
+│   │   │   ├── 3x4-Mockup-1.json
+│   │   │   ├── 3x4-Mockup-10.json
+│   │   │   ├── 3x4-Mockup-11.json
+│   │   │   ├── 3x4-Mockup-12.json
+│   │   │   ├── 3x4-Mockup-13.json
+│   │   │   ├── 3x4-Mockup-14.json
+│   │   │   ├── 3x4-Mockup-15.json
+│   │   │   ├── 3x4-Mockup-16.json
+│   │   │   ├── 3x4-Mockup-17.json
+│   │   │   ├── 3x4-Mockup-18.json
+│   │   │   ├── 3x4-Mockup-19.json
+│   │   │   ├── 3x4-Mockup-2.json
+│   │   │   ├── 3x4-Mockup-20.json
+│   │   │   ├── 3x4-Mockup-3.json
+│   │   │   ├── 3x4-Mockup-4.json
+│   │   │   ├── 3x4-Mockup-5.json
+│   │   │   ├── 3x4-Mockup-6.json
+│   │   │   ├── 3x4-Mockup-7.json
+│   │   │   ├── 3x4-Mockup-8.json
+│   │   │   └── 3x4-Mockup-9.json
+│   │   ├── 4x3
+│   │   │   ├── 4x3-Mockup-1.json
+│   │   │   ├── 4x3-Mockup-10.json
+│   │   │   ├── 4x3-Mockup-11.json
+│   │   │   ├── 4x3-Mockup-12.json
+│   │   │   ├── 4x3-Mockup-13.json
+│   │   │   ├── 4x3-Mockup-15.json
+│   │   │   ├── 4x3-Mockup-16.json
+│   │   │   ├── 4x3-Mockup-17.json
+│   │   │   ├── 4x3-Mockup-19.json
+│   │   │   ├── 4x3-Mockup-20.json
+│   │   │   ├── 4x3-Mockup-3.json
+│   │   │   ├── 4x3-Mockup-4.json
+│   │   │   ├── 4x3-Mockup-5.json
+│   │   │   ├── 4x3-Mockup-7.json
+│   │   │   ├── 4x3-Mockup-8.json
+│   │   │   └── 4x3-Mockup-9.json
+│   │   ├── 4x5
+│   │   │   ├── 4x5-mockup-01.json
+│   │   │   ├── 4x5-mockup-02.json
+│   │   │   ├── 4x5-mockup-03.json
+│   │   │   ├── 4x5-mockup-04.json
+│   │   │   ├── 4x5-mockup-05.json
+│   │   │   ├── 4x5-mockup-06.json
+│   │   │   ├── 4x5-mockup-07.json
+│   │   │   ├── 4x5-mockup-08.json
+│   │   │   ├── 4x5-mockup-09.json
+│   │   │   ├── 4x5-mockup-10.json
+│   │   │   ├── 4x5-mockup-11.json
+│   │   │   ├── 4x5-mockup-12.json
+│   │   │   ├── 4x5-mockup-13.json
+│   │   │   ├── 4x5-mockup-14.json
+│   │   │   ├── 4x5-mockup-15.json
+│   │   │   ├── 4x5-mockup-16.json
+│   │   │   ├── 4x5-mockup-17.json
+│   │   │   ├── 4x5-mockup-18.json
+│   │   │   ├── 4x5-mockup-19.json
+│   │   │   ├── 4x5-mockup-20.json
+│   │   │   ├── 4x5-mockup-21.json
+│   │   │   ├── 4x5-mockup-22.json
+│   │   │   ├── 4x5-mockup-23.json
+│   │   │   ├── 4x5-mockup-24.json
+│   │   │   ├── 4x5-mockup-25.json
+│   │   │   ├── 4x5-mockup-26.json
+│   │   │   ├── 4x5-mockup-27.json
+│   │   │   ├── 4x5-mockup-28.json
+│   │   │   ├── 4x5-mockup-29.json
+│   │   │   ├── 4x5-mockup-30.json
+│   │   │   ├── 4x5-mockup-31.json
+│   │   │   ├── 4x5-mockup-32.json
+│   │   │   ├── 4x5-mockup-33.json
+│   │   │   ├── 4x5-mockup-34.json
+│   │   │   ├── 4x5-mockup-35.json
+│   │   │   ├── 4x5-mockup-36.json
+│   │   │   ├── 4x5-mockup-37.json
+│   │   │   ├── 4x5-mockup-38.json
+│   │   │   ├── 4x5-mockup-39.json
+│   │   │   ├── 4x5-mockup-40.json
+│   │   │   ├── 4x5-mockup-41.json
+│   │   │   ├── 4x5-mockup-42.json
+│   │   │   ├── 4x5-mockup-43.json
+│   │   │   ├── 4x5-mockup-44.json
+│   │   │   ├── 4x5-mockup-45.json
+│   │   │   ├── 4x5-mockup-46.json
+│   │   │   ├── 4x5-mockup-47.json
+│   │   │   ├── 4x5-mockup-48.json
+│   │   │   ├── 4x5-mockup-49.json
+│   │   │   ├── 4x5-mockup-50.json
+│   │   │   ├── 4x5-mockup-51.json
+│   │   │   ├── 4x5-mockup-52.json
+│   │   │   ├── 4x5-mockup-53.json
+│   │   │   ├── 4x5-mockup-54.json
+│   │   │   ├── 4x5-mockup-55.json
+│   │   │   ├── 4x5-mockup-56.json
+│   │   │   ├── 4x5-mockup-57.json
+│   │   │   ├── 4x5-mockup-58.json
+│   │   │   ├── 4x5-mockup-59.json
+│   │   │   ├── 4x5-mockup-60.json
+│   │   │   ├── 4x5-mockup-61.json
+│   │   │   ├── 4x5-mockup-62.json
+│   │   │   ├── 4x5-mockup-63.json
+│   │   │   ├── 4x5-mockup-64.json
+│   │   │   ├── 4x5-mockup-65.json
+│   │   │   ├── 4x5-mockup-66.json
+│   │   │   ├── 4x5-mockup-67.json
+│   │   │   ├── 4x5-mockup-68.json
+│   │   │   ├── 4x5-mockup-69.json
+│   │   │   ├── 4x5-mockup-70.json
+│   │   │   ├── 4x5-mockup-71.json
+│   │   │   ├── 4x5-mockup-72.json
+│   │   │   ├── 4x5-mockup-73.json
+│   │   │   ├── 4x5-mockup-74.json
+│   │   │   ├── 4x5-mockup-75.json
+│   │   │   ├── 4x5-mockup-76.json
+│   │   │   ├── 4x5-mockup-77.json
+│   │   │   └── 4x5-mockup-78.json
+│   │   ├── 5x4
+│   │   │   ├── 5x4-Mockup-1.json
+│   │   │   ├── 5x4-Mockup-10.json
+│   │   │   ├── 5x4-Mockup-11.json
+│   │   │   ├── 5x4-Mockup-12.json
+│   │   │   ├── 5x4-Mockup-13.json
+│   │   │   ├── 5x4-Mockup-14.json
+│   │   │   ├── 5x4-Mockup-15.json
+│   │   │   ├── 5x4-Mockup-16.json
+│   │   │   ├── 5x4-Mockup-17.json
+│   │   │   ├── 5x4-Mockup-18.json
+│   │   │   ├── 5x4-Mockup-19.json
+│   │   │   ├── 5x4-Mockup-2.json
+│   │   │   ├── 5x4-Mockup-20.json
+│   │   │   ├── 5x4-Mockup-21.json
+│   │   │   ├── 5x4-Mockup-22.json
+│   │   │   ├── 5x4-Mockup-3.json
+│   │   │   ├── 5x4-Mockup-4.json
+│   │   │   ├── 5x4-Mockup-5.json
+│   │   │   ├── 5x4-Mockup-6.json
+│   │   │   ├── 5x4-Mockup-7.json
+│   │   │   ├── 5x4-Mockup-8.json
+│   │   │   └── 5x4-Mockup-9.json
+│   │   └── 9x16
+│   │       ├── 9x16-Mockup-1.json
+│   │       ├── 9x16-Mockup-10.json
+│   │       ├── 9x16-Mockup-11.json
+│   │       ├── 9x16-Mockup-12.json
+│   │       ├── 9x16-Mockup-13.json
+│   │       ├── 9x16-Mockup-14.json
+│   │       ├── 9x16-Mockup-15.json
+│   │       ├── 9x16-Mockup-16.json
+│   │       ├── 9x16-Mockup-17.json
+│   │       ├── 9x16-Mockup-18.json
+│   │       ├── 9x16-Mockup-19.json
+│   │       ├── 9x16-Mockup-2.json
+│   │       ├── 9x16-Mockup-20.json
+│   │       ├── 9x16-Mockup-21.json
+│   │       ├── 9x16-Mockup-22.json
+│   │       ├── 9x16-Mockup-23.json
+│   │       ├── 9x16-Mockup-24.json
+│   │       ├── 9x16-Mockup-3.json
+│   │       ├── 9x16-Mockup-4.json
+│   │       ├── 9x16-Mockup-5.json
+│   │       ├── 9x16-Mockup-6.json
+│   │       ├── 9x16-Mockup-7.json
+│   │       ├── 9x16-Mockup-8.json
+│   │       └── 9x16-Mockup-9.json
+│   ├── artworks
+│   │   ├── 16x9
+│   │   ├── 1x1
+│   │   ├── 2x3
+│   │   ├── 3x2
+│   │   ├── 3x4
+│   │   ├── 4x3
+│   │   ├── 4x5
+│   │   │   └── tawny-frogmouth-generate-an-aboriginal-dot-painting-of-a-tawny-frogmouth-podargus-strigoides-perched-1.jpg
+│   │   ├── 5x4
+│   │   ├── 5x7
+│   │   ├── 7x5
+│   │   ├── 9x16
+│   │   ├── A-Series-Horizontal
+│   │   └── A-Series-Vertical
+│   └── mockups
+│       └── 4x5-categorised
+│           ├── Bedroom
+│           │   ├── 4x5-mockup-10.png
+│           │   ├── 4x5-mockup-11.png
+│           │   ├── 4x5-mockup-12.png
+│           │   └── 4x5-mockup-13.png
+│           ├── Closeup
+│           │   ├── 4x5-mockup-06.png
+│           │   ├── 4x5-mockup-07.png
+│           │   ├── 4x5-mockup-08.png
+│           │   ├── 4x5-mockup-09.png
+│           │   ├── 4x5-mockup-16.png
+│           │   ├── 4x5-mockup-17.png
+│           │   ├── 4x5-mockup-18.png
+│           │   ├── 4x5-mockup-19.png
+│           │   ├── 4x5-mockup-20.png
+│           │   ├── 4x5-mockup-22.png
+│           │   ├── 4x5-mockup-23.png
+│           │   ├── 4x5-mockup-46.png
+│           │   ├── 4x5-mockup-48.png
+│           │   ├── 4x5-mockup-49.png
+│           │   ├── 4x5-mockup-50.png
+│           │   ├── 4x5-mockup-59.png
+│           │   ├── 4x5-mockup-65.png
+│           │   └── 4x5-mockup-72.png
+│           ├── Dining-Room
+│           │   ├── 4x5-mockup-75.png
+│           │   └── 4x5-mockup-76.png
+│           ├── Gallery-Wall
+│           │   ├── 4x5-mockup-63.png
+│           │   └── 4x5-mockup-64.png
+│           ├── Hallway
+│           │   ├── 4x5-mockup-25.png
+│           │   ├── 4x5-mockup-55.png
+│           │   ├── 4x5-mockup-60.png
+│           │   └── 4x5-mockup-70.png
+│           ├── Living Room
+│           │   ├── 4x5-mockup-01.png
+│           │   ├── 4x5-mockup-02.png
+│           │   ├── 4x5-mockup-04.png
+│           │   ├── 4x5-mockup-21.png
+│           │   ├── 4x5-mockup-26.png
+│           │   ├── 4x5-mockup-27.png
+│           │   ├── 4x5-mockup-28.png
+│           │   ├── 4x5-mockup-39.png
+│           │   ├── 4x5-mockup-40.png
+│           │   ├── 4x5-mockup-41.png
+│           │   ├── 4x5-mockup-42.png
+│           │   ├── 4x5-mockup-43.png
+│           │   ├── 4x5-mockup-45.png
+│           │   ├── 4x5-mockup-47.png
+│           │   ├── 4x5-mockup-51.png
+│           │   ├── 4x5-mockup-52.png
+│           │   ├── 4x5-mockup-53.png
+│           │   ├── 4x5-mockup-54.png
+│           │   ├── 4x5-mockup-56.png
+│           │   ├── 4x5-mockup-66.png
+│           │   ├── 4x5-mockup-67.png
+│           │   ├── 4x5-mockup-71.png
+│           │   ├── 4x5-mockup-73.png
+│           │   ├── 4x5-mockup-74.png
+│           │   └── 4x5-mockup-78.png
+│           ├── Nursery
+│           │   ├── 4x5-mockup-03.png
+│           │   └── 4x5-mockup-05.png
+│           ├── Office
+│           │   ├── 4x5-mockup-14.png
+│           │   ├── 4x5-mockup-15.png
+│           │   ├── 4x5-mockup-57.png
+│           │   ├── 4x5-mockup-58.png
+│           │   ├── 4x5-mockup-61.png
+│           │   ├── 4x5-mockup-62.png
+│           │   ├── 4x5-mockup-68.png
+│           │   ├── 4x5-mockup-69.png
+│           │   └── 4x5-mockup-77.png
+│           ├── Outdoors
+│           │   ├── 4x5-mockup-24.png
+│           │   ├── 4x5-mockup-29.png
+│           │   ├── 4x5-mockup-30.png
+│           │   ├── 4x5-mockup-31.png
+│           │   ├── 4x5-mockup-32.png
+│           │   ├── 4x5-mockup-33.png
+│           │   ├── 4x5-mockup-34.png
+│           │   ├── 4x5-mockup-35.png
+│           │   ├── 4x5-mockup-36.png
+│           │   ├── 4x5-mockup-37.png
+│           │   └── 4x5-mockup-38.png
+│           └── Uncategorised
+├── main.py
 ├── mockup_categorisation_log.txt
 ├── mockup_categoriser.py
 ├── mockup_selector_ui.py
+├── older-scripts
+│   ├── ai-jpeg-reset.sh
+│   ├── backup_mockup_generator.sh
+│   ├── backup_mockup_structure.sh
+│   ├── compatible-image-generator.jsx
+│   ├── dupe-png-files-and-rename.py
+│   ├── export-artwork-layers.jsx
+│   ├── find-matching-png-files.py
+│   ├── fix_srgb_profiles.py
+│   ├── gather_mockup_code_to_text.sh
+│   ├── generate_all_coordinates.py
+│   ├── generate_composites.py
+│   ├── generate_folder_structure.py
+│   ├── google_vision_basic_analyzer.py
+│   ├── openai_vision_test.py
+│   ├── organise-jpg-and-png-files.py
+│   ├── rename-4x5-mockup-layers.jsx
+│   ├── utils.py
+│   └── write_all_composite_generators.py
+├── outputs
+│   ├── Composites
+│   │   ├── 16x9
+│   │   ├── 1x1
+│   │   ├── 2x3
+│   │   ├── 3x2
+│   │   ├── 3x4
+│   │   ├── 4x3
+│   │   ├── 4x5
+│   │   ├── 5x4
+│   │   ├── 5x7
+│   │   ├── 7x5
+│   │   ├── 9x16
+│   │   ├── A-Series
+│   │   ├── A-Series-Horizontal
+│   │   └── A-Series-Vertical
+│   ├── artwork_listing_master.json
+│   └── processed
+│       ├── pending_mockups.json
+│       └── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047
+│           ├── original-tawny-frogmouth-generate-an-aboriginal-dot-painting-of-a-tawny-frogmouth-podargus-strigoides-perched-1.jpg
+│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-MU-01.jpg
+│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-MU-02.jpg
+│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-MU-03.jpg
+│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-MU-04.jpg
+│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-MU-05.jpg
+│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-MU-06.jpg
+│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-MU-07.jpg
+│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-MU-08.jpg
+│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-MU-09.jpg
+│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-THUMB.jpg
+│           ├── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047-listing.json
+│           └── tawny-frogmouth-dot-artwork-by-robin-custance-rjc-0047.jpg
 ├── reports
 │   ├── REPORTS-25-JUN-2025-04-18PM
 │   │   └── report_code_snapshot_reports-25-jun-2025-04-18pm.md
@@ -532,1978 +546,36 @@ capitalart
 │   │   └── report_code_snapshot_reports-25-jun-2025-04-30pm.md
 │   ├── REPORTS-25-JUN-2025-06-27PM
 │   │   └── report_code_snapshot_reports-25-jun-2025-06-27pm.md
-│   └── REPORTS-25-JUN-2025-10-45PM
-│       └── report_code_snapshot_reports-25-jun-2025-10-45pm.md
+│   ├── REPORTS-25-JUN-2025-10-45PM
+│   │   └── report_code_snapshot_reports-25-jun-2025-10-45pm.md
+│   ├── REPORTS-25-JUN-2025-10-53PM
+│   │   └── report_code_snapshot_reports-25-jun-2025-10-53pm.md
+│   ├── REPORTS-26-JUN-2025-02-32PM
+│   │   └── report_code_snapshot_reports-26-jun-2025-02-32pm.md
+│   ├── REPORTS-26-JUN-2025-02-39PM
+│   │   └── report_code_snapshot_reports-26-jun-2025-02-39pm.md
+│   ├── REPORTS-26-JUN-2025-02-47PM
+│   │   └── report_code_snapshot_reports-26-jun-2025-02-47pm.md
+│   ├── REPORTS-27-JUN-2025-11-19PM
+│   │   └── report_code_snapshot_reports-27-jun-2025-11-19pm.md
+│   └── REPORTS-28-JUN-2025-10-51AM
+│       └── report_code_snapshot_reports-28-jun-2025-10-51am.md
 ├── requirements.txt
 ├── scripts
-│   └── analyze.js
-├── setup.sh
+│   ├── analyze.js
+│   └── generate_composites.py
+├── settings
+│   └── Master-Etsy-Listing-Description-Writing-Onboarding.txt
+├── smart_sign_artwork.py
+├── smart_sign_test01.py
+├── sort_and_prepare_midjourney_images.py
 ├── static
 │   ├── css
 │   │   └── style.css
 │   └── js
 │       └── main.js
-├── templates
-│   ├── index.html
-│   └── mockup_selector.html
-├── test.md
-└── venv
-    ├── .gitignore
-    ├── bin
-    │   ├── Activate.ps1
-    │   ├── activate
-    │   ├── activate.csh
-    │   ├── activate.fish
-    │   ├── distro
-    │   ├── dotenv
-    │   ├── httpx
-    │   ├── normalizer
-    │   ├── openai
-    │   ├── pip
-    │   ├── pip3
-    │   ├── pip3.13
-    │   ├── python
-    │   ├── python3
-    │   ├── python3.13
-    │   └── tqdm
-    ├── include
-    │   └── python3.13
-    ├── lib
-    │   └── python3.13
-    │       └── site-packages
-    │           ├── PIL
-    │           │   ├── .dylibs
-    │           │   │   ├── libXau.6.dylib
-    │           │   │   ├── libbrotlicommon.1.1.0.dylib
-    │           │   │   ├── libbrotlidec.1.1.0.dylib
-    │           │   │   ├── libfreetype.6.dylib
-    │           │   │   ├── libharfbuzz.0.dylib
-    │           │   │   ├── libjpeg.62.4.0.dylib
-    │           │   │   ├── liblcms2.2.dylib
-    │           │   │   ├── liblzma.5.dylib
-    │           │   │   ├── libopenjp2.2.5.3.dylib
-    │           │   │   ├── libpng16.16.dylib
-    │           │   │   ├── libsharpyuv.0.dylib
-    │           │   │   ├── libtiff.6.dylib
-    │           │   │   ├── libwebp.7.dylib
-    │           │   │   ├── libwebpdemux.2.dylib
-    │           │   │   ├── libwebpmux.3.dylib
-    │           │   │   ├── libxcb.1.1.0.dylib
-    │           │   │   └── libz.1.3.1.dylib
-    │           │   ├── AvifImagePlugin.py
-    │           │   ├── BdfFontFile.py
-    │           │   ├── BlpImagePlugin.py
-    │           │   ├── BmpImagePlugin.py
-    │           │   ├── BufrStubImagePlugin.py
-    │           │   ├── ContainerIO.py
-    │           │   ├── CurImagePlugin.py
-    │           │   ├── DcxImagePlugin.py
-    │           │   ├── DdsImagePlugin.py
-    │           │   ├── EpsImagePlugin.py
-    │           │   ├── ExifTags.py
-    │           │   ├── FitsImagePlugin.py
-    │           │   ├── FliImagePlugin.py
-    │           │   ├── FontFile.py
-    │           │   ├── FpxImagePlugin.py
-    │           │   ├── FtexImagePlugin.py
-    │           │   ├── GbrImagePlugin.py
-    │           │   ├── GdImageFile.py
-    │           │   ├── GifImagePlugin.py
-    │           │   ├── GimpGradientFile.py
-    │           │   ├── GimpPaletteFile.py
-    │           │   ├── GribStubImagePlugin.py
-    │           │   ├── Hdf5StubImagePlugin.py
-    │           │   ├── IcnsImagePlugin.py
-    │           │   ├── IcoImagePlugin.py
-    │           │   ├── ImImagePlugin.py
-    │           │   ├── Image.py
-    │           │   ├── ImageChops.py
-    │           │   ├── ImageCms.py
-    │           │   ├── ImageColor.py
-    │           │   ├── ImageDraw.py
-    │           │   ├── ImageDraw2.py
-    │           │   ├── ImageEnhance.py
-    │           │   ├── ImageFile.py
-    │           │   ├── ImageFilter.py
-    │           │   ├── ImageFont.py
-    │           │   ├── ImageGrab.py
-    │           │   ├── ImageMath.py
-    │           │   ├── ImageMode.py
-    │           │   ├── ImageMorph.py
-    │           │   ├── ImageOps.py
-    │           │   ├── ImagePalette.py
-    │           │   ├── ImagePath.py
-    │           │   ├── ImageQt.py
-    │           │   ├── ImageSequence.py
-    │           │   ├── ImageShow.py
-    │           │   ├── ImageStat.py
-    │           │   ├── ImageTk.py
-    │           │   ├── ImageTransform.py
-    │           │   ├── ImageWin.py
-    │           │   ├── ImtImagePlugin.py
-    │           │   ├── IptcImagePlugin.py
-    │           │   ├── Jpeg2KImagePlugin.py
-    │           │   ├── JpegImagePlugin.py
-    │           │   ├── JpegPresets.py
-    │           │   ├── McIdasImagePlugin.py
-    │           │   ├── MicImagePlugin.py
-    │           │   ├── MpegImagePlugin.py
-    │           │   ├── MpoImagePlugin.py
-    │           │   ├── MspImagePlugin.py
-    │           │   ├── PSDraw.py
-    │           │   ├── PaletteFile.py
-    │           │   ├── PalmImagePlugin.py
-    │           │   ├── PcdImagePlugin.py
-    │           │   ├── PcfFontFile.py
-    │           │   ├── PcxImagePlugin.py
-    │           │   ├── PdfImagePlugin.py
-    │           │   ├── PdfParser.py
-    │           │   ├── PixarImagePlugin.py
-    │           │   ├── PngImagePlugin.py
-    │           │   ├── PpmImagePlugin.py
-    │           │   ├── PsdImagePlugin.py
-    │           │   ├── QoiImagePlugin.py
-    │           │   ├── SgiImagePlugin.py
-    │           │   ├── SpiderImagePlugin.py
-    │           │   ├── SunImagePlugin.py
-    │           │   ├── TarIO.py
-    │           │   ├── TgaImagePlugin.py
-    │           │   ├── TiffImagePlugin.py
-    │           │   ├── TiffTags.py
-    │           │   ├── WalImageFile.py
-    │           │   ├── WebPImagePlugin.py
-    │           │   ├── WmfImagePlugin.py
-    │           │   ├── XVThumbImagePlugin.py
-    │           │   ├── XbmImagePlugin.py
-    │           │   ├── XpmImagePlugin.py
-    │           │   ├── __init__.py
-    │           │   ├── __main__.py
-    │           │   ├── _avif.pyi
-    │           │   ├── _binary.py
-    │           │   ├── _deprecate.py
-    │           │   ├── _imaging.cpython-313-darwin.so
-    │           │   ├── _imaging.pyi
-    │           │   ├── _imagingcms.cpython-313-darwin.so
-    │           │   ├── _imagingcms.pyi
-    │           │   ├── _imagingft.cpython-313-darwin.so
-    │           │   ├── _imagingft.pyi
-    │           │   ├── _imagingmath.cpython-313-darwin.so
-    │           │   ├── _imagingmath.pyi
-    │           │   ├── _imagingmorph.cpython-313-darwin.so
-    │           │   ├── _imagingmorph.pyi
-    │           │   ├── _imagingtk.cpython-313-darwin.so
-    │           │   ├── _imagingtk.pyi
-    │           │   ├── _tkinter_finder.py
-    │           │   ├── _typing.py
-    │           │   ├── _util.py
-    │           │   ├── _version.py
-    │           │   ├── _webp.cpython-313-darwin.so
-    │           │   ├── _webp.pyi
-    │           │   ├── features.py
-    │           │   ├── py.typed
-    │           │   └── report.py
-    │           ├── annotated_types
-    │           │   ├── __init__.py
-    │           │   ├── py.typed
-    │           │   └── test_cases.py
-    │           ├── annotated_types-0.7.0.dist-info
-    │           │   ├── INSTALLER
-    │           │   ├── METADATA
-    │           │   ├── RECORD
-    │           │   ├── WHEEL
-    │           │   └── licenses
-    │           │       └── LICENSE
-    │           ├── anyio
-    │           │   ├── __init__.py
-    │           │   ├── _backends
-    │           │   │   ├── __init__.py
-    │           │   │   ├── _asyncio.py
-    │           │   │   └── _trio.py
-    │           │   ├── _core
-    │           │   │   ├── __init__.py
-    │           │   │   ├── _asyncio_selector_thread.py
-    │           │   │   ├── _eventloop.py
-    │           │   │   ├── _exceptions.py
-    │           │   │   ├── _fileio.py
-    │           │   │   ├── _resources.py
-    │           │   │   ├── _signals.py
-    │           │   │   ├── _sockets.py
-    │           │   │   ├── _streams.py
-    │           │   │   ├── _subprocesses.py
-    │           │   │   ├── _synchronization.py
-    │           │   │   ├── _tasks.py
-    │           │   │   ├── _tempfile.py
-    │           │   │   ├── _testing.py
-    │           │   │   └── _typedattr.py
-    │           │   ├── abc
-    │           │   │   ├── __init__.py
-    │           │   │   ├── _eventloop.py
-    │           │   │   ├── _resources.py
-    │           │   │   ├── _sockets.py
-    │           │   │   ├── _streams.py
-    │           │   │   ├── _subprocesses.py
-    │           │   │   ├── _tasks.py
-    │           │   │   └── _testing.py
-    │           │   ├── from_thread.py
-    │           │   ├── lowlevel.py
-    │           │   ├── py.typed
-    │           │   ├── pytest_plugin.py
-    │           │   ├── streams
-    │           │   │   ├── __init__.py
-    │           │   │   ├── buffered.py
-    │           │   │   ├── file.py
-    │           │   │   ├── memory.py
-    │           │   │   ├── stapled.py
-    │           │   │   ├── text.py
-    │           │   │   └── tls.py
-    │           │   ├── to_interpreter.py
-    │           │   ├── to_process.py
-    │           │   └── to_thread.py
-    │           ├── anyio-4.9.0.dist-info
-    │           │   ├── INSTALLER
-    │           │   ├── LICENSE
-    │           │   ├── METADATA
-    │           │   ├── RECORD
-    │           │   ├── WHEEL
-    │           │   ├── entry_points.txt
-    │           │   └── top_level.txt
-    │           ├── certifi
-    │           │   ├── __init__.py
-    │           │   ├── __main__.py
-    │           │   ├── cacert.pem
-    │           │   ├── core.py
-    │           │   └── py.typed
-    │           ├── certifi-2025.6.15.dist-info
-    │           │   ├── INSTALLER
-    │           │   ├── METADATA
-    │           │   ├── RECORD
-    │           │   ├── WHEEL
-    │           │   ├── licenses
-    │           │   │   └── LICENSE
-    │           │   └── top_level.txt
-    │           ├── charset_normalizer
-    │           │   ├── __init__.py
-    │           │   ├── __main__.py
-    │           │   ├── api.py
-    │           │   ├── cd.py
-    │           │   ├── cli
-    │           │   │   ├── __init__.py
-    │           │   │   └── __main__.py
-    │           │   ├── constant.py
-    │           │   ├── legacy.py
-    │           │   ├── md.cpython-313-darwin.so
-    │           │   ├── md.py
-    │           │   ├── md__mypyc.cpython-313-darwin.so
-    │           │   ├── models.py
-    │           │   ├── py.typed
-    │           │   ├── utils.py
-    │           │   └── version.py
-    │           ├── charset_normalizer-3.4.2.dist-info
-    │           │   ├── INSTALLER
-    │           │   ├── METADATA
-    │           │   ├── RECORD
-    │           │   ├── WHEEL
-    │           │   ├── entry_points.txt
-    │           │   ├── licenses
-    │           │   │   └── LICENSE
-    │           │   └── top_level.txt
-    │           ├── distro
-    │           │   ├── __init__.py
-    │           │   ├── __main__.py
-    │           │   ├── distro.py
-    │           │   └── py.typed
-    │           ├── distro-1.9.0.dist-info
-    │           │   ├── INSTALLER
-    │           │   ├── LICENSE
-    │           │   ├── METADATA
-    │           │   ├── RECORD
-    │           │   ├── WHEEL
-    │           │   ├── entry_points.txt
-    │           │   └── top_level.txt
-    │           ├── dotenv
-    │           │   ├── __init__.py
-    │           │   ├── __main__.py
-    │           │   ├── cli.py
-    │           │   ├── ipython.py
-    │           │   ├── main.py
-    │           │   ├── parser.py
-    │           │   ├── py.typed
-    │           │   ├── variables.py
-    │           │   └── version.py
-    │           ├── h11
-    │           │   ├── __init__.py
-    │           │   ├── _abnf.py
-    │           │   ├── _connection.py
-    │           │   ├── _events.py
-    │           │   ├── _headers.py
-    │           │   ├── _readers.py
-    │           │   ├── _receivebuffer.py
-    │           │   ├── _state.py
-    │           │   ├── _util.py
-    │           │   ├── _version.py
-    │           │   ├── _writers.py
-    │           │   └── py.typed
-    │           ├── h11-0.16.0.dist-info
-    │           │   ├── INSTALLER
-    │           │   ├── METADATA
-    │           │   ├── RECORD
-    │           │   ├── WHEEL
-    │           │   ├── licenses
-    │           │   │   └── LICENSE.txt
-    │           │   └── top_level.txt
-    │           ├── httpcore
-    │           │   ├── __init__.py
-    │           │   ├── _api.py
-    │           │   ├── _async
-    │           │   │   ├── __init__.py
-    │           │   │   ├── connection.py
-    │           │   │   ├── connection_pool.py
-    │           │   │   ├── http11.py
-    │           │   │   ├── http2.py
-    │           │   │   ├── http_proxy.py
-    │           │   │   ├── interfaces.py
-    │           │   │   └── socks_proxy.py
-    │           │   ├── _backends
-    │           │   │   ├── __init__.py
-    │           │   │   ├── anyio.py
-    │           │   │   ├── auto.py
-    │           │   │   ├── base.py
-    │           │   │   ├── mock.py
-    │           │   │   ├── sync.py
-    │           │   │   └── trio.py
-    │           │   ├── _exceptions.py
-    │           │   ├── _models.py
-    │           │   ├── _ssl.py
-    │           │   ├── _sync
-    │           │   │   ├── __init__.py
-    │           │   │   ├── connection.py
-    │           │   │   ├── connection_pool.py
-    │           │   │   ├── http11.py
-    │           │   │   ├── http2.py
-    │           │   │   ├── http_proxy.py
-    │           │   │   ├── interfaces.py
-    │           │   │   └── socks_proxy.py
-    │           │   ├── _synchronization.py
-    │           │   ├── _trace.py
-    │           │   ├── _utils.py
-    │           │   └── py.typed
-    │           ├── httpcore-1.0.9.dist-info
-    │           │   ├── INSTALLER
-    │           │   ├── METADATA
-    │           │   ├── RECORD
-    │           │   ├── WHEEL
-    │           │   └── licenses
-    │           │       └── LICENSE.md
-    │           ├── httpx
-    │           │   ├── __init__.py
-    │           │   ├── __version__.py
-    │           │   ├── _api.py
-    │           │   ├── _auth.py
-    │           │   ├── _client.py
-    │           │   ├── _config.py
-    │           │   ├── _content.py
-    │           │   ├── _decoders.py
-    │           │   ├── _exceptions.py
-    │           │   ├── _main.py
-    │           │   ├── _models.py
-    │           │   ├── _multipart.py
-    │           │   ├── _status_codes.py
-    │           │   ├── _transports
-    │           │   │   ├── __init__.py
-    │           │   │   ├── asgi.py
-    │           │   │   ├── base.py
-    │           │   │   ├── default.py
-    │           │   │   ├── mock.py
-    │           │   │   └── wsgi.py
-    │           │   ├── _types.py
-    │           │   ├── _urlparse.py
-    │           │   ├── _urls.py
-    │           │   ├── _utils.py
-    │           │   └── py.typed
-    │           ├── httpx-0.28.1.dist-info
-    │           │   ├── INSTALLER
-    │           │   ├── METADATA
-    │           │   ├── RECORD
-    │           │   ├── WHEEL
-    │           │   ├── entry_points.txt
-    │           │   └── licenses
-    │           │       └── LICENSE.md
-    │           ├── idna
-    │           │   ├── __init__.py
-    │           │   ├── codec.py
-    │           │   ├── compat.py
-    │           │   ├── core.py
-    │           │   ├── idnadata.py
-    │           │   ├── intranges.py
-    │           │   ├── package_data.py
-    │           │   ├── py.typed
-    │           │   └── uts46data.py
-    │           ├── idna-3.10.dist-info
-    │           │   ├── INSTALLER
-    │           │   ├── LICENSE.md
-    │           │   ├── METADATA
-    │           │   ├── RECORD
-    │           │   └── WHEEL
-    │           ├── jiter
-    │           │   ├── __init__.py
-    │           │   ├── __init__.pyi
-    │           │   ├── jiter.cpython-313-darwin.so
-    │           │   └── py.typed
-    │           ├── jiter-0.10.0.dist-info
-    │           │   ├── INSTALLER
-    │           │   ├── METADATA
-    │           │   ├── RECORD
-    │           │   └── WHEEL
-    │           ├── openai
-    │           │   ├── __init__.py
-    │           │   ├── __main__.py
-    │           │   ├── _base_client.py
-    │           │   ├── _client.py
-    │           │   ├── _compat.py
-    │           │   ├── _constants.py
-    │           │   ├── _exceptions.py
-    │           │   ├── _extras
-    │           │   │   ├── __init__.py
-    │           │   │   ├── _common.py
-    │           │   │   ├── numpy_proxy.py
-    │           │   │   ├── pandas_proxy.py
-    │           │   │   └── sounddevice_proxy.py
-    │           │   ├── _files.py
-    │           │   ├── _legacy_response.py
-    │           │   ├── _models.py
-    │           │   ├── _module_client.py
-    │           │   ├── _qs.py
-    │           │   ├── _resource.py
-    │           │   ├── _response.py
-    │           │   ├── _streaming.py
-    │           │   ├── _types.py
-    │           │   ├── _utils
-    │           │   │   ├── __init__.py
-    │           │   │   ├── _logs.py
-    │           │   │   ├── _proxy.py
-    │           │   │   ├── _reflection.py
-    │           │   │   ├── _resources_proxy.py
-    │           │   │   ├── _streams.py
-    │           │   │   ├── _sync.py
-    │           │   │   ├── _transform.py
-    │           │   │   ├── _typing.py
-    │           │   │   └── _utils.py
-    │           │   ├── _version.py
-    │           │   ├── cli
-    │           │   │   ├── __init__.py
-    │           │   │   ├── _api
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── _main.py
-    │           │   │   │   ├── audio.py
-    │           │   │   │   ├── chat
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   └── completions.py
-    │           │   │   │   ├── completions.py
-    │           │   │   │   ├── files.py
-    │           │   │   │   ├── image.py
-    │           │   │   │   └── models.py
-    │           │   │   ├── _cli.py
-    │           │   │   ├── _errors.py
-    │           │   │   ├── _models.py
-    │           │   │   ├── _progress.py
-    │           │   │   ├── _tools
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── _main.py
-    │           │   │   │   ├── fine_tunes.py
-    │           │   │   │   └── migrate.py
-    │           │   │   └── _utils.py
-    │           │   ├── helpers
-    │           │   │   ├── __init__.py
-    │           │   │   ├── local_audio_player.py
-    │           │   │   └── microphone.py
-    │           │   ├── lib
-    │           │   │   ├── .keep
-    │           │   │   ├── __init__.py
-    │           │   │   ├── _old_api.py
-    │           │   │   ├── _parsing
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── _completions.py
-    │           │   │   │   └── _responses.py
-    │           │   │   ├── _pydantic.py
-    │           │   │   ├── _tools.py
-    │           │   │   ├── _validators.py
-    │           │   │   ├── azure.py
-    │           │   │   └── streaming
-    │           │   │       ├── __init__.py
-    │           │   │       ├── _assistants.py
-    │           │   │       ├── _deltas.py
-    │           │   │       ├── chat
-    │           │   │       │   ├── __init__.py
-    │           │   │       │   ├── _completions.py
-    │           │   │       │   ├── _events.py
-    │           │   │       │   └── _types.py
-    │           │   │       └── responses
-    │           │   │           ├── __init__.py
-    │           │   │           ├── _events.py
-    │           │   │           ├── _responses.py
-    │           │   │           └── _types.py
-    │           │   ├── pagination.py
-    │           │   ├── py.typed
-    │           │   ├── resources
-    │           │   │   ├── __init__.py
-    │           │   │   ├── audio
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── audio.py
-    │           │   │   │   ├── speech.py
-    │           │   │   │   ├── transcriptions.py
-    │           │   │   │   └── translations.py
-    │           │   │   ├── batches.py
-    │           │   │   ├── beta
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── assistants.py
-    │           │   │   │   ├── beta.py
-    │           │   │   │   ├── chat
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   ├── chat.py
-    │           │   │   │   │   └── completions.py
-    │           │   │   │   ├── realtime
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   ├── realtime.py
-    │           │   │   │   │   ├── sessions.py
-    │           │   │   │   │   └── transcription_sessions.py
-    │           │   │   │   └── threads
-    │           │   │   │       ├── __init__.py
-    │           │   │   │       ├── messages.py
-    │           │   │   │       ├── runs
-    │           │   │   │       │   ├── __init__.py
-    │           │   │   │       │   ├── runs.py
-    │           │   │   │       │   └── steps.py
-    │           │   │   │       └── threads.py
-    │           │   │   ├── chat
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── chat.py
-    │           │   │   │   └── completions
-    │           │   │   │       ├── __init__.py
-    │           │   │   │       ├── completions.py
-    │           │   │   │       └── messages.py
-    │           │   │   ├── completions.py
-    │           │   │   ├── containers
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── containers.py
-    │           │   │   │   └── files
-    │           │   │   │       ├── __init__.py
-    │           │   │   │       ├── content.py
-    │           │   │   │       └── files.py
-    │           │   │   ├── embeddings.py
-    │           │   │   ├── evals
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── evals.py
-    │           │   │   │   └── runs
-    │           │   │   │       ├── __init__.py
-    │           │   │   │       ├── output_items.py
-    │           │   │   │       └── runs.py
-    │           │   │   ├── files.py
-    │           │   │   ├── fine_tuning
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── alpha
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   ├── alpha.py
-    │           │   │   │   │   └── graders.py
-    │           │   │   │   ├── checkpoints
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   ├── checkpoints.py
-    │           │   │   │   │   └── permissions.py
-    │           │   │   │   ├── fine_tuning.py
-    │           │   │   │   └── jobs
-    │           │   │   │       ├── __init__.py
-    │           │   │   │       ├── checkpoints.py
-    │           │   │   │       └── jobs.py
-    │           │   │   ├── images.py
-    │           │   │   ├── models.py
-    │           │   │   ├── moderations.py
-    │           │   │   ├── responses
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── input_items.py
-    │           │   │   │   └── responses.py
-    │           │   │   ├── uploads
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── parts.py
-    │           │   │   │   └── uploads.py
-    │           │   │   └── vector_stores
-    │           │   │       ├── __init__.py
-    │           │   │       ├── file_batches.py
-    │           │   │       ├── files.py
-    │           │   │       └── vector_stores.py
-    │           │   ├── types
-    │           │   │   ├── __init__.py
-    │           │   │   ├── audio
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── speech_create_params.py
-    │           │   │   │   ├── speech_model.py
-    │           │   │   │   ├── transcription.py
-    │           │   │   │   ├── transcription_create_params.py
-    │           │   │   │   ├── transcription_create_response.py
-    │           │   │   │   ├── transcription_include.py
-    │           │   │   │   ├── transcription_segment.py
-    │           │   │   │   ├── transcription_stream_event.py
-    │           │   │   │   ├── transcription_text_delta_event.py
-    │           │   │   │   ├── transcription_text_done_event.py
-    │           │   │   │   ├── transcription_verbose.py
-    │           │   │   │   ├── transcription_word.py
-    │           │   │   │   ├── translation.py
-    │           │   │   │   ├── translation_create_params.py
-    │           │   │   │   ├── translation_create_response.py
-    │           │   │   │   └── translation_verbose.py
-    │           │   │   ├── audio_model.py
-    │           │   │   ├── audio_response_format.py
-    │           │   │   ├── auto_file_chunking_strategy_param.py
-    │           │   │   ├── batch.py
-    │           │   │   ├── batch_create_params.py
-    │           │   │   ├── batch_error.py
-    │           │   │   ├── batch_list_params.py
-    │           │   │   ├── batch_request_counts.py
-    │           │   │   ├── beta
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── assistant.py
-    │           │   │   │   ├── assistant_create_params.py
-    │           │   │   │   ├── assistant_deleted.py
-    │           │   │   │   ├── assistant_list_params.py
-    │           │   │   │   ├── assistant_response_format_option.py
-    │           │   │   │   ├── assistant_response_format_option_param.py
-    │           │   │   │   ├── assistant_stream_event.py
-    │           │   │   │   ├── assistant_tool.py
-    │           │   │   │   ├── assistant_tool_choice.py
-    │           │   │   │   ├── assistant_tool_choice_function.py
-    │           │   │   │   ├── assistant_tool_choice_function_param.py
-    │           │   │   │   ├── assistant_tool_choice_option.py
-    │           │   │   │   ├── assistant_tool_choice_option_param.py
-    │           │   │   │   ├── assistant_tool_choice_param.py
-    │           │   │   │   ├── assistant_tool_param.py
-    │           │   │   │   ├── assistant_update_params.py
-    │           │   │   │   ├── chat
-    │           │   │   │   │   └── __init__.py
-    │           │   │   │   ├── code_interpreter_tool.py
-    │           │   │   │   ├── code_interpreter_tool_param.py
-    │           │   │   │   ├── file_search_tool.py
-    │           │   │   │   ├── file_search_tool_param.py
-    │           │   │   │   ├── function_tool.py
-    │           │   │   │   ├── function_tool_param.py
-    │           │   │   │   ├── realtime
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   ├── conversation_created_event.py
-    │           │   │   │   │   ├── conversation_item.py
-    │           │   │   │   │   ├── conversation_item_content.py
-    │           │   │   │   │   ├── conversation_item_content_param.py
-    │           │   │   │   │   ├── conversation_item_create_event.py
-    │           │   │   │   │   ├── conversation_item_create_event_param.py
-    │           │   │   │   │   ├── conversation_item_created_event.py
-    │           │   │   │   │   ├── conversation_item_delete_event.py
-    │           │   │   │   │   ├── conversation_item_delete_event_param.py
-    │           │   │   │   │   ├── conversation_item_deleted_event.py
-    │           │   │   │   │   ├── conversation_item_input_audio_transcription_completed_event.py
-    │           │   │   │   │   ├── conversation_item_input_audio_transcription_delta_event.py
-    │           │   │   │   │   ├── conversation_item_input_audio_transcription_failed_event.py
-    │           │   │   │   │   ├── conversation_item_param.py
-    │           │   │   │   │   ├── conversation_item_retrieve_event.py
-    │           │   │   │   │   ├── conversation_item_retrieve_event_param.py
-    │           │   │   │   │   ├── conversation_item_truncate_event.py
-    │           │   │   │   │   ├── conversation_item_truncate_event_param.py
-    │           │   │   │   │   ├── conversation_item_truncated_event.py
-    │           │   │   │   │   ├── conversation_item_with_reference.py
-    │           │   │   │   │   ├── conversation_item_with_reference_param.py
-    │           │   │   │   │   ├── error_event.py
-    │           │   │   │   │   ├── input_audio_buffer_append_event.py
-    │           │   │   │   │   ├── input_audio_buffer_append_event_param.py
-    │           │   │   │   │   ├── input_audio_buffer_clear_event.py
-    │           │   │   │   │   ├── input_audio_buffer_clear_event_param.py
-    │           │   │   │   │   ├── input_audio_buffer_cleared_event.py
-    │           │   │   │   │   ├── input_audio_buffer_commit_event.py
-    │           │   │   │   │   ├── input_audio_buffer_commit_event_param.py
-    │           │   │   │   │   ├── input_audio_buffer_committed_event.py
-    │           │   │   │   │   ├── input_audio_buffer_speech_started_event.py
-    │           │   │   │   │   ├── input_audio_buffer_speech_stopped_event.py
-    │           │   │   │   │   ├── rate_limits_updated_event.py
-    │           │   │   │   │   ├── realtime_client_event.py
-    │           │   │   │   │   ├── realtime_client_event_param.py
-    │           │   │   │   │   ├── realtime_connect_params.py
-    │           │   │   │   │   ├── realtime_response.py
-    │           │   │   │   │   ├── realtime_response_status.py
-    │           │   │   │   │   ├── realtime_response_usage.py
-    │           │   │   │   │   ├── realtime_server_event.py
-    │           │   │   │   │   ├── response_audio_delta_event.py
-    │           │   │   │   │   ├── response_audio_done_event.py
-    │           │   │   │   │   ├── response_audio_transcript_delta_event.py
-    │           │   │   │   │   ├── response_audio_transcript_done_event.py
-    │           │   │   │   │   ├── response_cancel_event.py
-    │           │   │   │   │   ├── response_cancel_event_param.py
-    │           │   │   │   │   ├── response_content_part_added_event.py
-    │           │   │   │   │   ├── response_content_part_done_event.py
-    │           │   │   │   │   ├── response_create_event.py
-    │           │   │   │   │   ├── response_create_event_param.py
-    │           │   │   │   │   ├── response_created_event.py
-    │           │   │   │   │   ├── response_done_event.py
-    │           │   │   │   │   ├── response_function_call_arguments_delta_event.py
-    │           │   │   │   │   ├── response_function_call_arguments_done_event.py
-    │           │   │   │   │   ├── response_output_item_added_event.py
-    │           │   │   │   │   ├── response_output_item_done_event.py
-    │           │   │   │   │   ├── response_text_delta_event.py
-    │           │   │   │   │   ├── response_text_done_event.py
-    │           │   │   │   │   ├── session.py
-    │           │   │   │   │   ├── session_create_params.py
-    │           │   │   │   │   ├── session_create_response.py
-    │           │   │   │   │   ├── session_created_event.py
-    │           │   │   │   │   ├── session_update_event.py
-    │           │   │   │   │   ├── session_update_event_param.py
-    │           │   │   │   │   ├── session_updated_event.py
-    │           │   │   │   │   ├── transcription_session.py
-    │           │   │   │   │   ├── transcription_session_create_params.py
-    │           │   │   │   │   ├── transcription_session_update.py
-    │           │   │   │   │   ├── transcription_session_update_param.py
-    │           │   │   │   │   └── transcription_session_updated_event.py
-    │           │   │   │   ├── thread.py
-    │           │   │   │   ├── thread_create_and_run_params.py
-    │           │   │   │   ├── thread_create_params.py
-    │           │   │   │   ├── thread_deleted.py
-    │           │   │   │   ├── thread_update_params.py
-    │           │   │   │   └── threads
-    │           │   │   │       ├── __init__.py
-    │           │   │   │       ├── annotation.py
-    │           │   │   │       ├── annotation_delta.py
-    │           │   │   │       ├── file_citation_annotation.py
-    │           │   │   │       ├── file_citation_delta_annotation.py
-    │           │   │   │       ├── file_path_annotation.py
-    │           │   │   │       ├── file_path_delta_annotation.py
-    │           │   │   │       ├── image_file.py
-    │           │   │   │       ├── image_file_content_block.py
-    │           │   │   │       ├── image_file_content_block_param.py
-    │           │   │   │       ├── image_file_delta.py
-    │           │   │   │       ├── image_file_delta_block.py
-    │           │   │   │       ├── image_file_param.py
-    │           │   │   │       ├── image_url.py
-    │           │   │   │       ├── image_url_content_block.py
-    │           │   │   │       ├── image_url_content_block_param.py
-    │           │   │   │       ├── image_url_delta.py
-    │           │   │   │       ├── image_url_delta_block.py
-    │           │   │   │       ├── image_url_param.py
-    │           │   │   │       ├── message.py
-    │           │   │   │       ├── message_content.py
-    │           │   │   │       ├── message_content_delta.py
-    │           │   │   │       ├── message_content_part_param.py
-    │           │   │   │       ├── message_create_params.py
-    │           │   │   │       ├── message_deleted.py
-    │           │   │   │       ├── message_delta.py
-    │           │   │   │       ├── message_delta_event.py
-    │           │   │   │       ├── message_list_params.py
-    │           │   │   │       ├── message_update_params.py
-    │           │   │   │       ├── refusal_content_block.py
-    │           │   │   │       ├── refusal_delta_block.py
-    │           │   │   │       ├── required_action_function_tool_call.py
-    │           │   │   │       ├── run.py
-    │           │   │   │       ├── run_create_params.py
-    │           │   │   │       ├── run_list_params.py
-    │           │   │   │       ├── run_status.py
-    │           │   │   │       ├── run_submit_tool_outputs_params.py
-    │           │   │   │       ├── run_update_params.py
-    │           │   │   │       ├── runs
-    │           │   │   │       │   ├── __init__.py
-    │           │   │   │       │   ├── code_interpreter_logs.py
-    │           │   │   │       │   ├── code_interpreter_output_image.py
-    │           │   │   │       │   ├── code_interpreter_tool_call.py
-    │           │   │   │       │   ├── code_interpreter_tool_call_delta.py
-    │           │   │   │       │   ├── file_search_tool_call.py
-    │           │   │   │       │   ├── file_search_tool_call_delta.py
-    │           │   │   │       │   ├── function_tool_call.py
-    │           │   │   │       │   ├── function_tool_call_delta.py
-    │           │   │   │       │   ├── message_creation_step_details.py
-    │           │   │   │       │   ├── run_step.py
-    │           │   │   │       │   ├── run_step_delta.py
-    │           │   │   │       │   ├── run_step_delta_event.py
-    │           │   │   │       │   ├── run_step_delta_message_delta.py
-    │           │   │   │       │   ├── run_step_include.py
-    │           │   │   │       │   ├── step_list_params.py
-    │           │   │   │       │   ├── step_retrieve_params.py
-    │           │   │   │       │   ├── tool_call.py
-    │           │   │   │       │   ├── tool_call_delta.py
-    │           │   │   │       │   ├── tool_call_delta_object.py
-    │           │   │   │       │   └── tool_calls_step_details.py
-    │           │   │   │       ├── text.py
-    │           │   │   │       ├── text_content_block.py
-    │           │   │   │       ├── text_content_block_param.py
-    │           │   │   │       ├── text_delta.py
-    │           │   │   │       └── text_delta_block.py
-    │           │   │   ├── chat
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── chat_completion.py
-    │           │   │   │   ├── chat_completion_assistant_message_param.py
-    │           │   │   │   ├── chat_completion_audio.py
-    │           │   │   │   ├── chat_completion_audio_param.py
-    │           │   │   │   ├── chat_completion_chunk.py
-    │           │   │   │   ├── chat_completion_content_part_image_param.py
-    │           │   │   │   ├── chat_completion_content_part_input_audio_param.py
-    │           │   │   │   ├── chat_completion_content_part_param.py
-    │           │   │   │   ├── chat_completion_content_part_refusal_param.py
-    │           │   │   │   ├── chat_completion_content_part_text_param.py
-    │           │   │   │   ├── chat_completion_deleted.py
-    │           │   │   │   ├── chat_completion_developer_message_param.py
-    │           │   │   │   ├── chat_completion_function_call_option_param.py
-    │           │   │   │   ├── chat_completion_function_message_param.py
-    │           │   │   │   ├── chat_completion_message.py
-    │           │   │   │   ├── chat_completion_message_param.py
-    │           │   │   │   ├── chat_completion_message_tool_call.py
-    │           │   │   │   ├── chat_completion_message_tool_call_param.py
-    │           │   │   │   ├── chat_completion_modality.py
-    │           │   │   │   ├── chat_completion_named_tool_choice_param.py
-    │           │   │   │   ├── chat_completion_prediction_content_param.py
-    │           │   │   │   ├── chat_completion_reasoning_effort.py
-    │           │   │   │   ├── chat_completion_role.py
-    │           │   │   │   ├── chat_completion_store_message.py
-    │           │   │   │   ├── chat_completion_stream_options_param.py
-    │           │   │   │   ├── chat_completion_system_message_param.py
-    │           │   │   │   ├── chat_completion_token_logprob.py
-    │           │   │   │   ├── chat_completion_tool.py
-    │           │   │   │   ├── chat_completion_tool_choice_option_param.py
-    │           │   │   │   ├── chat_completion_tool_message_param.py
-    │           │   │   │   ├── chat_completion_tool_param.py
-    │           │   │   │   ├── chat_completion_user_message_param.py
-    │           │   │   │   ├── completion_create_params.py
-    │           │   │   │   ├── completion_list_params.py
-    │           │   │   │   ├── completion_update_params.py
-    │           │   │   │   ├── completions
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   └── message_list_params.py
-    │           │   │   │   ├── parsed_chat_completion.py
-    │           │   │   │   └── parsed_function_tool_call.py
-    │           │   │   ├── chat_model.py
-    │           │   │   ├── completion.py
-    │           │   │   ├── completion_choice.py
-    │           │   │   ├── completion_create_params.py
-    │           │   │   ├── completion_usage.py
-    │           │   │   ├── container_create_params.py
-    │           │   │   ├── container_create_response.py
-    │           │   │   ├── container_list_params.py
-    │           │   │   ├── container_list_response.py
-    │           │   │   ├── container_retrieve_response.py
-    │           │   │   ├── containers
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── file_create_params.py
-    │           │   │   │   ├── file_create_response.py
-    │           │   │   │   ├── file_list_params.py
-    │           │   │   │   ├── file_list_response.py
-    │           │   │   │   ├── file_retrieve_response.py
-    │           │   │   │   └── files
-    │           │   │   │       └── __init__.py
-    │           │   │   ├── create_embedding_response.py
-    │           │   │   ├── embedding.py
-    │           │   │   ├── embedding_create_params.py
-    │           │   │   ├── embedding_model.py
-    │           │   │   ├── eval_create_params.py
-    │           │   │   ├── eval_create_response.py
-    │           │   │   ├── eval_custom_data_source_config.py
-    │           │   │   ├── eval_delete_response.py
-    │           │   │   ├── eval_list_params.py
-    │           │   │   ├── eval_list_response.py
-    │           │   │   ├── eval_retrieve_response.py
-    │           │   │   ├── eval_stored_completions_data_source_config.py
-    │           │   │   ├── eval_update_params.py
-    │           │   │   ├── eval_update_response.py
-    │           │   │   ├── evals
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── create_eval_completions_run_data_source.py
-    │           │   │   │   ├── create_eval_completions_run_data_source_param.py
-    │           │   │   │   ├── create_eval_jsonl_run_data_source.py
-    │           │   │   │   ├── create_eval_jsonl_run_data_source_param.py
-    │           │   │   │   ├── eval_api_error.py
-    │           │   │   │   ├── run_cancel_response.py
-    │           │   │   │   ├── run_create_params.py
-    │           │   │   │   ├── run_create_response.py
-    │           │   │   │   ├── run_delete_response.py
-    │           │   │   │   ├── run_list_params.py
-    │           │   │   │   ├── run_list_response.py
-    │           │   │   │   ├── run_retrieve_response.py
-    │           │   │   │   └── runs
-    │           │   │   │       ├── __init__.py
-    │           │   │   │       ├── output_item_list_params.py
-    │           │   │   │       ├── output_item_list_response.py
-    │           │   │   │       └── output_item_retrieve_response.py
-    │           │   │   ├── file_chunking_strategy.py
-    │           │   │   ├── file_chunking_strategy_param.py
-    │           │   │   ├── file_content.py
-    │           │   │   ├── file_create_params.py
-    │           │   │   ├── file_deleted.py
-    │           │   │   ├── file_list_params.py
-    │           │   │   ├── file_object.py
-    │           │   │   ├── file_purpose.py
-    │           │   │   ├── fine_tuning
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── alpha
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   ├── grader_run_params.py
-    │           │   │   │   │   ├── grader_run_response.py
-    │           │   │   │   │   ├── grader_validate_params.py
-    │           │   │   │   │   └── grader_validate_response.py
-    │           │   │   │   ├── checkpoints
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   ├── permission_create_params.py
-    │           │   │   │   │   ├── permission_create_response.py
-    │           │   │   │   │   ├── permission_delete_response.py
-    │           │   │   │   │   ├── permission_retrieve_params.py
-    │           │   │   │   │   └── permission_retrieve_response.py
-    │           │   │   │   ├── dpo_hyperparameters.py
-    │           │   │   │   ├── dpo_hyperparameters_param.py
-    │           │   │   │   ├── dpo_method.py
-    │           │   │   │   ├── dpo_method_param.py
-    │           │   │   │   ├── fine_tuning_job.py
-    │           │   │   │   ├── fine_tuning_job_event.py
-    │           │   │   │   ├── fine_tuning_job_integration.py
-    │           │   │   │   ├── fine_tuning_job_wandb_integration.py
-    │           │   │   │   ├── fine_tuning_job_wandb_integration_object.py
-    │           │   │   │   ├── job_create_params.py
-    │           │   │   │   ├── job_list_events_params.py
-    │           │   │   │   ├── job_list_params.py
-    │           │   │   │   ├── jobs
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   ├── checkpoint_list_params.py
-    │           │   │   │   │   └── fine_tuning_job_checkpoint.py
-    │           │   │   │   ├── reinforcement_hyperparameters.py
-    │           │   │   │   ├── reinforcement_hyperparameters_param.py
-    │           │   │   │   ├── reinforcement_method.py
-    │           │   │   │   ├── reinforcement_method_param.py
-    │           │   │   │   ├── supervised_hyperparameters.py
-    │           │   │   │   ├── supervised_hyperparameters_param.py
-    │           │   │   │   ├── supervised_method.py
-    │           │   │   │   └── supervised_method_param.py
-    │           │   │   ├── graders
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── label_model_grader.py
-    │           │   │   │   ├── label_model_grader_param.py
-    │           │   │   │   ├── multi_grader.py
-    │           │   │   │   ├── multi_grader_param.py
-    │           │   │   │   ├── python_grader.py
-    │           │   │   │   ├── python_grader_param.py
-    │           │   │   │   ├── score_model_grader.py
-    │           │   │   │   ├── score_model_grader_param.py
-    │           │   │   │   ├── string_check_grader.py
-    │           │   │   │   ├── string_check_grader_param.py
-    │           │   │   │   ├── text_similarity_grader.py
-    │           │   │   │   └── text_similarity_grader_param.py
-    │           │   │   ├── image.py
-    │           │   │   ├── image_create_variation_params.py
-    │           │   │   ├── image_edit_params.py
-    │           │   │   ├── image_generate_params.py
-    │           │   │   ├── image_model.py
-    │           │   │   ├── images_response.py
-    │           │   │   ├── model.py
-    │           │   │   ├── model_deleted.py
-    │           │   │   ├── moderation.py
-    │           │   │   ├── moderation_create_params.py
-    │           │   │   ├── moderation_create_response.py
-    │           │   │   ├── moderation_image_url_input_param.py
-    │           │   │   ├── moderation_model.py
-    │           │   │   ├── moderation_multi_modal_input_param.py
-    │           │   │   ├── moderation_text_input_param.py
-    │           │   │   ├── other_file_chunking_strategy_object.py
-    │           │   │   ├── responses
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── computer_tool.py
-    │           │   │   │   ├── computer_tool_param.py
-    │           │   │   │   ├── easy_input_message.py
-    │           │   │   │   ├── easy_input_message_param.py
-    │           │   │   │   ├── file_search_tool.py
-    │           │   │   │   ├── file_search_tool_param.py
-    │           │   │   │   ├── function_tool.py
-    │           │   │   │   ├── function_tool_param.py
-    │           │   │   │   ├── input_item_list_params.py
-    │           │   │   │   ├── parsed_response.py
-    │           │   │   │   ├── response.py
-    │           │   │   │   ├── response_audio_delta_event.py
-    │           │   │   │   ├── response_audio_done_event.py
-    │           │   │   │   ├── response_audio_transcript_delta_event.py
-    │           │   │   │   ├── response_audio_transcript_done_event.py
-    │           │   │   │   ├── response_code_interpreter_call_code_delta_event.py
-    │           │   │   │   ├── response_code_interpreter_call_code_done_event.py
-    │           │   │   │   ├── response_code_interpreter_call_completed_event.py
-    │           │   │   │   ├── response_code_interpreter_call_in_progress_event.py
-    │           │   │   │   ├── response_code_interpreter_call_interpreting_event.py
-    │           │   │   │   ├── response_code_interpreter_tool_call.py
-    │           │   │   │   ├── response_code_interpreter_tool_call_param.py
-    │           │   │   │   ├── response_completed_event.py
-    │           │   │   │   ├── response_computer_tool_call.py
-    │           │   │   │   ├── response_computer_tool_call_output_item.py
-    │           │   │   │   ├── response_computer_tool_call_output_screenshot.py
-    │           │   │   │   ├── response_computer_tool_call_output_screenshot_param.py
-    │           │   │   │   ├── response_computer_tool_call_param.py
-    │           │   │   │   ├── response_content_part_added_event.py
-    │           │   │   │   ├── response_content_part_done_event.py
-    │           │   │   │   ├── response_create_params.py
-    │           │   │   │   ├── response_created_event.py
-    │           │   │   │   ├── response_error.py
-    │           │   │   │   ├── response_error_event.py
-    │           │   │   │   ├── response_failed_event.py
-    │           │   │   │   ├── response_file_search_call_completed_event.py
-    │           │   │   │   ├── response_file_search_call_in_progress_event.py
-    │           │   │   │   ├── response_file_search_call_searching_event.py
-    │           │   │   │   ├── response_file_search_tool_call.py
-    │           │   │   │   ├── response_file_search_tool_call_param.py
-    │           │   │   │   ├── response_format_text_config.py
-    │           │   │   │   ├── response_format_text_config_param.py
-    │           │   │   │   ├── response_format_text_json_schema_config.py
-    │           │   │   │   ├── response_format_text_json_schema_config_param.py
-    │           │   │   │   ├── response_function_call_arguments_delta_event.py
-    │           │   │   │   ├── response_function_call_arguments_done_event.py
-    │           │   │   │   ├── response_function_tool_call.py
-    │           │   │   │   ├── response_function_tool_call_item.py
-    │           │   │   │   ├── response_function_tool_call_output_item.py
-    │           │   │   │   ├── response_function_tool_call_param.py
-    │           │   │   │   ├── response_function_web_search.py
-    │           │   │   │   ├── response_function_web_search_param.py
-    │           │   │   │   ├── response_image_gen_call_completed_event.py
-    │           │   │   │   ├── response_image_gen_call_generating_event.py
-    │           │   │   │   ├── response_image_gen_call_in_progress_event.py
-    │           │   │   │   ├── response_image_gen_call_partial_image_event.py
-    │           │   │   │   ├── response_in_progress_event.py
-    │           │   │   │   ├── response_includable.py
-    │           │   │   │   ├── response_incomplete_event.py
-    │           │   │   │   ├── response_input_content.py
-    │           │   │   │   ├── response_input_content_param.py
-    │           │   │   │   ├── response_input_file.py
-    │           │   │   │   ├── response_input_file_param.py
-    │           │   │   │   ├── response_input_image.py
-    │           │   │   │   ├── response_input_image_param.py
-    │           │   │   │   ├── response_input_item.py
-    │           │   │   │   ├── response_input_item_param.py
-    │           │   │   │   ├── response_input_message_content_list.py
-    │           │   │   │   ├── response_input_message_content_list_param.py
-    │           │   │   │   ├── response_input_message_item.py
-    │           │   │   │   ├── response_input_param.py
-    │           │   │   │   ├── response_input_text.py
-    │           │   │   │   ├── response_input_text_param.py
-    │           │   │   │   ├── response_item.py
-    │           │   │   │   ├── response_item_list.py
-    │           │   │   │   ├── response_mcp_call_arguments_delta_event.py
-    │           │   │   │   ├── response_mcp_call_arguments_done_event.py
-    │           │   │   │   ├── response_mcp_call_completed_event.py
-    │           │   │   │   ├── response_mcp_call_failed_event.py
-    │           │   │   │   ├── response_mcp_call_in_progress_event.py
-    │           │   │   │   ├── response_mcp_list_tools_completed_event.py
-    │           │   │   │   ├── response_mcp_list_tools_failed_event.py
-    │           │   │   │   ├── response_mcp_list_tools_in_progress_event.py
-    │           │   │   │   ├── response_output_item.py
-    │           │   │   │   ├── response_output_item_added_event.py
-    │           │   │   │   ├── response_output_item_done_event.py
-    │           │   │   │   ├── response_output_message.py
-    │           │   │   │   ├── response_output_message_param.py
-    │           │   │   │   ├── response_output_refusal.py
-    │           │   │   │   ├── response_output_refusal_param.py
-    │           │   │   │   ├── response_output_text.py
-    │           │   │   │   ├── response_output_text_annotation_added_event.py
-    │           │   │   │   ├── response_output_text_param.py
-    │           │   │   │   ├── response_prompt.py
-    │           │   │   │   ├── response_prompt_param.py
-    │           │   │   │   ├── response_queued_event.py
-    │           │   │   │   ├── response_reasoning_delta_event.py
-    │           │   │   │   ├── response_reasoning_done_event.py
-    │           │   │   │   ├── response_reasoning_item.py
-    │           │   │   │   ├── response_reasoning_item_param.py
-    │           │   │   │   ├── response_reasoning_summary_delta_event.py
-    │           │   │   │   ├── response_reasoning_summary_done_event.py
-    │           │   │   │   ├── response_reasoning_summary_part_added_event.py
-    │           │   │   │   ├── response_reasoning_summary_part_done_event.py
-    │           │   │   │   ├── response_reasoning_summary_text_delta_event.py
-    │           │   │   │   ├── response_reasoning_summary_text_done_event.py
-    │           │   │   │   ├── response_refusal_delta_event.py
-    │           │   │   │   ├── response_refusal_done_event.py
-    │           │   │   │   ├── response_retrieve_params.py
-    │           │   │   │   ├── response_status.py
-    │           │   │   │   ├── response_stream_event.py
-    │           │   │   │   ├── response_text_config.py
-    │           │   │   │   ├── response_text_config_param.py
-    │           │   │   │   ├── response_text_delta_event.py
-    │           │   │   │   ├── response_text_done_event.py
-    │           │   │   │   ├── response_usage.py
-    │           │   │   │   ├── response_web_search_call_completed_event.py
-    │           │   │   │   ├── response_web_search_call_in_progress_event.py
-    │           │   │   │   ├── response_web_search_call_searching_event.py
-    │           │   │   │   ├── tool.py
-    │           │   │   │   ├── tool_choice_function.py
-    │           │   │   │   ├── tool_choice_function_param.py
-    │           │   │   │   ├── tool_choice_options.py
-    │           │   │   │   ├── tool_choice_types.py
-    │           │   │   │   ├── tool_choice_types_param.py
-    │           │   │   │   ├── tool_param.py
-    │           │   │   │   ├── web_search_tool.py
-    │           │   │   │   └── web_search_tool_param.py
-    │           │   │   ├── shared
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── all_models.py
-    │           │   │   │   ├── chat_model.py
-    │           │   │   │   ├── comparison_filter.py
-    │           │   │   │   ├── compound_filter.py
-    │           │   │   │   ├── error_object.py
-    │           │   │   │   ├── function_definition.py
-    │           │   │   │   ├── function_parameters.py
-    │           │   │   │   ├── metadata.py
-    │           │   │   │   ├── reasoning.py
-    │           │   │   │   ├── reasoning_effort.py
-    │           │   │   │   ├── response_format_json_object.py
-    │           │   │   │   ├── response_format_json_schema.py
-    │           │   │   │   ├── response_format_text.py
-    │           │   │   │   └── responses_model.py
-    │           │   │   ├── shared_params
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── chat_model.py
-    │           │   │   │   ├── comparison_filter.py
-    │           │   │   │   ├── compound_filter.py
-    │           │   │   │   ├── function_definition.py
-    │           │   │   │   ├── function_parameters.py
-    │           │   │   │   ├── metadata.py
-    │           │   │   │   ├── reasoning.py
-    │           │   │   │   ├── reasoning_effort.py
-    │           │   │   │   ├── response_format_json_object.py
-    │           │   │   │   ├── response_format_json_schema.py
-    │           │   │   │   ├── response_format_text.py
-    │           │   │   │   └── responses_model.py
-    │           │   │   ├── static_file_chunking_strategy.py
-    │           │   │   ├── static_file_chunking_strategy_object.py
-    │           │   │   ├── static_file_chunking_strategy_object_param.py
-    │           │   │   ├── static_file_chunking_strategy_param.py
-    │           │   │   ├── upload.py
-    │           │   │   ├── upload_complete_params.py
-    │           │   │   ├── upload_create_params.py
-    │           │   │   ├── uploads
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── part_create_params.py
-    │           │   │   │   └── upload_part.py
-    │           │   │   ├── vector_store.py
-    │           │   │   ├── vector_store_create_params.py
-    │           │   │   ├── vector_store_deleted.py
-    │           │   │   ├── vector_store_list_params.py
-    │           │   │   ├── vector_store_search_params.py
-    │           │   │   ├── vector_store_search_response.py
-    │           │   │   ├── vector_store_update_params.py
-    │           │   │   ├── vector_stores
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── file_batch_create_params.py
-    │           │   │   │   ├── file_batch_list_files_params.py
-    │           │   │   │   ├── file_content_response.py
-    │           │   │   │   ├── file_create_params.py
-    │           │   │   │   ├── file_list_params.py
-    │           │   │   │   ├── file_update_params.py
-    │           │   │   │   ├── vector_store_file.py
-    │           │   │   │   ├── vector_store_file_batch.py
-    │           │   │   │   └── vector_store_file_deleted.py
-    │           │   │   └── websocket_connection_options.py
-    │           │   └── version.py
-    │           ├── openai-1.91.0.dist-info
-    │           │   ├── INSTALLER
-    │           │   ├── METADATA
-    │           │   ├── RECORD
-    │           │   ├── REQUESTED
-    │           │   ├── WHEEL
-    │           │   ├── entry_points.txt
-    │           │   └── licenses
-    │           │       └── LICENSE
-    │           ├── pillow-11.2.1.dist-info
-    │           │   ├── INSTALLER
-    │           │   ├── METADATA
-    │           │   ├── RECORD
-    │           │   ├── REQUESTED
-    │           │   ├── WHEEL
-    │           │   ├── licenses
-    │           │   │   └── LICENSE
-    │           │   ├── top_level.txt
-    │           │   └── zip-safe
-    │           ├── pip
-    │           │   ├── __init__.py
-    │           │   ├── __main__.py
-    │           │   ├── __pip-runner__.py
-    │           │   ├── _internal
-    │           │   │   ├── __init__.py
-    │           │   │   ├── build_env.py
-    │           │   │   ├── cache.py
-    │           │   │   ├── cli
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── autocompletion.py
-    │           │   │   │   ├── base_command.py
-    │           │   │   │   ├── cmdoptions.py
-    │           │   │   │   ├── command_context.py
-    │           │   │   │   ├── index_command.py
-    │           │   │   │   ├── main.py
-    │           │   │   │   ├── main_parser.py
-    │           │   │   │   ├── parser.py
-    │           │   │   │   ├── progress_bars.py
-    │           │   │   │   ├── req_command.py
-    │           │   │   │   ├── spinners.py
-    │           │   │   │   └── status_codes.py
-    │           │   │   ├── commands
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── cache.py
-    │           │   │   │   ├── check.py
-    │           │   │   │   ├── completion.py
-    │           │   │   │   ├── configuration.py
-    │           │   │   │   ├── debug.py
-    │           │   │   │   ├── download.py
-    │           │   │   │   ├── freeze.py
-    │           │   │   │   ├── hash.py
-    │           │   │   │   ├── help.py
-    │           │   │   │   ├── index.py
-    │           │   │   │   ├── inspect.py
-    │           │   │   │   ├── install.py
-    │           │   │   │   ├── list.py
-    │           │   │   │   ├── lock.py
-    │           │   │   │   ├── search.py
-    │           │   │   │   ├── show.py
-    │           │   │   │   ├── uninstall.py
-    │           │   │   │   └── wheel.py
-    │           │   │   ├── configuration.py
-    │           │   │   ├── distributions
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── base.py
-    │           │   │   │   ├── installed.py
-    │           │   │   │   ├── sdist.py
-    │           │   │   │   └── wheel.py
-    │           │   │   ├── exceptions.py
-    │           │   │   ├── index
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── collector.py
-    │           │   │   │   ├── package_finder.py
-    │           │   │   │   └── sources.py
-    │           │   │   ├── locations
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── _distutils.py
-    │           │   │   │   ├── _sysconfig.py
-    │           │   │   │   └── base.py
-    │           │   │   ├── main.py
-    │           │   │   ├── metadata
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── _json.py
-    │           │   │   │   ├── base.py
-    │           │   │   │   ├── importlib
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   ├── _compat.py
-    │           │   │   │   │   ├── _dists.py
-    │           │   │   │   │   └── _envs.py
-    │           │   │   │   └── pkg_resources.py
-    │           │   │   ├── models
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── candidate.py
-    │           │   │   │   ├── direct_url.py
-    │           │   │   │   ├── format_control.py
-    │           │   │   │   ├── index.py
-    │           │   │   │   ├── installation_report.py
-    │           │   │   │   ├── link.py
-    │           │   │   │   ├── pylock.py
-    │           │   │   │   ├── scheme.py
-    │           │   │   │   ├── search_scope.py
-    │           │   │   │   ├── selection_prefs.py
-    │           │   │   │   ├── target_python.py
-    │           │   │   │   └── wheel.py
-    │           │   │   ├── network
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── auth.py
-    │           │   │   │   ├── cache.py
-    │           │   │   │   ├── download.py
-    │           │   │   │   ├── lazy_wheel.py
-    │           │   │   │   ├── session.py
-    │           │   │   │   ├── utils.py
-    │           │   │   │   └── xmlrpc.py
-    │           │   │   ├── operations
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── build
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   ├── build_tracker.py
-    │           │   │   │   │   ├── metadata.py
-    │           │   │   │   │   ├── metadata_editable.py
-    │           │   │   │   │   ├── metadata_legacy.py
-    │           │   │   │   │   ├── wheel.py
-    │           │   │   │   │   ├── wheel_editable.py
-    │           │   │   │   │   └── wheel_legacy.py
-    │           │   │   │   ├── check.py
-    │           │   │   │   ├── freeze.py
-    │           │   │   │   ├── install
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   ├── editable_legacy.py
-    │           │   │   │   │   └── wheel.py
-    │           │   │   │   └── prepare.py
-    │           │   │   ├── pyproject.py
-    │           │   │   ├── req
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── constructors.py
-    │           │   │   │   ├── req_dependency_group.py
-    │           │   │   │   ├── req_file.py
-    │           │   │   │   ├── req_install.py
-    │           │   │   │   ├── req_set.py
-    │           │   │   │   └── req_uninstall.py
-    │           │   │   ├── resolution
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── base.py
-    │           │   │   │   ├── legacy
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   └── resolver.py
-    │           │   │   │   └── resolvelib
-    │           │   │   │       ├── __init__.py
-    │           │   │   │       ├── base.py
-    │           │   │   │       ├── candidates.py
-    │           │   │   │       ├── factory.py
-    │           │   │   │       ├── found_candidates.py
-    │           │   │   │       ├── provider.py
-    │           │   │   │       ├── reporter.py
-    │           │   │   │       ├── requirements.py
-    │           │   │   │       └── resolver.py
-    │           │   │   ├── self_outdated_check.py
-    │           │   │   ├── utils
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── _jaraco_text.py
-    │           │   │   │   ├── _log.py
-    │           │   │   │   ├── appdirs.py
-    │           │   │   │   ├── compat.py
-    │           │   │   │   ├── compatibility_tags.py
-    │           │   │   │   ├── datetime.py
-    │           │   │   │   ├── deprecation.py
-    │           │   │   │   ├── direct_url_helpers.py
-    │           │   │   │   ├── egg_link.py
-    │           │   │   │   ├── entrypoints.py
-    │           │   │   │   ├── filesystem.py
-    │           │   │   │   ├── filetypes.py
-    │           │   │   │   ├── glibc.py
-    │           │   │   │   ├── hashes.py
-    │           │   │   │   ├── logging.py
-    │           │   │   │   ├── misc.py
-    │           │   │   │   ├── packaging.py
-    │           │   │   │   ├── retry.py
-    │           │   │   │   ├── setuptools_build.py
-    │           │   │   │   ├── subprocess.py
-    │           │   │   │   ├── temp_dir.py
-    │           │   │   │   ├── unpacking.py
-    │           │   │   │   ├── urls.py
-    │           │   │   │   ├── virtualenv.py
-    │           │   │   │   └── wheel.py
-    │           │   │   ├── vcs
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── bazaar.py
-    │           │   │   │   ├── git.py
-    │           │   │   │   ├── mercurial.py
-    │           │   │   │   ├── subversion.py
-    │           │   │   │   └── versioncontrol.py
-    │           │   │   └── wheel_builder.py
-    │           │   ├── _vendor
-    │           │   │   ├── __init__.py
-    │           │   │   ├── cachecontrol
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── _cmd.py
-    │           │   │   │   ├── adapter.py
-    │           │   │   │   ├── cache.py
-    │           │   │   │   ├── caches
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   ├── file_cache.py
-    │           │   │   │   │   └── redis_cache.py
-    │           │   │   │   ├── controller.py
-    │           │   │   │   ├── filewrapper.py
-    │           │   │   │   ├── heuristics.py
-    │           │   │   │   ├── py.typed
-    │           │   │   │   ├── serialize.py
-    │           │   │   │   └── wrapper.py
-    │           │   │   ├── certifi
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── __main__.py
-    │           │   │   │   ├── cacert.pem
-    │           │   │   │   ├── core.py
-    │           │   │   │   └── py.typed
-    │           │   │   ├── dependency_groups
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── __main__.py
-    │           │   │   │   ├── _implementation.py
-    │           │   │   │   ├── _lint_dependency_groups.py
-    │           │   │   │   ├── _pip_wrapper.py
-    │           │   │   │   ├── _toml_compat.py
-    │           │   │   │   └── py.typed
-    │           │   │   ├── distlib
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── compat.py
-    │           │   │   │   ├── database.py
-    │           │   │   │   ├── index.py
-    │           │   │   │   ├── locators.py
-    │           │   │   │   ├── manifest.py
-    │           │   │   │   ├── markers.py
-    │           │   │   │   ├── metadata.py
-    │           │   │   │   ├── resources.py
-    │           │   │   │   ├── scripts.py
-    │           │   │   │   ├── t32.exe
-    │           │   │   │   ├── t64-arm.exe
-    │           │   │   │   ├── t64.exe
-    │           │   │   │   ├── util.py
-    │           │   │   │   ├── version.py
-    │           │   │   │   ├── w32.exe
-    │           │   │   │   ├── w64-arm.exe
-    │           │   │   │   ├── w64.exe
-    │           │   │   │   └── wheel.py
-    │           │   │   ├── distro
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── __main__.py
-    │           │   │   │   ├── distro.py
-    │           │   │   │   └── py.typed
-    │           │   │   ├── idna
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── codec.py
-    │           │   │   │   ├── compat.py
-    │           │   │   │   ├── core.py
-    │           │   │   │   ├── idnadata.py
-    │           │   │   │   ├── intranges.py
-    │           │   │   │   ├── package_data.py
-    │           │   │   │   ├── py.typed
-    │           │   │   │   └── uts46data.py
-    │           │   │   ├── msgpack
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── exceptions.py
-    │           │   │   │   ├── ext.py
-    │           │   │   │   └── fallback.py
-    │           │   │   ├── packaging
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── _elffile.py
-    │           │   │   │   ├── _manylinux.py
-    │           │   │   │   ├── _musllinux.py
-    │           │   │   │   ├── _parser.py
-    │           │   │   │   ├── _structures.py
-    │           │   │   │   ├── _tokenizer.py
-    │           │   │   │   ├── licenses
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   └── _spdx.py
-    │           │   │   │   ├── markers.py
-    │           │   │   │   ├── metadata.py
-    │           │   │   │   ├── py.typed
-    │           │   │   │   ├── requirements.py
-    │           │   │   │   ├── specifiers.py
-    │           │   │   │   ├── tags.py
-    │           │   │   │   ├── utils.py
-    │           │   │   │   └── version.py
-    │           │   │   ├── pkg_resources
-    │           │   │   │   └── __init__.py
-    │           │   │   ├── platformdirs
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── __main__.py
-    │           │   │   │   ├── android.py
-    │           │   │   │   ├── api.py
-    │           │   │   │   ├── macos.py
-    │           │   │   │   ├── py.typed
-    │           │   │   │   ├── unix.py
-    │           │   │   │   ├── version.py
-    │           │   │   │   └── windows.py
-    │           │   │   ├── pygments
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── __main__.py
-    │           │   │   │   ├── console.py
-    │           │   │   │   ├── filter.py
-    │           │   │   │   ├── filters
-    │           │   │   │   │   └── __init__.py
-    │           │   │   │   ├── formatter.py
-    │           │   │   │   ├── formatters
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   └── _mapping.py
-    │           │   │   │   ├── lexer.py
-    │           │   │   │   ├── lexers
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   ├── _mapping.py
-    │           │   │   │   │   └── python.py
-    │           │   │   │   ├── modeline.py
-    │           │   │   │   ├── plugin.py
-    │           │   │   │   ├── regexopt.py
-    │           │   │   │   ├── scanner.py
-    │           │   │   │   ├── sphinxext.py
-    │           │   │   │   ├── style.py
-    │           │   │   │   ├── styles
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   └── _mapping.py
-    │           │   │   │   ├── token.py
-    │           │   │   │   ├── unistring.py
-    │           │   │   │   └── util.py
-    │           │   │   ├── pyproject_hooks
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── _impl.py
-    │           │   │   │   ├── _in_process
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   └── _in_process.py
-    │           │   │   │   └── py.typed
-    │           │   │   ├── requests
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── __version__.py
-    │           │   │   │   ├── _internal_utils.py
-    │           │   │   │   ├── adapters.py
-    │           │   │   │   ├── api.py
-    │           │   │   │   ├── auth.py
-    │           │   │   │   ├── certs.py
-    │           │   │   │   ├── compat.py
-    │           │   │   │   ├── cookies.py
-    │           │   │   │   ├── exceptions.py
-    │           │   │   │   ├── help.py
-    │           │   │   │   ├── hooks.py
-    │           │   │   │   ├── models.py
-    │           │   │   │   ├── packages.py
-    │           │   │   │   ├── sessions.py
-    │           │   │   │   ├── status_codes.py
-    │           │   │   │   ├── structures.py
-    │           │   │   │   └── utils.py
-    │           │   │   ├── resolvelib
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── providers.py
-    │           │   │   │   ├── py.typed
-    │           │   │   │   ├── reporters.py
-    │           │   │   │   ├── resolvers
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   ├── abstract.py
-    │           │   │   │   │   ├── criterion.py
-    │           │   │   │   │   ├── exceptions.py
-    │           │   │   │   │   └── resolution.py
-    │           │   │   │   └── structs.py
-    │           │   │   ├── rich
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── __main__.py
-    │           │   │   │   ├── _cell_widths.py
-    │           │   │   │   ├── _emoji_codes.py
-    │           │   │   │   ├── _emoji_replace.py
-    │           │   │   │   ├── _export_format.py
-    │           │   │   │   ├── _extension.py
-    │           │   │   │   ├── _fileno.py
-    │           │   │   │   ├── _inspect.py
-    │           │   │   │   ├── _log_render.py
-    │           │   │   │   ├── _loop.py
-    │           │   │   │   ├── _null_file.py
-    │           │   │   │   ├── _palettes.py
-    │           │   │   │   ├── _pick.py
-    │           │   │   │   ├── _ratio.py
-    │           │   │   │   ├── _spinners.py
-    │           │   │   │   ├── _stack.py
-    │           │   │   │   ├── _timer.py
-    │           │   │   │   ├── _win32_console.py
-    │           │   │   │   ├── _windows.py
-    │           │   │   │   ├── _windows_renderer.py
-    │           │   │   │   ├── _wrap.py
-    │           │   │   │   ├── abc.py
-    │           │   │   │   ├── align.py
-    │           │   │   │   ├── ansi.py
-    │           │   │   │   ├── bar.py
-    │           │   │   │   ├── box.py
-    │           │   │   │   ├── cells.py
-    │           │   │   │   ├── color.py
-    │           │   │   │   ├── color_triplet.py
-    │           │   │   │   ├── columns.py
-    │           │   │   │   ├── console.py
-    │           │   │   │   ├── constrain.py
-    │           │   │   │   ├── containers.py
-    │           │   │   │   ├── control.py
-    │           │   │   │   ├── default_styles.py
-    │           │   │   │   ├── diagnose.py
-    │           │   │   │   ├── emoji.py
-    │           │   │   │   ├── errors.py
-    │           │   │   │   ├── file_proxy.py
-    │           │   │   │   ├── filesize.py
-    │           │   │   │   ├── highlighter.py
-    │           │   │   │   ├── json.py
-    │           │   │   │   ├── jupyter.py
-    │           │   │   │   ├── layout.py
-    │           │   │   │   ├── live.py
-    │           │   │   │   ├── live_render.py
-    │           │   │   │   ├── logging.py
-    │           │   │   │   ├── markup.py
-    │           │   │   │   ├── measure.py
-    │           │   │   │   ├── padding.py
-    │           │   │   │   ├── pager.py
-    │           │   │   │   ├── palette.py
-    │           │   │   │   ├── panel.py
-    │           │   │   │   ├── pretty.py
-    │           │   │   │   ├── progress.py
-    │           │   │   │   ├── progress_bar.py
-    │           │   │   │   ├── prompt.py
-    │           │   │   │   ├── protocol.py
-    │           │   │   │   ├── py.typed
-    │           │   │   │   ├── region.py
-    │           │   │   │   ├── repr.py
-    │           │   │   │   ├── rule.py
-    │           │   │   │   ├── scope.py
-    │           │   │   │   ├── screen.py
-    │           │   │   │   ├── segment.py
-    │           │   │   │   ├── spinner.py
-    │           │   │   │   ├── status.py
-    │           │   │   │   ├── style.py
-    │           │   │   │   ├── styled.py
-    │           │   │   │   ├── syntax.py
-    │           │   │   │   ├── table.py
-    │           │   │   │   ├── terminal_theme.py
-    │           │   │   │   ├── text.py
-    │           │   │   │   ├── theme.py
-    │           │   │   │   ├── themes.py
-    │           │   │   │   ├── traceback.py
-    │           │   │   │   └── tree.py
-    │           │   │   ├── tomli
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── _parser.py
-    │           │   │   │   ├── _re.py
-    │           │   │   │   ├── _types.py
-    │           │   │   │   └── py.typed
-    │           │   │   ├── tomli_w
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── _writer.py
-    │           │   │   │   └── py.typed
-    │           │   │   ├── truststore
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── _api.py
-    │           │   │   │   ├── _macos.py
-    │           │   │   │   ├── _openssl.py
-    │           │   │   │   ├── _ssl_constants.py
-    │           │   │   │   ├── _windows.py
-    │           │   │   │   └── py.typed
-    │           │   │   ├── typing_extensions.py
-    │           │   │   ├── urllib3
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── _collections.py
-    │           │   │   │   ├── _version.py
-    │           │   │   │   ├── connection.py
-    │           │   │   │   ├── connectionpool.py
-    │           │   │   │   ├── contrib
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   ├── _appengine_environ.py
-    │           │   │   │   │   ├── _securetransport
-    │           │   │   │   │   │   ├── __init__.py
-    │           │   │   │   │   │   ├── bindings.py
-    │           │   │   │   │   │   └── low_level.py
-    │           │   │   │   │   ├── appengine.py
-    │           │   │   │   │   ├── ntlmpool.py
-    │           │   │   │   │   ├── pyopenssl.py
-    │           │   │   │   │   ├── securetransport.py
-    │           │   │   │   │   └── socks.py
-    │           │   │   │   ├── exceptions.py
-    │           │   │   │   ├── fields.py
-    │           │   │   │   ├── filepost.py
-    │           │   │   │   ├── packages
-    │           │   │   │   │   ├── __init__.py
-    │           │   │   │   │   ├── backports
-    │           │   │   │   │   │   ├── __init__.py
-    │           │   │   │   │   │   ├── makefile.py
-    │           │   │   │   │   │   └── weakref_finalize.py
-    │           │   │   │   │   └── six.py
-    │           │   │   │   ├── poolmanager.py
-    │           │   │   │   ├── request.py
-    │           │   │   │   ├── response.py
-    │           │   │   │   └── util
-    │           │   │   │       ├── __init__.py
-    │           │   │   │       ├── connection.py
-    │           │   │   │       ├── proxy.py
-    │           │   │   │       ├── queue.py
-    │           │   │   │       ├── request.py
-    │           │   │   │       ├── response.py
-    │           │   │   │       ├── retry.py
-    │           │   │   │       ├── ssl_.py
-    │           │   │   │       ├── ssl_match_hostname.py
-    │           │   │   │       ├── ssltransport.py
-    │           │   │   │       ├── timeout.py
-    │           │   │   │       ├── url.py
-    │           │   │   │       └── wait.py
-    │           │   │   └── vendor.txt
-    │           │   └── py.typed
-    │           ├── pip-25.1.1.dist-info
-    │           │   ├── INSTALLER
-    │           │   ├── METADATA
-    │           │   ├── RECORD
-    │           │   ├── REQUESTED
-    │           │   ├── WHEEL
-    │           │   ├── entry_points.txt
-    │           │   ├── licenses
-    │           │   │   ├── AUTHORS.txt
-    │           │   │   └── LICENSE.txt
-    │           │   └── top_level.txt
-    │           ├── pydantic
-    │           │   ├── __init__.py
-    │           │   ├── _internal
-    │           │   │   ├── __init__.py
-    │           │   │   ├── _config.py
-    │           │   │   ├── _core_metadata.py
-    │           │   │   ├── _core_utils.py
-    │           │   │   ├── _dataclasses.py
-    │           │   │   ├── _decorators.py
-    │           │   │   ├── _decorators_v1.py
-    │           │   │   ├── _discriminated_union.py
-    │           │   │   ├── _docs_extraction.py
-    │           │   │   ├── _fields.py
-    │           │   │   ├── _forward_ref.py
-    │           │   │   ├── _generate_schema.py
-    │           │   │   ├── _generics.py
-    │           │   │   ├── _git.py
-    │           │   │   ├── _import_utils.py
-    │           │   │   ├── _internal_dataclass.py
-    │           │   │   ├── _known_annotated_metadata.py
-    │           │   │   ├── _mock_val_ser.py
-    │           │   │   ├── _model_construction.py
-    │           │   │   ├── _namespace_utils.py
-    │           │   │   ├── _repr.py
-    │           │   │   ├── _schema_gather.py
-    │           │   │   ├── _schema_generation_shared.py
-    │           │   │   ├── _serializers.py
-    │           │   │   ├── _signature.py
-    │           │   │   ├── _typing_extra.py
-    │           │   │   ├── _utils.py
-    │           │   │   ├── _validate_call.py
-    │           │   │   └── _validators.py
-    │           │   ├── _migration.py
-    │           │   ├── alias_generators.py
-    │           │   ├── aliases.py
-    │           │   ├── annotated_handlers.py
-    │           │   ├── class_validators.py
-    │           │   ├── color.py
-    │           │   ├── config.py
-    │           │   ├── dataclasses.py
-    │           │   ├── datetime_parse.py
-    │           │   ├── decorator.py
-    │           │   ├── deprecated
-    │           │   │   ├── __init__.py
-    │           │   │   ├── class_validators.py
-    │           │   │   ├── config.py
-    │           │   │   ├── copy_internals.py
-    │           │   │   ├── decorator.py
-    │           │   │   ├── json.py
-    │           │   │   ├── parse.py
-    │           │   │   └── tools.py
-    │           │   ├── env_settings.py
-    │           │   ├── error_wrappers.py
-    │           │   ├── errors.py
-    │           │   ├── experimental
-    │           │   │   ├── __init__.py
-    │           │   │   ├── arguments_schema.py
-    │           │   │   └── pipeline.py
-    │           │   ├── fields.py
-    │           │   ├── functional_serializers.py
-    │           │   ├── functional_validators.py
-    │           │   ├── generics.py
-    │           │   ├── json.py
-    │           │   ├── json_schema.py
-    │           │   ├── main.py
-    │           │   ├── mypy.py
-    │           │   ├── networks.py
-    │           │   ├── parse.py
-    │           │   ├── plugin
-    │           │   │   ├── __init__.py
-    │           │   │   ├── _loader.py
-    │           │   │   └── _schema_validator.py
-    │           │   ├── py.typed
-    │           │   ├── root_model.py
-    │           │   ├── schema.py
-    │           │   ├── tools.py
-    │           │   ├── type_adapter.py
-    │           │   ├── types.py
-    │           │   ├── typing.py
-    │           │   ├── utils.py
-    │           │   ├── v1
-    │           │   │   ├── __init__.py
-    │           │   │   ├── _hypothesis_plugin.py
-    │           │   │   ├── annotated_types.py
-    │           │   │   ├── class_validators.py
-    │           │   │   ├── color.py
-    │           │   │   ├── config.py
-    │           │   │   ├── dataclasses.py
-    │           │   │   ├── datetime_parse.py
-    │           │   │   ├── decorator.py
-    │           │   │   ├── env_settings.py
-    │           │   │   ├── error_wrappers.py
-    │           │   │   ├── errors.py
-    │           │   │   ├── fields.py
-    │           │   │   ├── generics.py
-    │           │   │   ├── json.py
-    │           │   │   ├── main.py
-    │           │   │   ├── mypy.py
-    │           │   │   ├── networks.py
-    │           │   │   ├── parse.py
-    │           │   │   ├── py.typed
-    │           │   │   ├── schema.py
-    │           │   │   ├── tools.py
-    │           │   │   ├── types.py
-    │           │   │   ├── typing.py
-    │           │   │   ├── utils.py
-    │           │   │   ├── validators.py
-    │           │   │   └── version.py
-    │           │   ├── validate_call_decorator.py
-    │           │   ├── validators.py
-    │           │   ├── version.py
-    │           │   └── warnings.py
-    │           ├── pydantic-2.11.7.dist-info
-    │           │   ├── INSTALLER
-    │           │   ├── METADATA
-    │           │   ├── RECORD
-    │           │   ├── WHEEL
-    │           │   └── licenses
-    │           │       └── LICENSE
-    │           ├── pydantic_core
-    │           │   ├── __init__.py
-    │           │   ├── _pydantic_core.cpython-313-darwin.so
-    │           │   ├── _pydantic_core.pyi
-    │           │   ├── core_schema.py
-    │           │   └── py.typed
-    │           ├── pydantic_core-2.33.2.dist-info
-    │           │   ├── INSTALLER
-    │           │   ├── METADATA
-    │           │   ├── RECORD
-    │           │   ├── WHEEL
-    │           │   └── licenses
-    │           │       └── LICENSE
-    │           ├── python_dotenv-1.1.1.dist-info
-    │           │   ├── INSTALLER
-    │           │   ├── METADATA
-    │           │   ├── RECORD
-    │           │   ├── REQUESTED
-    │           │   ├── WHEEL
-    │           │   ├── entry_points.txt
-    │           │   ├── licenses
-    │           │   │   └── LICENSE
-    │           │   └── top_level.txt
-    │           ├── requests
-    │           │   ├── __init__.py
-    │           │   ├── __version__.py
-    │           │   ├── _internal_utils.py
-    │           │   ├── adapters.py
-    │           │   ├── api.py
-    │           │   ├── auth.py
-    │           │   ├── certs.py
-    │           │   ├── compat.py
-    │           │   ├── cookies.py
-    │           │   ├── exceptions.py
-    │           │   ├── help.py
-    │           │   ├── hooks.py
-    │           │   ├── models.py
-    │           │   ├── packages.py
-    │           │   ├── sessions.py
-    │           │   ├── status_codes.py
-    │           │   ├── structures.py
-    │           │   └── utils.py
-    │           ├── requests-2.32.4.dist-info
-    │           │   ├── INSTALLER
-    │           │   ├── METADATA
-    │           │   ├── RECORD
-    │           │   ├── REQUESTED
-    │           │   ├── WHEEL
-    │           │   ├── licenses
-    │           │   │   └── LICENSE
-    │           │   └── top_level.txt
-    │           ├── sniffio
-    │           │   ├── __init__.py
-    │           │   ├── _impl.py
-    │           │   ├── _tests
-    │           │   │   ├── __init__.py
-    │           │   │   └── test_sniffio.py
-    │           │   ├── _version.py
-    │           │   └── py.typed
-    │           ├── sniffio-1.3.1.dist-info
-    │           │   ├── INSTALLER
-    │           │   ├── LICENSE
-    │           │   ├── LICENSE.APACHE2
-    │           │   ├── LICENSE.MIT
-    │           │   ├── METADATA
-    │           │   ├── RECORD
-    │           │   ├── WHEEL
-    │           │   └── top_level.txt
-    │           ├── tqdm
-    │           │   ├── __init__.py
-    │           │   ├── __main__.py
-    │           │   ├── _dist_ver.py
-    │           │   ├── _main.py
-    │           │   ├── _monitor.py
-    │           │   ├── _tqdm.py
-    │           │   ├── _tqdm_gui.py
-    │           │   ├── _tqdm_notebook.py
-    │           │   ├── _tqdm_pandas.py
-    │           │   ├── _utils.py
-    │           │   ├── asyncio.py
-    │           │   ├── auto.py
-    │           │   ├── autonotebook.py
-    │           │   ├── cli.py
-    │           │   ├── completion.sh
-    │           │   ├── contrib
-    │           │   │   ├── __init__.py
-    │           │   │   ├── bells.py
-    │           │   │   ├── concurrent.py
-    │           │   │   ├── discord.py
-    │           │   │   ├── itertools.py
-    │           │   │   ├── logging.py
-    │           │   │   ├── slack.py
-    │           │   │   ├── telegram.py
-    │           │   │   └── utils_worker.py
-    │           │   ├── dask.py
-    │           │   ├── gui.py
-    │           │   ├── keras.py
-    │           │   ├── notebook.py
-    │           │   ├── rich.py
-    │           │   ├── std.py
-    │           │   ├── tk.py
-    │           │   ├── tqdm.1
-    │           │   ├── utils.py
-    │           │   └── version.py
-    │           ├── tqdm-4.67.1.dist-info
-    │           │   ├── INSTALLER
-    │           │   ├── LICENCE
-    │           │   ├── METADATA
-    │           │   ├── RECORD
-    │           │   ├── WHEEL
-    │           │   ├── entry_points.txt
-    │           │   └── top_level.txt
-    │           ├── typing_extensions-4.14.0.dist-info
-    │           │   ├── INSTALLER
-    │           │   ├── METADATA
-    │           │   ├── RECORD
-    │           │   ├── WHEEL
-    │           │   └── licenses
-    │           │       └── LICENSE
-    │           ├── typing_extensions.py
-    │           ├── typing_inspection
-    │           │   ├── __init__.py
-    │           │   ├── introspection.py
-    │           │   ├── py.typed
-    │           │   ├── typing_objects.py
-    │           │   └── typing_objects.pyi
-    │           ├── typing_inspection-0.4.1.dist-info
-    │           │   ├── INSTALLER
-    │           │   ├── METADATA
-    │           │   ├── RECORD
-    │           │   ├── WHEEL
-    │           │   └── licenses
-    │           │       └── LICENSE
-    │           ├── urllib3
-    │           │   ├── __init__.py
-    │           │   ├── _base_connection.py
-    │           │   ├── _collections.py
-    │           │   ├── _request_methods.py
-    │           │   ├── _version.py
-    │           │   ├── connection.py
-    │           │   ├── connectionpool.py
-    │           │   ├── contrib
-    │           │   │   ├── __init__.py
-    │           │   │   ├── emscripten
-    │           │   │   │   ├── __init__.py
-    │           │   │   │   ├── connection.py
-    │           │   │   │   ├── emscripten_fetch_worker.js
-    │           │   │   │   ├── fetch.py
-    │           │   │   │   ├── request.py
-    │           │   │   │   └── response.py
-    │           │   │   ├── pyopenssl.py
-    │           │   │   └── socks.py
-    │           │   ├── exceptions.py
-    │           │   ├── fields.py
-    │           │   ├── filepost.py
-    │           │   ├── http2
-    │           │   │   ├── __init__.py
-    │           │   │   ├── connection.py
-    │           │   │   └── probe.py
-    │           │   ├── poolmanager.py
-    │           │   ├── py.typed
-    │           │   ├── response.py
-    │           │   └── util
-    │           │       ├── __init__.py
-    │           │       ├── connection.py
-    │           │       ├── proxy.py
-    │           │       ├── request.py
-    │           │       ├── response.py
-    │           │       ├── retry.py
-    │           │       ├── ssl_.py
-    │           │       ├── ssl_match_hostname.py
-    │           │       ├── ssltransport.py
-    │           │       ├── timeout.py
-    │           │       ├── url.py
-    │           │       ├── util.py
-    │           │       └── wait.py
-    │           └── urllib3-2.5.0.dist-info
-    │               ├── INSTALLER
-    │               ├── METADATA
-    │               ├── RECORD
-    │               ├── WHEEL
-    │               └── licenses
-    │                   └── LICENSE.txt
-    └── pyvenv.cfg
+└── templates
+    ├── index.html
+    ├── main.html
+    ├── mockup_selector.html
+    └── review.html

@@ -1,1 +1,0 @@
-# Capitalart local dev
