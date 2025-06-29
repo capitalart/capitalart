@@ -17,13 +17,13 @@ import subprocess
 import random
 import shutil
 import logging
+import re # Make sure 're' is imported here
 from pathlib import Path
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory, flash
 from PIL import Image, ImageDraw
 import cv2
 import numpy as np
-import re # ADDED: Import the 're' module for regular expressions
 
 # ========== SECTION 1. PATHS & CONSTANTS ==========
 
@@ -140,33 +140,40 @@ def latest_analyzed_artwork() -> dict | None:
                 continue
     return latest_info
 
-# ========== SECTION 3.9. List all artworks in all aspect subfolders ==========
-def list_artworks():
-    artworks = []
-    for aspect_dir in sorted(ARTWORKS_DIR.iterdir()):
-        if not aspect_dir.is_dir():
-            continue
-        for img in aspect_dir.glob("*.[jJ][pP][gG]"):
-            artworks.append(
-                {"aspect": aspect_dir.name, "filename": img.name, "title": img.stem.replace("-", " ").title()}
-            )
-    artworks = sorted(artworks, key=lambda x: (x["aspect"], x["filename"]))
-    return artworks
+# =========================================================
+# SECTION 3.9: Description Text Combining & Cleaning
+# =========================================================
 
-## 3.10. Aggressively clean text for display (new)
+## 3.9.1. Clean Display Text (Collapse Excess Newlines)
 def clean_display_text(text: str) -> str:
+    """
+    Cleans a string for display by:
+    - Stripping leading/trailing whitespace.
+    - Collapsing any sequence of two or more newlines down to exactly two.
+      (So there is never more than a single blank line between paragraphs.)
+    """
     if not text:
         return ""
-    # Strip all leading/trailing whitespace, including newlines
+    # Strip all leading/trailing whitespace, including spaces and newlines
     cleaned = text.strip()
     # Replace sequences of 2 or more newlines with exactly two newlines (one blank line)
-    # This also handles cases where text might start with multiple newlines internally
     cleaned = re.sub(r'\n{2,}', '\n\n', cleaned)
-    # Optional: Remove any leading/trailing spaces on lines *within* the text (e.g., "  line" -> "line")
-    # This is more aggressive and might not always be desired if internal indentation matters.
-    # For a general listing, it's usually fine.
-    # cleaned = '\n'.join(line.strip() for line in cleaned.splitlines())
     return cleaned
+
+## 3.9.2. Combine All Listing Parts for Display
+def build_full_listing_text(ai_desc: str, generic_text: str) -> str:
+    """
+    Combines all listing description components for clean display.
+    - Cleans each part individually.
+    - Joins them with a standard double newline (paragraph break).
+    - Cleans the final result again, ensuring no excess blank lines.
+    """
+    # Clean individual parts (avoids inherited trailing newlines)
+    parts = [clean_display_text(ai_desc), clean_display_text(generic_text)]
+    # Filter out empty sections
+    combined = "\n\n".join([p for p in parts if p])
+    # FINAL CLEAN: Collapse any accidental extra lines introduced by join
+    return clean_display_text(combined)
 
 # ========== SECTION 4. MAIN ROUTES ==========
 
@@ -323,74 +330,58 @@ def analyze_artwork(aspect, filename):
     # === Redirect to review page showing both listing and preview mockups ===
     return redirect(url_for("review_artwork", aspect=aspect, filename=filename))
 
-# --- 4.4. Review Artwork, Preview Mockups & AI Listing ---
+# =============================================================
+# 4.4. REVIEW ARTWORK, PREVIEW MOCKUPS & AI LISTING
+# =============================================================
 
 @app.route("/review/<aspect>/<filename>")
 def review_artwork(aspect, filename):
     """
-    Review the analyzed artwork, show AI-generated listing, and preview composite mockups.
-    Provides per-mockup regenerate and category swap UI.
+    SECTION 4.4: Review analyzed artwork, show AI-generated listing,
+    and preview composite mockups (with per-mockup regenerate and category swap UI).
     """
-
-    # === [4.4.1] Find SEO folder (handles both original and SEO filenames) ===
-    original_basename = Path(filename).stem
-    processed_root = ARTWORK_PROCESSED_DIR
-    listing_json = None
-    seo_folder = None
-
-    for folder in processed_root.iterdir():
-        if folder.is_dir():
-            possible_json = folder / f"{folder.name}-listing.json"
-            if possible_json.exists():
-                with open(possible_json, "r", encoding="utf-8") as f:
-                    try:
-                        data = json.load(f)
-                        found_filename = Path(data.get("filename", "")).stem
-                        # Accept if this matches either original filename or folder name
-                        if found_filename == original_basename or folder.name == original_basename:
-                            listing_json = data
-                            seo_folder = folder.name
-                            break
-                    except Exception:
-                        continue
-
-    # === [4.4.2] Redirect if using original filename but SEO exists ===
-    if seo_folder and filename != seo_folder + ".jpg":
-        # Always use canonical SEO filename for all review UI, swaps, etc
-        return redirect(url_for("review_artwork", aspect=aspect, filename=seo_folder + ".jpg"))
-
-    # === [4.4.3] Fallback: No listing found ===
-    if not listing_json:
+    # --- 4.4.1. Locate listing JSON & canonical SEO folder ---
+    seo_folder = Path(filename).stem
+    listing_path = ARTWORK_PROCESSED_DIR / seo_folder / f"{seo_folder}-listing.json"
+    if not listing_path.exists():
+        # Fallback: Show error if not found
+        flash(f"Artwork listing not found: {listing_path}", "danger")
         return render_template(
             "review_artwork.html",
             artwork={
-                "seo_name": original_basename,
-                "title": original_basename.replace("-", " ").title(),
+                "seo_name": seo_folder,
+                "title": seo_folder.replace("-", " ").title(),
                 "main_image": filename,
-                "thumb": f"{original_basename}-THUMB.jpg",
-                "description": "(No AI listing found. Try re-analyzing.)",
+                "thumb": f"{seo_folder}-THUMB.jpg",
                 "aspect": aspect,
                 "missing": True,
                 "tags": [],
                 "materials": [],
                 "primary_colour": "",
                 "secondary_colour": "",
-                "full_listing_text": "(No AI listing description found. Try re-analyzing.)" # ADDED: Fallback for full_listing_text
+                "full_listing_text": "(No AI listing description found. Try re-analyzing.)"
             },
             mockup_previews=[],
             categories=[],
             ai_listing=None,
             ai_description="(No AI listing description found)",
             fallback_text=None,
-            tags=[],
-            materials=[],
             used_fallback_naming=False,
             generic_text="",
             raw_ai_output="",
             menu=get_menu(),
         )
 
-    # === [4.4.4] Extract AI listing and summary fields ===
+    # --- 4.4.2. Load and parse listing JSON ---
+    try:
+        with open(listing_path, "r", encoding="utf-8") as f:
+            listing_json = json.load(f)
+    except Exception as e:
+        app.logger.error(f"Error loading artwork {filename}: {e}")
+        flash(f"Error loading artwork: {e}", "danger")
+        return redirect(url_for("artworks"))
+
+    # --- 4.4.3. Extract all fields for display ---
     ai_listing = listing_json.get("ai_listing", {})
     desc = None
     fallback_text = None
@@ -407,46 +398,30 @@ def review_artwork(aspect, filename):
     if not desc:
         desc = listing_json.get("generic_text", "(No AI listing description found)")
     tags = listing_json.get("tags") or (ai_listing.get("tags", []) if isinstance(ai_listing, dict) else [])
-    materials = listing_json.get("materials") or (
-        ai_listing.get("materials", []) if isinstance(ai_listing, dict) else []
-    )
+    materials = listing_json.get("materials") or (ai_listing.get("materials", []) if isinstance(ai_listing, dict) else [])
     generic_text = listing_json.get("generic_text", "")
 
-    # MODIFIED: Logic to prepare the combined listing text with proper spacing
+    # --- 4.4.4. Combine & clean description blocks ---
     parts_to_combine = []
-
-    # AI Description (cleaned)
     if desc:
-        # Use the new aggressive cleaner for the AI description
         cleaned_desc = clean_display_text(desc)
-        if cleaned_desc: # Only add if it's not an empty string after cleaning
+        if cleaned_desc:
             parts_to_combine.append(cleaned_desc)
-
-    # Generic Text (cleaned and appended after AI description if present)
     if generic_text:
-        # Use the new aggressive cleaner for the generic text
         cleaned_generic_text = clean_display_text(generic_text)
-        if cleaned_generic_text: # Only add if it's not an empty string after cleaning
+        if cleaned_generic_text:
             parts_to_combine.append(cleaned_generic_text)
-
-    # Combine all parts with two newlines as standard paragraph separators
-    # Filter out any empty strings that might result from stripping
     full_listing_text = "\n\n".join(filter(None, parts_to_combine))
 
-    # The final .strip() might still be useful just in case, but clean_display_text
-    # should largely handle the leading/trailing issues.
-    # full_listing_text = full_listing_text.strip()
-    # END MODIFIED SECTION
-
+    # --- 4.4.5. Extract mockup previews, categories, and meta ---
     primary_colour = listing_json.get("primary_colour", "")
     secondary_colour = listing_json.get("secondary_colour", "")
     used_fallback_naming = bool(listing_json.get("used_fallback_naming", False))
-    if isinstance(ai_listing, (dict, list)):
-        raw_ai_output = json.dumps(ai_listing, indent=2, ensure_ascii=False)[:800]
-    else:
-        raw_ai_output = str(ai_listing)[:800]
-
-    # === [4.4.5] Collect per-mockup preview dicts (filename, category, index) ===
+    raw_ai_output = (
+        json.dumps(ai_listing, indent=2, ensure_ascii=False)[:800]
+        if isinstance(ai_listing, (dict, list))
+        else str(ai_listing)[:800]
+    )
     folder = ARTWORK_PROCESSED_DIR / seo_folder
     images = sorted(folder.glob(f"{seo_folder}-MU-*.jpg"))
     mockups_from_json = listing_json.get("mockups", []) if listing_json else []
@@ -463,17 +438,14 @@ def review_artwork(aspect, filename):
             "category": cat,
             "index": idx,
         })
-
-    # === [4.4.6] Get categories for dropdowns ===
     categories = get_categories()
 
-    # === [4.4.7] Build artwork dict for template ===
+    # --- 4.4.6. Build artwork dict for template ---
     artwork = {
         "seo_name": seo_folder,
         "title": ai_title or listing_json.get("title") or seo_folder.replace("-", " ").title(),
         "main_image": f"outputs/processed/{seo_folder}/{seo_folder}.jpg",
         "thumb": f"outputs/processed/{seo_folder}/{seo_folder}-THUMB.jpg",
-        # REMOVED: "description": combined_description.strip(),
         "aspect": aspect,
         "tags": tags,
         "materials": materials,
@@ -481,10 +453,10 @@ def review_artwork(aspect, filename):
         "has_materials": bool(materials),
         "primary_colour": primary_colour,
         "secondary_colour": secondary_colour,
-        "full_listing_text": full_listing_text, # ADDED: Pass the new full_listing_text to the artwork dict
+        "full_listing_text": full_listing_text,
     }
 
-    # === [4.4.8] Render template with all context ===
+    # --- 4.4.7. Render review_artwork.html with context ---
     return render_template(
         "review_artwork.html",
         artwork=artwork,
@@ -499,18 +471,16 @@ def review_artwork(aspect, filename):
         mockup_previews=mockup_previews,
         categories=categories,
         menu=get_menu(),
-        # REMOVED: full_listing_text=full_listing_text, (because it's now inside artwork dict)
     )
 
-# --- 4.4b. Review Page: Individual Mockup Regenerate/Swap Actions ---
+# =============================================================
+# 4.4b. REVIEW PAGE: INDIVIDUAL MOCKUP REGENERATE/SWAP ACTIONS
+# =============================================================
 
 from werkzeug.exceptions import NotFound
 
-## 4.4b.1. Helper: Find SEO folder for given aspect/filename
+## 4.4b.1. Helper: Find SEO folder from filename
 def find_seo_folder_from_filename(aspect, filename):
-    """
-    Returns the SEO folder name for a given artwork's aspect and original filename.
-    """
     basename = Path(filename).stem
     for folder in ARTWORK_PROCESSED_DIR.iterdir():
         if not folder.is_dir():
@@ -529,9 +499,6 @@ def find_seo_folder_from_filename(aspect, filename):
 
 ## 4.4b.2. Helper: Regenerate one mockup (same category)
 def regenerate_one_mockup(seo_folder, slot_idx):
-    """
-    Regenerate the composite for a given slot index using the same category.
-    """
     folder = ARTWORK_PROCESSED_DIR / seo_folder
     listing_file = folder / f"{seo_folder}-listing.json"
     if not listing_file.exists():
@@ -541,16 +508,13 @@ def regenerate_one_mockup(seo_folder, slot_idx):
     mockups = data.get("mockups", [])
     if slot_idx < 0 or slot_idx >= len(mockups):
         return False
-    # Get the current category
     mockup_path = Path(mockups[slot_idx])
     category = mockup_path.parent.name
-    # Pick a new random image from this category
     mockup_files = list((MOCKUPS_DIR / category).glob("*.png"))
     if not mockup_files:
         return False
     import random
     new_mockup = random.choice(mockup_files)
-    # Get coords and run transform
     aspect = data.get("aspect_ratio")
     coords_path = COORDS_ROOT / aspect / f"{new_mockup.stem}.json"
     art_path = folder / f"{seo_folder}.jpg"
@@ -564,7 +528,6 @@ def regenerate_one_mockup(seo_folder, slot_idx):
         mock_img = Image.open(new_mockup).convert("RGBA")
         composite = apply_perspective_transform(art_img, mock_img, dst)
         composite.convert("RGB").save(output_path, "JPEG", quality=85)
-        # Update mockup path in JSON
         data["mockups"][slot_idx] = str(new_mockup)
         with open(listing_file, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
@@ -575,9 +538,6 @@ def regenerate_one_mockup(seo_folder, slot_idx):
 
 ## 4.4b.3. Helper: Swap mockup to a new category and regenerate
 def swap_one_mockup(seo_folder, slot_idx, new_category):
-    """
-    Change the slot's category and pick a random mockup from that category.
-    """
     folder = ARTWORK_PROCESSED_DIR / seo_folder
     listing_file = folder / f"{seo_folder}-listing.json"
     if not listing_file.exists():
@@ -587,7 +547,6 @@ def swap_one_mockup(seo_folder, slot_idx, new_category):
     mockups = data.get("mockups", [])
     if slot_idx < 0 or slot_idx >= len(mockups):
         return False
-    # Pick a new random image from the new category
     mockup_files = list((MOCKUPS_DIR / new_category).glob("*.png"))
     if not mockup_files:
         return False
@@ -606,7 +565,6 @@ def swap_one_mockup(seo_folder, slot_idx, new_category):
         mock_img = Image.open(new_mockup).convert("RGBA")
         composite = apply_perspective_transform(art_img, mock_img, dst)
         composite.convert("RGB").save(output_path, "JPEG", quality=85)
-        # Update mockup path in JSON
         data["mockups"][slot_idx] = str(new_mockup)
         with open(listing_file, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
@@ -616,7 +574,6 @@ def swap_one_mockup(seo_folder, slot_idx, new_category):
         return False
 
 ## 4.4b.4. POST routes for Regenerate/Swap on Review Page
-
 @app.route("/review/<aspect>/<filename>/regenerate/<int:slot_idx>", methods=["POST"])
 def review_regenerate_mockup(aspect, filename, slot_idx):
     seo_folder = find_seo_folder_from_filename(aspect, filename)
@@ -630,67 +587,14 @@ def review_swap_mockup(aspect, filename, slot_idx):
     swap_one_mockup(seo_folder, slot_idx, new_cat)
     return redirect(url_for("review_artwork", aspect=aspect, filename=filename))
 
-# --- 4.4c. AJAX Regenerate Mockup (returns new filename) ---
-
-@app.route("/review/<aspect>/<filename>/regenerate_ajax/<int:slot_idx>", methods=["POST"])
-def review_regenerate_mockup_ajax(aspect, filename, slot_idx):
-    seo_folder = find_seo_folder_from_filename(aspect, filename)
-    ok, new_mockup_filename = regenerate_one_mockup_ajax(seo_folder, slot_idx)
-    if ok:
-        return {"success": True, "filename": new_mockup_filename}
-    else:
-        return {"success": False, "error": "Failed to regenerate"}, 500
-
-# Helper: Regenerate and return new mockup filename
-def regenerate_one_mockup_ajax(seo_folder, slot_idx):
-    folder = ARTWORK_PROCESSED_DIR / seo_folder
-    listing_file = folder / f"{seo_folder}-listing.json"
-    if not listing_file.exists():
-        return False, None
-    with open(listing_file, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    mockups = data.get("mockups", [])
-    if slot_idx < 0 or slot_idx >= len(mockups):
-        return False, None
-    mockup_path = Path(mockups[slot_idx])
-    category = mockup_path.parent.name
-    mockup_files = list((MOCKUPS_DIR / category).glob("*.png"))
-    if not mockup_files:
-        return False, None
-    new_mockup = random.choice(mockup_files)
-    aspect = data.get("aspect_ratio")
-    coords_path = COORDS_ROOT / aspect / f"{new_mockup.stem}.json"
-    art_path = folder / f"{seo_folder}.jpg"
-    output_path = folder / f"{seo_folder}-MU-{slot_idx+1:02d}.jpg"
-    try:
-        with open(coords_path, "r", encoding="utf-8") as cf:
-            c = json.load(cf)["corners"]
-        dst = [[c[0]["x"], c[0]["y"]], [c[1]["x"], c[1]["y"]], [c[3]["x"], c[3]["y"]], [c[2]["x"], c[2]["y"]]]
-        art_img = Image.open(art_path).convert("RGBA")
-        art_img = resize_image_for_long_edge(art_img)
-        mock_img = Image.open(new_mockup).convert("RGBA")
-        composite = apply_perspective_transform(art_img, mock_img, dst)
-        composite.convert("RGB").save(output_path, "JPEG", quality=85)
-        # Update mockup path in JSON
-        data["mockups"][slot_idx] = str(new_mockup)
-        with open(listing_file, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2)
-        return True, f"{seo_folder}-MU-{slot_idx+1:02d}.jpg"
-    except Exception as e:
-        print(f"AJAX Regenerate error: {e}")
-        return False, None
-
-# --- 4.5. Static & Utility Routes ---
+# =============================================================
+# 4.5. STATIC & UTILITY ROUTES
+# =============================================================
 
 @app.route("/static/outputs/processed/<seo_folder>/<filename>")
 def processed_image(seo_folder, filename):
     folder = ARTWORK_PROCESSED_DIR / seo_folder
     return send_from_directory(folder, filename)
-
-@app.route("/artwork-review")
-def artwork_review():
-    artworks = list_artworks()
-    return render_template("artwork_review.html", artworks=artworks, menu=get_menu())
 
 @app.route("/artwork-img/<aspect>/<filename>")
 def artwork_image(aspect, filename):
@@ -705,180 +609,13 @@ def mockup_img(category, filename):
 def composite_img(folder, filename):
     return send_from_directory(COMPOSITES_DIR / folder, filename)
 
-# --- Test Route: Display Combined Description ---
-@app.route("/test-description")
-def test_description():
-    """Simple route to verify template context for combined_description."""
-    test_text = (
-        "This is a hardcoded test string for combined_description.\n"
-        "If you see this text, the variable was passed correctly."
-    )
-    return render_template(
-        "test_description.html",
-        combined_description=test_text,
-        menu=get_menu(),
-    )
-
-@app.route("/composites-preview")
-def composites_preview():
-    latest = latest_composite_folder()
-    if not latest:
-        return render_template("composites_preview.html", images=None, menu=get_menu())
-    return redirect(url_for("composites_specific", seo_folder=latest))
-
-@app.route("/composites/<seo_folder>")
-def composites_specific(seo_folder):
-    folder = ARTWORK_PROCESSED_DIR / seo_folder
-    if not folder.exists():
-        flash("Artwork folder not found", "danger")
-        return redirect(url_for("composites_preview"))
-    images = sorted(folder.glob(f"{seo_folder}-MU-*.jpg"))
-    listing = None
-    listing_file = folder / f"{seo_folder}-listing.json"
-    if listing_file.exists():
-        try:
-            with open(listing_file, "r", encoding="utf-8") as f:
-                listing = json.load(f)
-        except Exception as e:
-            logging.error("Failed reading %s: %s", listing_file, e)
-    display_images = []
-    mockups = listing.get("mockups", []) if isinstance(listing, dict) else []
-    for idx, img in enumerate(images):
-        cat = None
-        if idx < len(mockups):
-            cat = Path(mockups[idx]).parent.name
-        display_images.append(
-            {
-                "filename": img.name,
-                "category": cat,
-                "index": idx,
-            }
-        )
-    return render_template(
-        "composites_preview.html",
-        images=display_images,
-        seo_folder=seo_folder,
-        listing=listing,
-        menu=get_menu(),
-    )
-
-# --- 4.6. Composite Regeneration & Approval ---
-
-@app.route("/regenerate_composite/<seo_folder>/<int:slot_index>", methods=["POST"])
-def regenerate_composite(seo_folder, slot_index):
-    folder = ARTWORK_PROCESSED_DIR / seo_folder
-    listing_path = folder / f"{seo_folder}-listing.json"
-    if not listing_path.exists():
-        flash("Listing metadata missing", "danger")
-        return redirect(url_for("composites_specific", seo_folder=seo_folder))
-    with open(listing_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    mockups = data.get("mockups", [])
-    if slot_index < 0 or slot_index >= len(mockups):
-        flash("Invalid slot", "danger")
-        return redirect(url_for("composites_specific", seo_folder=seo_folder))
-    mockup_path = Path(mockups[slot_index])
-    aspect = data.get("aspect_ratio")
-    coords_path = COORDS_ROOT / aspect / f"{mockup_path.stem}.json"
-    art_path = folder / f"{seo_folder}.jpg"
-    output_path = folder / f"{seo_folder}-MU-{slot_index+1:02d}.jpg"
-    try:
-        with open(coords_path, "r", encoding="utf-8") as cf:
-            c = json.load(cf)["corners"]
-        dst = [[c[0]["x"], c[0]["y"]], [c[1]["x"], c[1]["y"]], [c[3]["x"], c[3]["y"]], [c[2]["x"], c[2]["y"]]]
-        art_img = Image.open(art_path).convert("RGBA")
-        art_img = resize_image_for_long_edge(art_img)
-        mock_img = Image.open(mockup_path).convert("RGBA")
-        composite = apply_perspective_transform(art_img, mock_img, dst)
-        composite.convert("RGB").save(output_path, "JPEG", quality=85)
-        logging.info("Regenerated composite %s slot %s", seo_folder, slot_index)
-        flash("Composite regenerated", "success")
-    except Exception as e:
-        logging.error("Error regenerating composite %s slot %s: %s", seo_folder, slot_index, e)
-        flash("Failed to regenerate composite", "danger")
-    return redirect(url_for("composites_specific", seo_folder=seo_folder))
-
-@app.route("/approve_composites/<seo_folder>", methods=["POST"])
-def approve_composites(seo_folder):
-    folder = ARTWORK_PROCESSED_DIR / seo_folder
-    listing_path = folder / f"{seo_folder}-listing.json"
-    if not listing_path.exists():
-        flash("Listing not found", "danger")
-        return redirect(url_for("composites_specific", seo_folder=seo_folder))
-    with open(listing_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    data["composites_approved"] = True
-    with open(listing_path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2)
-    final_root = FINALISED_DIR / seo_folder
-    final_root.mkdir(parents=True, exist_ok=True)
-    for img in folder.glob(f"{seo_folder}-MU-*.jpg"):
-        shutil.copy2(img, final_root / img.name)
-    shutil.copy2(listing_path, final_root / listing_path.name)
-    shutil.copy2(folder / f"{seo_folder}.jpg", final_root / f"{seo_folder}.jpg")
-    shutil.make_archive(str(final_root), "zip", final_root)
-    logging.info("Approved composites for %s", seo_folder)
-    flash("Composites approved and finalised", "success")
-    return redirect(url_for("composites_specific", seo_folder=seo_folder))
-
-@app.route("/reset", methods=["POST"])
-def reset():
-    session.clear()
-    return redirect(url_for("select"))
-
-# --- 4.7. Swap Composite Category for a Slot ---
-
-@app.route("/swap_composite/<seo_folder>/<int:slot_index>", methods=["POST"])
-def swap_composite(seo_folder, slot_index):
-    new_category = request.form.get("new_category")
-    folder = ARTWORK_PROCESSED_DIR / seo_folder
-    listing_path = folder / f"{seo_folder}-listing.json"
-    if not listing_path.exists():
-        flash("Listing metadata missing", "danger")
-        return redirect(url_for("review_artwork", aspect="", filename=""))
-    with open(listing_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    mockups = data.get("mockups", [])
-    if slot_index < 0 or slot_index >= len(mockups):
-        flash("Invalid slot", "danger")
-        return redirect(url_for("review_artwork", aspect="", filename=""))
-    # Replace the mockup for that slot with a new random image from the selected category
-    category_dir = MOCKUPS_DIR / new_category
-    images = [str(x) for x in category_dir.glob("*.png")]
-    if not images:
-        flash("No mockups in selected category", "danger")
-        return redirect(url_for("review_artwork", aspect="", filename=""))
-    new_mockup_path = random.choice(images)
-    mockups[slot_index] = new_mockup_path
-    data["mockups"] = mockups
-    with open(listing_path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2)
-    # Regenerate the composite for that slot
-    aspect = data.get("aspect_ratio", "4x5")
-    coords_path = COORDS_ROOT / aspect / f"{Path(new_mockup_path).stem}.json"
-    art_path = folder / f"{seo_folder}.jpg"
-    output_path = folder / f"{seo_folder}-MU-{slot_index+1:02d}.jpg"
-    try:
-        with open(coords_path, "r", encoding="utf-8") as cf:
-            c = json.load(cf)["corners"]
-        dst = [[c[0]["x"], c[0]["y"]], [c[1]["x"], c[1]["y"]], [c[3]["x"], c[3]["y"]], [c[2]["x"], c[2]["y"]]]
-        art_img = Image.open(art_path).convert("RGBA")
-        art_img = resize_image_for_long_edge(art_img)
-        mock_img = Image.open(new_mockup_path).convert("RGBA")
-        composite = apply_perspective_transform(art_img, mock_img, dst)
-        composite.convert("RGB").save(output_path, "JPEG", quality=85)
-        flash("Composite swapped and regenerated!", "success")
-    except Exception as e:
-        flash(f"Failed to swap/regenerate composite: {e}", "danger")
-    # Redirect back to review page
-    # You may want to be smarter about getting aspect/filename here:
-    return redirect(url_for("review_artwork", aspect=aspect, filename=f"{seo_folder}.jpg"))
-
-# ========== SECTION 5. MENU FUNCTION ==========
+# =============================================================
+# 5. MENU FUNCTION
+# =============================================================
 
 def get_menu():
     """
-    Returns a list of dicts for navigation.
+    SECTION 5: Returns a list of dicts for navigation.
     - Home: Always present
     - Artwork Gallery: Always present
     - Review Latest Listing: Only enabled if there is a latest artwork
@@ -900,8 +637,42 @@ def get_menu():
         })
     return menu
 
+# =============================================================
+# SECTION X: List Artworks Helper
+# =============================================================
 
-# ========== SECTION 6. APP RUNNER ==========
+def list_artworks():
+    """
+    Returns a list of artwork objects for the gallery.
+    Each is a dict with: title, seo_name, aspect, thumbnail, etc.
+    """
+    artworks = []
+    for folder in ARTWORK_PROCESSED_DIR.iterdir():
+        if not folder.is_dir():
+            continue
+        listing_path = folder / f"{folder.name}-listing.json"
+        if not listing_path.exists():
+            continue
+        try:
+            with open(listing_path, "r", encoding="utf-8") as f:
+                listing_json = json.load(f)
+            seo_name = folder.name
+            artwork = {
+                "seo_name": seo_name,
+                "title": listing_json.get("title", seo_name.replace("-", " ").title()),
+                "aspect": listing_json.get("aspect_ratio", ""),
+                "thumb": f"outputs/processed/{seo_name}/{seo_name}-THUMB.jpg",
+                "main_image": f"outputs/processed/{seo_name}/{seo_name}.jpg",
+                "filename": f"{seo_name}.jpg",
+            }
+            artworks.append(artwork)
+        except Exception as e:
+            print(f"Error reading artwork in {folder}: {e}")
+    return artworks
+
+# =============================================================
+# 6. APP RUNNER
+# =============================================================
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5050))
