@@ -1,3 +1,0 @@
-Package       Version Latest Type
-------------- ------- ------ -----
-pydantic_core 2.33.2  2.35.1 wheel
