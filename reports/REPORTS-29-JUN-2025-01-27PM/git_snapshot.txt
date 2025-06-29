@@ -1,0 +1,49 @@
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    capitalart-total-nuclear.py
+	modified:   folder_structure.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	capitalart-total-nuclear-v2.py
+	package-lock.json
+	reports/REPORTS-29-JUN-2025-01-16PM/
+	reports/REPORTS-29-JUN-2025-01-25PM.zip
+	reports/REPORTS-29-JUN-2025-01-25PM/
+	reports/REPORTS-29-JUN-2025-01-27PM/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+commit 6edaf66411065e4d62ab41d051609230ca4a329d
+Author: Robin Custance <your@email.com>
+Date:   Sat Jun 28 18:40:55 2025 +0930
+
+    feat: Add composite preview, per-slot regeneration, approval/finalisation, and improved workflow UI
+    
+    - Introduced per-artwork composite preview route (/composites/<seo_folder>) showing all generated composites with category and slot info.
+    - Added per-slot composite regeneration: allows selective re-generation of any mockup composite in an artwork’s set, preserving the rest.
+    - Implemented composite approval/finalisation workflow:
+        - Copies all approved composites, main image, and JSON to /outputs/finalised-artwork/<seo_folder>/
+        - Generates zip archive for export or Sellbrite integration.
+        - Marks approval in listing JSON.
+    - Updated UI navigation:
+        - Selector, review, and workflow pages now link directly to the latest artwork’s composite preview.
+        - Users can easily preview, regenerate, and finalise composites from anywhere in the workflow.
+    - Added robust logging for composite generation, regeneration, approval, and error events (logs/composites-workflow.log).
+    - Improved error handling and user feedback for missing files, invalid slots, and script exceptions.
+    - All actions tested: pytest -q ✅
+    
+    This enables a seamless, pro-grade review and approval workflow for mockup composites and sets the stage for CSV/API automation.
+    
+    Ref #capitalart
+ capitalart-total-nuclear.py | 118 --------------------------------------------
+ folder_structure.txt        |  80 +++++++++++++++++++++++++-----
+ 2 files changed, 68 insertions(+), 130 deletions(-)
+🔧 Git Status:
+
+🔁 Last Commit:
+
+🧾 Diff Summary:

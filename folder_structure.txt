@@ -8,6 +8,7 @@ capitalart
 │   └── style.css
 ├── capitalart-total-nuclear.py
 ├── capitalart.py
+├── changes
 ├── descriptions
 │   ├── artworks.json
 │   ├── autojourney_downloader_export_26_06_2025_15_02_55.csv
@@ -381,8 +382,8 @@ capitalart
 │   │   ├── 3x4
 │   │   ├── 4x3
 │   │   ├── 4x5
-│   │   │   ├── moon-over-fire-country-storylines-of-regrowth-full-moon-in-dotted-concentric-halos-tree-lines-beneat-1.jpg
-│   │   │   └── native-hibiscus-alyogyne-huegelii-generate-an-aboriginal-dot-painting-of-a-native-hibiscus-alyogyne-1.jpg
+│   │   │   ├── gang-gang-cockatoo-male-generate-an-aboriginal-dot-painting-of-a-gang-gang-cockatoo-callocephalon-fi.jpg
+│   │   │   └── night-seeds-rebirth-beneath-the-stars-desert-flora-sprouting-from-fire-country-under-a-swirling-star.jpg
 │   │   ├── 5x4
 │   │   ├── 5x7
 │   │   ├── 7x5
@@ -478,9 +479,49 @@ capitalart
 │           │   ├── 4x5-mockup-37.png
 │           │   └── 4x5-mockup-38.png
 │           └── Uncategorised
+├── logs
+│   ├── analyze-artwork-2025-06-28-1600.log
+│   ├── analyze-artwork-2025-06-28-1702.log
+│   ├── analyze-artwork-2025-06-28-1721.log
+│   ├── analyze-artwork-2025-06-28-1736.log
+│   ├── analyze-artwork-2025-06-28-1756.log
+│   ├── analyze_088442e9-9497-485d-b582-2300d8d8bbbf.log
+│   ├── analyze_170367a7-d63c-4092-a4ef-94d36ccd2cd7.log
+│   ├── analyze_1ca028cb-dd7d-478e-a5f4-a8b99b4b143b.log
+│   ├── analyze_235aea74-63f1-4832-b301-466929a1ba9e.log
+│   ├── analyze_2511e6e8-ef04-4fe8-a195-14ef62a33c83.log
+│   ├── analyze_2c29a3db-fd81-40c8-829d-4e225d3f131d.log
+│   ├── analyze_2d26bba8-0477-46a3-b62e-19d48e509087.log
+│   ├── analyze_5cfabf96-bb87-4af9-b8cb-7f8a96f794e4.log
+│   ├── analyze_85d3fa11-7784-4105-9853-bdfba39bd72d.log
+│   ├── analyze_89086057-cea9-47ad-be91-4a1bf8a690de.log
+│   ├── analyze_8c9d36ae-a9ea-4d3e-a38b-ce080a21d77e.log
+│   ├── analyze_91f42848-9227-4cd4-86c0-505d1d04e371.log
+│   ├── analyze_a1648627-d0ce-4d80-a425-c63b7ebd0278.log
+│   ├── analyze_b548455f-0553-4788-8a6c-57658afc8e73.log
+│   ├── analyze_b5b48356-b5c4-41b3-bee0-7e54c179d5de.log
+│   ├── analyze_b6a64043-6838-4c64-b2c9-8d688f9c5a6c.log
+│   ├── analyze_ba16cf25-1ebe-4b04-8e70-8b9f7b163452.log
+│   ├── analyze_c0788def-5865-4c1a-b7a2-172e33dd16f3.log
+│   ├── analyze_dd0083a2-707c-4948-a918-7521d1262b3d.log
+│   ├── analyze_e37f0a60-fa3b-45f7-962e-3263ad7495a4.log
+│   ├── analyze_eebad4e8-aa8c-4668-bf34-6d3b93be63e9.log
+│   ├── composites-workflow.log
+│   ├── composites_4535c6f9-9da5-47f5-b513-d21a6c20a225.log
+│   ├── composites_5478536b-1843-40c8-97b8-9aa00d5f906a.log
+│   ├── composites_56e29048-5369-4c3e-bf15-fec81ca6b2bf.log
+│   ├── composites_9a9eed43-132d-489e-9cad-6611d1210334.log
+│   ├── composites_9e4ac00d-e0fc-4a4c-917d-d0784ec309ad.log
+│   ├── composites_9fff1d6a-af8a-449d-a57b-4dadd6aca4c6.log
+│   ├── composites_bab70799-4f83-406c-acb8-175fcb9f03d6.log
+│   ├── composites_c69c5716-6a6a-4997-9e48-5668da48bcab.log
+│   ├── composites_c6fc57bb-071a-4f2a-9e7c-f10608e66194.log
+│   └── crops
+│       ├── gang-gang-cockatoo-artwork-by-robin-custance-rjc-0001-crop.jpg
+│       ├── gang-gang-cockatoo-dot-artwork-by-robin-custance-rjc-0001-crop.jpg
+│       └── night-seeds-rebirth-beneath-the-stars-desert-flora-sprouting-from-fire-country-under-a-swirling-star-crop.jpg
 ├── mockup_categorisation_log.txt
 ├── mockup_categoriser.py
-├── mockup_selector_ui.py
 ├── older-scripts
 │   ├── ai-jpeg-reset.sh
 │   ├── backup_mockup_generator.sh
@@ -518,7 +559,13 @@ capitalart
 │   │   └── A-Series-Vertical
 │   ├── artwork_listing_master.json
 │   └── processed
+│       ├── gang-gang-cockatoo-artwork-by-robin-custance-rjc-0001
+│       │   ├── gang-gang-cockatoo-artwork-by-robin-custance-rjc-0001-THUMB.jpg
+│       │   ├── gang-gang-cockatoo-artwork-by-robin-custance-rjc-0001-listing.json
+│       │   ├── gang-gang-cockatoo-artwork-by-robin-custance-rjc-0001.jpg
+│       │   └── original-gang-gang-cockatoo-male-generate-an-aboriginal-dot-painting-of-a-gang-gang-cockatoo-callocephalon-fi.jpg
 │       └── pending_mockups.json
+├── package-lock.json
 ├── reports
 │   ├── REPORTS-25-JUN-2025-04-18PM
 │   │   └── report_code_snapshot_reports-25-jun-2025-04-18pm.md
@@ -546,11 +593,15 @@ capitalart
 │   │   └── report_code_snapshot_reports-27-jun-2025-11-19pm.md
 │   ├── REPORTS-28-JUN-2025-10-51AM
 │   │   └── report_code_snapshot_reports-28-jun-2025-10-51am.md
-│   └── REPORTS-28-JUN-2025-11-40AM
-│       └── report_code_snapshot_reports-28-jun-2025-11-40am.md
+│   ├── REPORTS-28-JUN-2025-11-40AM
+│   │   └── report_code_snapshot_reports-28-jun-2025-11-40am.md
+│   ├── REPORTS-28-JUN-2025-12-10PM
+│   │   └── report_code_snapshot_reports-28-jun-2025-12-10pm.md
+│   └── REPORTS-29-JUN-2025-01-16PM
+│       └── report_code_snapshot_reports-29-jun-2025-01-16pm.md
 ├── requirements.txt
 ├── scripts
-│   ├── analyze.js
+│   ├── analyze_artwork.py
 │   └── generate_composites.py
 ├── settings
 │   └── Master-Etsy-Listing-Description-Writing-Onboarding.txt
@@ -562,9 +613,14 @@ capitalart
 │   │   └── style.css
 │   └── js
 │       └── main.js
-└── templates
-    ├── gallery.html
-    ├── index.html
-    ├── main.html
-    ├── mockup_selector.html
-    └── review.html
+├── templates
+│   ├── artworks.html
+│   ├── composites_preview.html
+│   ├── gallery.html
+│   ├── index.html
+│   ├── main.html
+│   ├── mockup_selector.html
+│   ├── review.html
+│   └── review_artwork.html
+└── tests
+    └── test_analyze_artwork.py

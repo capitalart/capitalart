@@ -1,0 +1,93 @@
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    capitalart-total-nuclear.py
+	modified:   folder_structure.txt
+	deleted:    older-scripts/ai-jpeg-reset.sh
+	deleted:    older-scripts/backup_mockup_generator.sh
+	deleted:    older-scripts/backup_mockup_structure.sh
+	deleted:    older-scripts/compatible-image-generator.jsx
+	deleted:    older-scripts/dupe-png-files-and-rename.py
+	deleted:    older-scripts/export-artwork-layers.jsx
+	deleted:    older-scripts/find-matching-png-files.py
+	deleted:    older-scripts/fix_srgb_profiles.py
+	deleted:    older-scripts/gather_mockup_code_to_text.sh
+	deleted:    older-scripts/generate_all_coordinates.py
+	deleted:    older-scripts/generate_composites.py
+	deleted:    older-scripts/generate_folder_structure.py
+	deleted:    older-scripts/google_vision_basic_analyzer.py
+	deleted:    older-scripts/openai_vision_test.py
+	deleted:    older-scripts/organise-jpg-and-png-files.py
+	deleted:    older-scripts/rename-4x5-mockup-layers.jsx
+	deleted:    older-scripts/utils.py
+	deleted:    older-scripts/write_all_composite_generators.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	backups/
+	capitalart-total-nuclear-v2.py
+	package-lock.json
+	reports/REPORTS-29-JUN-2025-01-16PM/
+	reports/REPORTS-29-JUN-2025-01-25PM.zip
+	reports/REPORTS-29-JUN-2025-01-25PM/
+	reports/REPORTS-29-JUN-2025-01-27PM.zip
+	reports/REPORTS-29-JUN-2025-01-27PM/
+	reports/REPORTS-29-JUN-2025-01-30PM.zip
+	reports/REPORTS-29-JUN-2025-01-30PM/
+	reports/REPORTS-29-JUN-2025-01-32PM.zip
+	reports/REPORTS-29-JUN-2025-01-32PM/
+	reports/REPORTS-29-JUN-2025-01-41PM.zip
+	reports/REPORTS-29-JUN-2025-01-41PM/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+commit 6edaf66411065e4d62ab41d051609230ca4a329d
+Author: Robin Custance <your@email.com>
+Date:   Sat Jun 28 18:40:55 2025 +0930
+
+    feat: Add composite preview, per-slot regeneration, approval/finalisation, and improved workflow UI
+    
+    - Introduced per-artwork composite preview route (/composites/<seo_folder>) showing all generated composites with category and slot info.
+    - Added per-slot composite regeneration: allows selective re-generation of any mockup composite in an artwork’s set, preserving the rest.
+    - Implemented composite approval/finalisation workflow:
+        - Copies all approved composites, main image, and JSON to /outputs/finalised-artwork/<seo_folder>/
+        - Generates zip archive for export or Sellbrite integration.
+        - Marks approval in listing JSON.
+    - Updated UI navigation:
+        - Selector, review, and workflow pages now link directly to the latest artwork’s composite preview.
+        - Users can easily preview, regenerate, and finalise composites from anywhere in the workflow.
+    - Added robust logging for composite generation, regeneration, approval, and error events (logs/composites-workflow.log).
+    - Improved error handling and user feedback for missing files, invalid slots, and script exceptions.
+    - All actions tested: pytest -q ✅
+    
+    This enables a seamless, pro-grade review and approval workflow for mockup composites and sets the stage for CSV/API automation.
+    
+    Ref #capitalart
+ capitalart-total-nuclear.py                     | 118 -----------
+ folder_structure.txt                            |  80 +++++--
+ older-scripts/ai-jpeg-reset.sh                  |  70 ------
+ older-scripts/backup_mockup_generator.sh        |  46 ----
+ older-scripts/backup_mockup_structure.sh        |  55 -----
+ older-scripts/compatible-image-generator.jsx    |  24 ---
+ older-scripts/dupe-png-files-and-rename.py      | 147 -------------
+ older-scripts/export-artwork-layers.jsx         |  35 ---
+ older-scripts/find-matching-png-files.py        | 270 ------------------------
+ older-scripts/fix_srgb_profiles.py              |  23 --
+ older-scripts/gather_mockup_code_to_text.sh     |  71 -------
+ older-scripts/generate_all_coordinates.py       | 131 ------------
+ older-scripts/generate_composites.py            | 189 -----------------
+ older-scripts/generate_folder_structure.py      |  44 ----
+ older-scripts/google_vision_basic_analyzer.py   |  42 ----
+ older-scripts/openai_vision_test.py             |  53 -----
+ older-scripts/organise-jpg-and-png-files.py     | 221 -------------------
+ older-scripts/rename-4x5-mockup-layers.jsx      |  43 ----
+ older-scripts/utils.py                          |  90 --------
+ older-scripts/write_all_composite_generators.py | 110 ----------
+ 20 files changed, 68 insertions(+), 1794 deletions(-)
+🔧 Git Status:
+
+🔁 Last Commit:
+
+🧾 Diff Summary:

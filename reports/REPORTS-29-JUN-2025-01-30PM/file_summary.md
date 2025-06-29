@@ -1,0 +1,42 @@
+# 📊 File Summary
+
+| File | Size (KB) | Last Modified |
+|------|------------|----------------|
+| `capitalart.py` | 19.4 KB | 2025-06-28 20:37 |
+| `requirements.txt` | 0.8 KB | 2025-06-28 16:40 |
+| `mockup_categoriser.py` | 5.3 KB | 2025-06-25 20:53 |
+| `smart_sign_artwork.py` | 13.2 KB | 2025-06-27 16:26 |
+| `folder_structure.txt` | 28.0 KB | 2025-06-29 13:18 |
+| `mockup_categorisation_log.txt` | 3.9 KB | 2025-06-25 20:46 |
+| `smart_sign_test01.py` | 8.6 KB | 2025-06-27 16:44 |
+| `sort_and_prepare_midjourney_images.py` | 11.6 KB | 2025-06-26 18:54 |
+| `capitalart-total-nuclear-v2.py` | 7.2 KB | 2025-06-29 13:29 |
+| `generate_folder_tree.py` | 2.0 KB | 2025-06-27 20:21 |
+| `settings/Master-Etsy-Listing-Description-Writing-Onboarding.txt` | 8.7 KB | 2025-06-28 16:40 |
+| `tests/test_analyze_artwork.py` | 1.3 KB | 2025-06-28 16:40 |
+| `generic_texts/2x3.txt` | 10.1 KB | 2025-06-28 14:38 |
+| `generic_texts/4x5.txt` | 10.1 KB | 2025-06-28 14:38 |
+| `generic_texts/16x9.txt` | 10.1 KB | 2025-06-28 14:37 |
+| `generic_texts/A-Series-Verical.txt` | 10.3 KB | 2025-06-28 14:37 |
+| `generic_texts/4x3.txt` | 10.1 KB | 2025-06-28 14:38 |
+| `generic_texts/9x16.txt` | 10.2 KB | 2025-06-28 14:37 |
+| `generic_texts/5x7.txt` | 10.2 KB | 2025-06-28 14:38 |
+| `generic_texts/7x5.txt` | 10.2 KB | 2025-06-28 14:38 |
+| `generic_texts/1x1.txt` | 10.0 KB | 2025-06-28 14:38 |
+| `generic_texts/3x2.txt` | 10.0 KB | 2025-06-28 14:38 |
+| `generic_texts/5x4.txt` | 10.2 KB | 2025-06-28 14:38 |
+| `generic_texts/3x4.txt` | 10.1 KB | 2025-06-28 14:38 |
+| `generic_texts/A-Series-Horizontal.txt` | 10.4 KB | 2025-06-28 14:37 |
+| `scripts/analyze_artwork.py` | 19.3 KB | 2025-06-28 17:34 |
+| `scripts/generate_composites.py` | 7.0 KB | 2025-06-27 21:43 |
+| `templates/index.html` | 1.5 KB | 2025-06-28 12:50 |
+| `templates/mockup_selector.html` | 1.7 KB | 2025-06-28 18:38 |
+| `templates/review.html` | 1.4 KB | 2025-06-28 18:38 |
+| `templates/artworks.html` | 1.8 KB | 2025-06-28 15:27 |
+| `templates/composites_preview.html` | 1.5 KB | 2025-06-28 18:38 |
+| `templates/gallery.html` | 0.0 KB | 2025-06-28 12:03 |
+| `templates/main.html` | 0.8 KB | 2025-06-28 13:07 |
+| `templates/review_artwork.html` | 3.6 KB | 2025-06-28 17:54 |
+| `assets/style.css` | 0.4 KB | 2025-06-25 12:43 |
+| `static/css/style.css` | 7.8 KB | 2025-06-28 12:50 |
+| `static/js/main.js` | 0.9 KB | 2025-06-25 22:43 |
