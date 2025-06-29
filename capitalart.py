@@ -186,7 +186,15 @@ def home():
 
 @app.route("/artworks")
 def artworks():
-    return render_template("artworks.html", artworks=list_artworks(), menu=get_menu())
+    """Gallery page showing ready and processed artworks."""
+    processed, processed_names = list_processed_artworks()
+    ready = list_ready_to_analyze(processed_names)
+    return render_template(
+        "artworks.html",
+        ready_artworks=ready,
+        processed_artworks=processed,
+        menu=get_menu(),
+    )
 
 # --- 4.2. Mockup Selector UI ---
 
@@ -638,15 +646,21 @@ def get_menu():
     return menu
 
 # =============================================================
-# SECTION X: List Artworks Helper
+# SECTION X: Artwork Listing Helpers
 # =============================================================
 
-def list_artworks():
-    """
-    Returns a list of artwork objects for the gallery.
-    Each is a dict with: title, seo_name, aspect, thumbnail, etc.
-    """
-    artworks = []
+def prettify_slug(slug: str) -> str:
+    """Return a human friendly title from a slug or filename."""
+    name = os.path.splitext(slug)[0]
+    name = name.replace("-", " ").replace("_", " ")
+    name = re.sub(r"\s+", " ", name)
+    return name.title()
+
+
+def list_processed_artworks() -> tuple[list[dict], set[str]]:
+    """Collect processed artworks and a set of their original filenames."""
+    items: list[dict] = []
+    processed_names: set[str] = set()
     for folder in ARTWORK_PROCESSED_DIR.iterdir():
         if not folder.is_dir():
             continue
@@ -655,20 +669,51 @@ def list_artworks():
             continue
         try:
             with open(listing_path, "r", encoding="utf-8") as f:
-                listing_json = json.load(f)
-            seo_name = folder.name
-            artwork = {
-                "seo_name": seo_name,
-                "title": listing_json.get("title", seo_name.replace("-", " ").title()),
-                "aspect": listing_json.get("aspect_ratio", ""),
-                "thumb": f"outputs/processed/{seo_name}/{seo_name}-THUMB.jpg",
-                "main_image": f"outputs/processed/{seo_name}/{seo_name}.jpg",
-                "filename": f"{seo_name}.jpg",
+                data = json.load(f)
+        except Exception:
+            continue
+        original_name = data.get("filename")
+        if original_name:
+            processed_names.add(original_name)
+        items.append(
+            {
+                "seo_folder": folder.name,
+                "filename": original_name or f"{folder.name}.jpg",
+                "aspect": data.get("aspect_ratio", ""),
+                "title": data.get("title") or prettify_slug(folder.name),
+                "thumb": f"{folder.name}-THUMB.jpg",
             }
-            artworks.append(artwork)
-        except Exception as e:
-            print(f"Error reading artwork in {folder}: {e}")
-    return artworks
+        )
+    items.sort(key=lambda x: x["title"].lower())
+    return items, processed_names
+
+
+def list_ready_to_analyze(processed_names: set[str]) -> list[dict]:
+    """Return artworks present in inputs/ that are not yet processed."""
+    ready: list[dict] = []
+    for aspect_dir in ARTWORKS_DIR.iterdir():
+        if not aspect_dir.is_dir():
+            continue
+        aspect = aspect_dir.name
+        for img_path in sorted(aspect_dir.glob("*.jpg")):
+            if img_path.name in processed_names:
+                continue
+            try:
+                with Image.open(img_path) as im:
+                    im.verify()
+            except Exception:
+                # Corrupted or unreadable image; skip gracefully
+                continue
+            ready.append(
+                {
+                    "aspect": aspect,
+                    "filename": img_path.name,
+                    "title": prettify_slug(img_path.stem),
+                    "thumb": img_path.name,
+                }
+            )
+    ready.sort(key=lambda x: x["title"].lower())
+    return ready
 
 # =============================================================
 # 6. APP RUNNER
