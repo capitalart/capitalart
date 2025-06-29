@@ -1,0 +1,38 @@
+[
+  {
+    "category": "Bedroom",
+    "image": "4x5-mockup-10.png"
+  },
+  {
+    "category": "Closeup",
+    "image": "4x5-mockup-65.png"
+  },
+  {
+    "category": "Dining-Room",
+    "image": "4x5-mockup-75.png"
+  },
+  {
+    "category": "Gallery-Wall",
+    "image": "4x5-mockup-63.png"
+  },
+  {
+    "category": "Living Room",
+    "image": "4x5-mockup-26.png"
+  },
+  {
+    "category": "Living Room",
+    "image": "4x5-mockup-73.png"
+  },
+  {
+    "category": "Nursery",
+    "image": "4x5-mockup-05.png"
+  },
+  {
+    "category": "Office",
+    "image": "4x5-mockup-77.png"
+  },
+  {
+    "category": "Outdoors",
+    "image": "4x5-mockup-35.png"
+  }
+]

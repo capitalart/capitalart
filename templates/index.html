@@ -1,24 +1,39 @@
 {% extends "main.html" %}
 {% block title %}CapitalArt Home{% endblock %}
 {% block content %}
+
+<!-- ========== [IN.1] Home Hero Section ========== -->
 <div class="home-hero">
   <h1>🎨 Welcome to CapitalArt Listing Machine</h1>
-  <p style="font-size:1.15em; max-width:600px; margin:1em auto 2em auto;">
-    G’day! This is your one-stop hub for prepping, previewing, and perfecting your artwork listings, mockups, and all things gallery magic.  
-    <br><br>
-    <strong>Workflow:</strong> Select your dream mockup lineup, review the listing with full Pulitzer-worthy description, and get everything export-ready for Etsy, Sellbrite, or wherever your art’s headed.
+  <p class="home-intro">
+    G’day! Start in the Artwork Gallery, analyze new pieces, review your AI-generated listings and mockups, and prep everything for marketplace export—all streamlined for you.
   </p>
 </div>
-<div class="home-actions" style="display:flex;flex-wrap:wrap;justify-content:center;gap:2em;">
-  <a href="{{ url_for('select') }}" class="composite-btn" style="min-width:200px;text-align:center;">🖼️ Start Mockup Selection</a>
-  <a href="{{ url_for('review') }}" class="composite-btn" style="background:#666;">🔎 Review Latest Listing</a>
+
+<!-- ========== [IN.2] Home Quick Actions ========== -->
+<div class="home-actions">
+  <a href="{{ url_for('artworks') }}" class="composite-btn">1️⃣ Artwork Gallery</a>
+  {% if latest_artwork %}
+    <a href="{{ url_for('review_artwork', aspect=latest_artwork.aspect, filename=latest_artwork.filename) }}" class="composite-btn composite-btn-latest">2️⃣ Review Latest Listing</a>
+  {% else %}
+    <span class="composite-btn composite-btn-disabled">2️⃣ Review Latest Listing</span>
+  {% endif %}
 </div>
-<section style="max-width:700px;margin:3em auto 0 auto;text-align:left;">
+
+<!-- ========== [IN.3] How It Works Section ========== -->
+<section class="how-it-works">
   <h2>How It Works</h2>
-  <ol style="font-size:1.08em;line-height:1.6;">
-    <li><b>Mockup Selector:</b> Pick one hero image from each room/category. Regenerate or swap till you love the lineup.</li>
-    <li><b>Review:</b> See all chosen mockups, the main artwork, and your custom AI-powered listing description in one tidy spot.</li>
-    <li><b>Approval & Export:</b> When you’re happy, lock it in for final export—ready for uploading and selling. (Export coming soon!)</li>
+  <ol>
+    <li>
+      <b>Artwork Gallery:</b> Add or select artworks, then run AI analysis to generate a gallery-ready composite preview.
+    </li>
+    <li>
+      <b>Review Latest Listing:</b> Check your listing with AI description and all chosen mockups, tags, and preview.
+    </li>
+    <li>
+      <b>Approval & Export:</b> Lock it all in for marketplace upload and export.<br>
+      <i>(Export coming soon!)</i>
+    </li>
   </ol>
 </section>
 {% endblock %}

@@ -355,25 +355,40 @@ def generate_ai_listing(system_prompt: str, image_filename: str, aspect: str, fe
         messages.append({"role": "user", "content": feedback})
 
     logger.info(f"OpenAI API call for {image_filename} [{aspect}]")
-    response = client.chat.completions.create(
-        model=os.getenv("OPENAI_PRIMARY_MODEL", "gpt-4.1"),
-        messages=messages,
-        max_tokens=2100,
-        temperature=0.92,
-    )
-    content = response.choices[0].message.content.strip()
-    logger.debug(f"Raw OpenAI response: {content}")
-    try:
-        parsed = json.loads(content)
-        logger.info("Parsed JSON response successfully")
-        return parsed, True, content
-    except Exception:
-        logger.warning("OpenAI response not valid JSON; applying fallback parser")
-        logger.warning(f"Raw response sample: {content[:200]}")
-        fallback = parse_text_fallback(content)
-        logger.warning(f"Fallback extracted keys: {list(fallback.keys())}")
-        return fallback, False, content
-
+    attempt, max_attempts = 1, 3
+    error_text = ""
+    while attempt <= max_attempts:
+        try:
+            response = client.chat.completions.create(
+                model=os.getenv("OPENAI_PRIMARY_MODEL", "gpt-4.1"),
+                messages=messages,
+                max_tokens=2100,
+                temperature=0.92,
+                timeout=60,  # Timeout after 60 seconds
+            )
+            content = response.choices[0].message.content.strip()
+            logger.debug(f"Raw OpenAI response: {content}")
+            try:
+                parsed = json.loads(content)
+                logger.info("Parsed JSON response successfully")
+                return parsed, True, content
+            except Exception:
+                logger.warning("OpenAI response not valid JSON; applying fallback parser")
+                logger.warning(f"Raw response sample: {content[:200]}")
+                fallback = parse_text_fallback(content)
+                logger.warning(f"Fallback extracted keys: {list(fallback.keys())}")
+                return fallback, False, content
+        except Exception as e:
+            error_text = str(e)
+            logger.error(f"OpenAI API error on attempt {attempt}: {e}")
+            logger.error(traceback.format_exc())
+            attempt += 1
+            if attempt <= max_attempts:
+                logger.info(f"Retrying OpenAI call (attempt {attempt})...")
+                import time; time.sleep(2)
+    # All attempts failed
+    logger.error(f"OpenAI API failed after {max_attempts} attempts: {error_text}")
+    return {"fallback_text": "OpenAI API failed, no listing generated.", "error": error_text}, False, ""
 
 # ======================== [ 6. MAIN ANALYSIS LOGIC ] ========================
 

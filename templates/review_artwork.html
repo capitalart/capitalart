@@ -2,90 +2,124 @@
 {% block title %}Review Artwork | CapitalArt{% endblock %}
 {% block content %}
 
-<!-- ======= [Artwork Title & Main Preview] ======= -->
-<div style="max-width:800px;margin:2.5em auto;">
-  <h1 style="font-size:2em;line-height:1.3;text-align:center;">{{ artwork.title }}</h1>
-  <div style="text-align:center;margin:1.5em 0;">
-    <a href="{{ url_for('processed_image', seo_folder=artwork.seo_name, filename=artwork.main_image.split('/')[-1]) }}" target="_blank">
-      <img src="{{ url_for('processed_image', seo_folder=artwork.seo_name, filename=artwork.thumb.split('/')[-1]) }}"
-        alt="{{ artwork.title }} thumbnail"
-        style="max-width:320px;border-radius:10px;box-shadow:0 2px 8px #0002;cursor:pointer;">
-    </a>
-    <div style="font-size:0.98em;color:#888;margin-top:0.4em;">Click thumbnail for full size</div>
-  </div>
-
-  <!-- ======= [AI-Generated Description Panel] ======= -->
-  <div class="desc-panel" style="margin-bottom:2em;">
-    <h2 style="margin-bottom:10px;">📝 AI-Generated Listing Description</h2>
-    <pre style="white-space: pre-wrap;background:#fafbfc;border-radius:8px;box-shadow:0 1px 4px #0001;padding:16px;min-height:110px;max-height:350px;overflow-y:auto;font-size:1.05em;">{{ ai_description }}</pre>
-    {% if tags %}
-      <div style="margin-top:0.6em;"><strong>Tags:</strong> {{ tags|join(', ') }}</div>
-    {% endif %}
-    {% if materials %}
-      <div><strong>Materials:</strong> {{ materials|join(', ') }}</div>
-    {% endif %}
-    {% if used_fallback_naming %}
-      <div style="color: orange;">⚠️ SEO Filename used fallback extraction.</div>
-    {% endif %}
-  </div>
-
-  <!-- ======= [About the Artist Section] ======= -->
-  <h3>About the Artist</h3>
-  <div style="background:#fafbfc;border-radius:8px;box-shadow:0 1px 4px #0001;padding:16px;white-space:pre-line;font-size:1.05em;margin-bottom:2em;">
-    {{ generic_text|safe }}
-  </div>
-
-  <!-- ======= [Debug Output] ======= -->
-  {% if raw_ai_output %}
-    <details style="margin-bottom:2em;">
-      <summary>Debug: Raw AI Output</summary>
-      <pre style="white-space: pre-wrap;background:#f0f0f0;padding:10px;">{{ raw_ai_output }}</pre>
-    </details>
-  {% endif %}
-
-  <!-- ======= [Primary & Secondary Colour Fields] ======= -->
-  <div style="display:flex;gap:22px;justify-content:center;margin-bottom:2.2em;">
-    <div style="flex:1 1 0;min-width:120px;max-width:160px;">
-      <div style="font-weight:600;font-size:1.02em;margin-bottom:5px;">Primary Colour</div>
-      <div style="background:#fcfcfc;border-radius:7px;border:1px solid #e2e4e8;min-height:38px;padding:7px 12px;font-size:0.97em;white-space:pre-line;overflow-x:auto;">
-        {{ artwork.primary_colour if artwork.primary_colour else "&mdash;" }}
-      </div>
+<!-- ======================= [RA.1] Review Artwork Grid Layout ======================= -->
+<div class="review-artwork-grid">
+  <!-- === [RA.1.1] LEFT COLUMN: MOCKUP PREVIEWS + CONTROLS === -->
+  <div class="mockup-col">
+    <div class="main-thumb">
+      <a href="{{ url_for('processed_image', seo_folder=artwork.seo_name, filename=artwork.main_image.split('/')[-1]) }}" target="_blank">
+        <img src="{{ url_for('processed_image', seo_folder=artwork.seo_name, filename=artwork.thumb.split('/')[-1]) }}"
+          alt="{{ artwork.title }} thumbnail"
+          class="main-thumbnail-img">
+      </a>
+      <div class="thumb-note">Click thumbnail for full size</div>
     </div>
-    <div style="flex:1 1 0;min-width:120px;max-width:160px;">
-      <div style="font-weight:600;font-size:1.02em;margin-bottom:5px;">Secondary Colour</div>
-      <div style="background:#fcfcfc;border-radius:7px;border:1px solid #e2e4e8;min-height:38px;padding:7px 12px;font-size:0.97em;white-space:pre-line;overflow-x:auto;">
-        {{ artwork.secondary_colour if artwork.secondary_colour else "&mdash;" }}
-      </div>
-    </div>
-  </div>
-
-  <!-- ======= [Mockup Previews Grid] ======= -->
-  <h2 style="margin-top:36px;margin-bottom:16px;text-align:center;">🖼️ Preview Mockups</h2>
-  {% if mockup_previews and mockup_previews|length > 0 %}
-    <div style="display:flex;flex-wrap:wrap;gap:22px;justify-content:center;margin-bottom:24px;">
-      {% for img in mockup_previews %}
-        <div style="background:#fcfcfc;border-radius:10px;padding:12px 8px;box-shadow:0 1px 4px #0001;max-width:208px;text-align:center;">
-          <img src="{{ url_for('processed_image', seo_folder=artwork.seo_name, filename=img.split('/')[-1]) }}"
-               alt="Mockup Preview {{ loop.index }}"
-               style="max-width:184px;border-radius:8px;box-shadow:0 2px 8px #0001;">
-          <div style="font-size:0.97em;color:#777;margin-top:6px;">Mockup #{{ loop.index }}</div>
+    <div>
+      <h3>Preview Mockups</h3>
+      <div class="mockup-preview-grid">
+        {% for mockup in mockup_previews %}
+        <div class="mockup-card">
+          <!-- [RA.1.1.1] Modal Preview Link -->
+          <a href="{{ url_for('processed_image', seo_folder=artwork.seo_name, filename=mockup.filename) }}"
+             class="mockup-img-link"
+             data-img="{{ url_for('processed_image', seo_folder=artwork.seo_name, filename=mockup.filename) }}"
+             data-mockup="{{ mockup.index }}">
+            <img
+              src="{{ url_for('processed_image', seo_folder=artwork.seo_name, filename=mockup.filename) }}"
+              alt="Mockup #{{ mockup.index+1 }}"
+              class="mockup-thumb-img">
+          </a>
+          <div class="mockup-number">Mockup #{{ loop.index }}</div>
+          <!-- [RA.1.1.2] Swap Category Form -->
+          <form method="POST" action="{{ url_for('swap_composite', seo_folder=artwork.seo_name, slot_index=mockup.index) }}">
+            <select name="new_category">
+              {% for cat in categories %}
+                <option value="{{ cat }}" {% if mockup.category == cat %}selected{% endif %}>{{ cat }}</option>
+              {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-sm">🔁 Swap</button>
+          </form>
         </div>
-      {% endfor %}
+        {% endfor %}
+      </div>
     </div>
-  {% else %}
-    <div style="text-align:center;font-size:1.1em;color:#b77;">No mockups generated yet. Try re-analysing.</div>
-  {% endif %}
+  </div>
 
-  <!-- ======= [Actions: Re-analyse & Navigation] ======= -->
-  <form method="POST" action="{{ url_for('analyze_artwork', aspect=artwork.aspect, filename=artwork.seo_name + '.jpg') }}" style="max-width:420px;margin:36px auto 0 auto;text-align:center;">
-    <div style="margin-bottom:10px;font-size:1.07em;font-weight:500;">Re-analyse Artwork</div>
-    <textarea name="feedback" placeholder="Add feedback or changes for next analysis..." rows="3" style="width:100%;max-width:400px;padding:10px;border-radius:7px;border:1px solid #ccd2da;resize:vertical;font-size:1em;margin-bottom:9px;"></textarea>
-    <br>
-    <button type="submit" class="btn btn-primary" style="font-size:1.04em;padding:7px 28px;border-radius:7px;">Re-analyse</button>
-  </form>
-
-  <div style="text-align:center;margin-top:34px;">
-    <a href="{{ url_for('artworks') }}" class="btn btn-secondary" style="font-size:1.03em;padding:7px 28px;border-radius:7px;">← Back to Artwork Gallery</a>
+  <!-- === [RA.1.2] RIGHT COLUMN: COMBINED DESCRIPTION + INFO === -->
+  <div class="desc-col">
+    <h1>{{ artwork.title }}</h1>
+    <div class="desc-panel">
+      <h2>📝 Etsy Listing Description (Combined)</h2>
+      <div class="desc-text"
+           style="white-space: pre-wrap; background: #fafbfc; border-radius: 8px; box-shadow: 0 1px 4px #0001; padding: 16px; min-height: 110px; max-height: 350px; overflow-y: auto; font-size: 1.05em; margin-bottom: 1em;">
+        {{ combined_description }}
+      </div>
+      {% if tags %}
+        <div class="desc-tags"
+             style="margin-top: 8px; margin-bottom: 6px; font-size: 1em; background: #f7f7f9; border-radius: 6px; padding: 7px 13px;">
+          <strong>Tags:</strong> {{ tags|join(', ') }}
+        </div>
+      {% endif %}
+      {% if materials %}
+        <div class="desc-materials"
+             style="margin-bottom: 8px; font-size: 1em; background: #f9f7f7; border-radius: 6px; padding: 7px 13px;">
+          <strong>Materials:</strong> {{ materials|join(', ') }}
+        </div>
+      {% endif %}
+      {% if used_fallback_naming %}
+        <div class="fallback-warning" style="margin-top:7px;">⚠️ SEO Filename used fallback extraction.</div>
+      {% endif %}
+    </div>
+    <div class="colour-info-grid">
+      <div>
+        <div class="label">Primary Colour</div>
+        <div class="colour-box">{{ artwork.primary_colour if artwork.primary_colour else "&mdash;" }}</div>
+      </div>
+      <div>
+        <div class="label">Secondary Colour</div>
+        <div class="colour-box">{{ artwork.secondary_colour if artwork.secondary_colour else "&mdash;" }}</div>
+      </div>
+    </div>
+    <form method="POST" action="{{ url_for('analyze_artwork', aspect=artwork.aspect, filename=artwork.seo_name + '.jpg') }}">
+      <div class="reanalyse-label">Re-analyse Artwork</div>
+      <textarea name="feedback" placeholder="Add feedback or changes for next analysis..." rows="3"></textarea>
+      <br>
+      <button type="submit" class="btn btn-primary">Re-analyse</button>
+    </form>
+    <div class="back-link">
+      <a href="{{ url_for('artworks') }}">&larr; Back to Artwork Gallery</a>
+    </div>
   </div>
 </div>
+
+<!-- ======================= [RA.2] Mockup Fullscreen Modal ======================= -->
+<div id="mockup-modal-bg" class="modal-bg" style="display:none;">
+  <button id="mockup-modal-close" class="modal-close" aria-label="Close modal">&times;</button>
+  <div class="modal-img">
+    <img id="mockup-modal-img" src="" alt="Full-size Mockup Preview" />
+  </div>
+</div>
+
+<!-- ======================= [RA.3] Modal JS ======================= -->
+<script>
+  document.querySelectorAll('.mockup-img-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const modal = document.getElementById('mockup-modal-bg');
+      const modalImg = document.getElementById('mockup-modal-img');
+      modalImg.src = this.dataset.img;
+      modal.style.display = 'flex';
+    });
+  });
+  document.getElementById('mockup-modal-close').onclick = function() {
+    document.getElementById('mockup-modal-bg').style.display = 'none';
+    document.getElementById('mockup-modal-img').src = '';
+  };
+  document.getElementById('mockup-modal-bg').onclick = function(e) {
+    if (e.target === this) {
+      this.style.display = 'none';
+      document.getElementById('mockup-modal-img').src = '';
+    }
+  }
+</script>
 {% endblock %}

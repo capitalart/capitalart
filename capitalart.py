@@ -34,9 +34,12 @@ SELECTIONS_DIR = BASE_DIR / "outputs" / "selections"
 LOGS_DIR = BASE_DIR / "logs"
 COMPOSITES_DIR = BASE_DIR / "outputs" / "composites"
 FINALISED_DIR = BASE_DIR / "outputs" / "finalised-artwork"
-COORDS_ROOT = BASE_DIR / "inputs" / "coords"
+COORDS_ROOT = BASE_DIR / "inputs" / "Coordinates"
 ANALYZE_SCRIPT_PATH = BASE_DIR / "scripts" / "analyze_artwork.py"
 GENERATE_SCRIPT_PATH = BASE_DIR / "scripts" / "generate_composites.py"
+
+from PIL import Image
+Image.MAX_IMAGE_PIXELS = None  # disables the warning (careful: disables protection)
 
 # ========== SECTION 2. FLASK APP INITIALISATION ==========
 
@@ -112,7 +115,31 @@ def latest_composite_folder() -> str | None:
             latest_folder = folder.name
     return latest_folder
 
-## 3.8. List all artworks available for analysis
+## 3.8. Find most recent analyzed artwork
+def latest_analyzed_artwork() -> dict | None:
+    latest_time = 0
+    latest_info = None
+    for folder in ARTWORK_PROCESSED_DIR.iterdir():
+        if not folder.is_dir():
+            continue
+        listing = folder / f"{folder.name}-listing.json"
+        if not listing.exists():
+            continue
+        t = listing.stat().st_mtime
+        if t > latest_time:
+            latest_time = t
+            try:
+                with open(listing, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                latest_info = {
+                    "aspect": data.get("aspect_ratio"),
+                    "filename": data.get("filename"),
+                }
+            except Exception:
+                continue
+    return latest_info
+
+# ========== SECTION 3.9. List all artworks in all aspect subfolders ==========
 def list_artworks():
     artworks = []
     for aspect_dir in sorted(ARTWORKS_DIR.iterdir()):
@@ -131,7 +158,8 @@ def list_artworks():
 
 @app.route("/")
 def home():
-    return render_template("index.html", menu=get_menu())
+    latest = latest_analyzed_artwork()
+    return render_template("index.html", menu=get_menu(), latest_artwork=latest)
 
 @app.route("/artworks")
 def artworks():
@@ -283,16 +311,17 @@ def analyze_artwork(aspect, filename):
 
 @app.route("/review/<aspect>/<filename>")
 def review_artwork(aspect, filename):
-    # [The function body remains almost as before, fetching the listing and displaying mockups...]
-    # ... (for brevity, copy your current robust implementation here)
-    # For full context: See previous assistant responses, or paste your current function here.
-    # (Let me know if you want it rewritten or improved/sectioned!)
+    """
+    Review the analyzed artwork, show AI-generated listing, and preview composite mockups.
+    Provides per-mockup regenerate and category swap UI.
+    """
 
-    # ---[omitted for brevity]---
+    # === [4.4.1] Find SEO folder (handles both original and SEO filenames) ===
     original_basename = Path(filename).stem
     processed_root = ARTWORK_PROCESSED_DIR
     listing_json = None
     seo_folder = None
+
     for folder in processed_root.iterdir():
         if folder.is_dir():
             possible_json = folder / f"{folder.name}-listing.json"
@@ -300,13 +329,21 @@ def review_artwork(aspect, filename):
                 with open(possible_json, "r", encoding="utf-8") as f:
                     try:
                         data = json.load(f)
-                        if Path(data.get("filename", "")).stem == original_basename:
+                        found_filename = Path(data.get("filename", "")).stem
+                        # Accept if this matches either original filename or folder name
+                        if found_filename == original_basename or folder.name == original_basename:
                             listing_json = data
                             seo_folder = folder.name
                             break
                     except Exception:
                         continue
-    # Fallback dummy if not found
+
+    # === [4.4.2] Redirect if using original filename but SEO exists ===
+    if seo_folder and filename != seo_folder + ".jpg":
+        # Always use canonical SEO filename for all review UI, swaps, etc
+        return redirect(url_for("review_artwork", aspect=aspect, filename=seo_folder + ".jpg"))
+
+    # === [4.4.3] Fallback: No listing found ===
     if not listing_json:
         return render_template(
             "review_artwork.html",
@@ -324,6 +361,7 @@ def review_artwork(aspect, filename):
                 "secondary_colour": "",
             },
             mockup_previews=[],
+            categories=[],
             ai_listing=None,
             ai_description="(No AI listing description found)",
             fallback_text=None,
@@ -334,6 +372,8 @@ def review_artwork(aspect, filename):
             raw_ai_output="",
             menu=get_menu(),
         )
+
+    # === [4.4.4] Extract AI listing and summary fields ===
     ai_listing = listing_json.get("ai_listing", {})
     desc = None
     fallback_text = None
@@ -364,10 +404,29 @@ def review_artwork(aspect, filename):
         raw_ai_output = json.dumps(ai_listing, indent=2, ensure_ascii=False)[:800]
     else:
         raw_ai_output = str(ai_listing)[:800]
-    # --- Collect preview mockups
+
+    # === [4.4.5] Collect per-mockup preview dicts (filename, category, index) ===
     folder = ARTWORK_PROCESSED_DIR / seo_folder
-    preview_images = sorted(folder.glob(f"{seo_folder}-MU-*.jpg"))
-    mockup_previews = [f"outputs/processed/{seo_folder}/{img.name}" for img in preview_images]
+    images = sorted(folder.glob(f"{seo_folder}-MU-*.jpg"))
+    mockups_from_json = listing_json.get("mockups", []) if listing_json else []
+    mockup_previews = []
+    for idx, img in enumerate(images):
+        cat = ""
+        if idx < len(mockups_from_json):
+            try:
+                cat = Path(mockups_from_json[idx]).parent.name
+            except Exception:
+                cat = ""
+        mockup_previews.append({
+            "filename": img.name,
+            "category": cat,
+            "index": idx,
+        })
+
+    # === [4.4.6] Get categories for dropdowns ===
+    categories = get_categories()
+
+    # === [4.4.7] Build artwork dict for template ===
     artwork = {
         "seo_name": seo_folder,
         "title": ai_title or listing_json.get("title") or seo_folder.replace("-", " ").title(),
@@ -382,6 +441,8 @@ def review_artwork(aspect, filename):
         "primary_colour": primary_colour,
         "secondary_colour": secondary_colour,
     }
+
+    # === [4.4.8] Render template with all context ===
     return render_template(
         "review_artwork.html",
         artwork=artwork,
@@ -394,8 +455,187 @@ def review_artwork(aspect, filename):
         generic_text=generic_text,
         raw_ai_output=raw_ai_output,
         mockup_previews=mockup_previews,
+        categories=categories,
         menu=get_menu(),
     )
+
+# --- 4.4b. Review Page: Individual Mockup Regenerate/Swap Actions ---
+
+from werkzeug.exceptions import NotFound
+
+## 4.4b.1. Helper: Find SEO folder for given aspect/filename
+def find_seo_folder_from_filename(aspect, filename):
+    """
+    Returns the SEO folder name for a given artwork's aspect and original filename.
+    """
+    basename = Path(filename).stem
+    for folder in ARTWORK_PROCESSED_DIR.iterdir():
+        if not folder.is_dir():
+            continue
+        listing_file = folder / f"{folder.name}-listing.json"
+        if not listing_file.exists():
+            continue
+        try:
+            with open(listing_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            if Path(data.get("filename", "")).stem == basename:
+                return folder.name
+        except Exception:
+            continue
+    raise NotFound("SEO folder not found for this artwork.")
+
+## 4.4b.2. Helper: Regenerate one mockup (same category)
+def regenerate_one_mockup(seo_folder, slot_idx):
+    """
+    Regenerate the composite for a given slot index using the same category.
+    """
+    folder = ARTWORK_PROCESSED_DIR / seo_folder
+    listing_file = folder / f"{seo_folder}-listing.json"
+    if not listing_file.exists():
+        return False
+    with open(listing_file, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    mockups = data.get("mockups", [])
+    if slot_idx < 0 or slot_idx >= len(mockups):
+        return False
+    # Get the current category
+    mockup_path = Path(mockups[slot_idx])
+    category = mockup_path.parent.name
+    # Pick a new random image from this category
+    mockup_files = list((MOCKUPS_DIR / category).glob("*.png"))
+    if not mockup_files:
+        return False
+    import random
+    new_mockup = random.choice(mockup_files)
+    # Get coords and run transform
+    aspect = data.get("aspect_ratio")
+    coords_path = COORDS_ROOT / aspect / f"{new_mockup.stem}.json"
+    art_path = folder / f"{seo_folder}.jpg"
+    output_path = folder / f"{seo_folder}-MU-{slot_idx+1:02d}.jpg"
+    try:
+        with open(coords_path, "r", encoding="utf-8") as cf:
+            c = json.load(cf)["corners"]
+        dst = [[c[0]["x"], c[0]["y"]], [c[1]["x"], c[1]["y"]], [c[3]["x"], c[3]["y"]], [c[2]["x"], c[2]["y"]]]
+        art_img = Image.open(art_path).convert("RGBA")
+        art_img = resize_image_for_long_edge(art_img)
+        mock_img = Image.open(new_mockup).convert("RGBA")
+        composite = apply_perspective_transform(art_img, mock_img, dst)
+        composite.convert("RGB").save(output_path, "JPEG", quality=85)
+        # Update mockup path in JSON
+        data["mockups"][slot_idx] = str(new_mockup)
+        with open(listing_file, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+        return True
+    except Exception as e:
+        print(f"Regenerate error: {e}")
+        return False
+
+## 4.4b.3. Helper: Swap mockup to a new category and regenerate
+def swap_one_mockup(seo_folder, slot_idx, new_category):
+    """
+    Change the slot's category and pick a random mockup from that category.
+    """
+    folder = ARTWORK_PROCESSED_DIR / seo_folder
+    listing_file = folder / f"{seo_folder}-listing.json"
+    if not listing_file.exists():
+        return False
+    with open(listing_file, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    mockups = data.get("mockups", [])
+    if slot_idx < 0 or slot_idx >= len(mockups):
+        return False
+    # Pick a new random image from the new category
+    mockup_files = list((MOCKUPS_DIR / new_category).glob("*.png"))
+    if not mockup_files:
+        return False
+    import random
+    new_mockup = random.choice(mockup_files)
+    aspect = data.get("aspect_ratio")
+    coords_path = COORDS_ROOT / aspect / f"{new_mockup.stem}.json"
+    art_path = folder / f"{seo_folder}.jpg"
+    output_path = folder / f"{seo_folder}-MU-{slot_idx+1:02d}.jpg"
+    try:
+        with open(coords_path, "r", encoding="utf-8") as cf:
+            c = json.load(cf)["corners"]
+        dst = [[c[0]["x"], c[0]["y"]], [c[1]["x"], c[1]["y"]], [c[3]["x"], c[3]["y"]], [c[2]["x"], c[2]["y"]]]
+        art_img = Image.open(art_path).convert("RGBA")
+        art_img = resize_image_for_long_edge(art_img)
+        mock_img = Image.open(new_mockup).convert("RGBA")
+        composite = apply_perspective_transform(art_img, mock_img, dst)
+        composite.convert("RGB").save(output_path, "JPEG", quality=85)
+        # Update mockup path in JSON
+        data["mockups"][slot_idx] = str(new_mockup)
+        with open(listing_file, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+        return True
+    except Exception as e:
+        print(f"Swap error: {e}")
+        return False
+
+## 4.4b.4. POST routes for Regenerate/Swap on Review Page
+
+@app.route("/review/<aspect>/<filename>/regenerate/<int:slot_idx>", methods=["POST"])
+def review_regenerate_mockup(aspect, filename, slot_idx):
+    seo_folder = find_seo_folder_from_filename(aspect, filename)
+    regenerate_one_mockup(seo_folder, slot_idx)
+    return redirect(url_for("review_artwork", aspect=aspect, filename=filename))
+
+@app.route("/review/<aspect>/<filename>/swap/<int:slot_idx>", methods=["POST"])
+def review_swap_mockup(aspect, filename, slot_idx):
+    new_cat = request.form["new_category"]
+    seo_folder = find_seo_folder_from_filename(aspect, filename)
+    swap_one_mockup(seo_folder, slot_idx, new_cat)
+    return redirect(url_for("review_artwork", aspect=aspect, filename=filename))
+
+# --- 4.4c. AJAX Regenerate Mockup (returns new filename) ---
+
+@app.route("/review/<aspect>/<filename>/regenerate_ajax/<int:slot_idx>", methods=["POST"])
+def review_regenerate_mockup_ajax(aspect, filename, slot_idx):
+    seo_folder = find_seo_folder_from_filename(aspect, filename)
+    ok, new_mockup_filename = regenerate_one_mockup_ajax(seo_folder, slot_idx)
+    if ok:
+        return {"success": True, "filename": new_mockup_filename}
+    else:
+        return {"success": False, "error": "Failed to regenerate"}, 500
+
+# Helper: Regenerate and return new mockup filename
+def regenerate_one_mockup_ajax(seo_folder, slot_idx):
+    folder = ARTWORK_PROCESSED_DIR / seo_folder
+    listing_file = folder / f"{seo_folder}-listing.json"
+    if not listing_file.exists():
+        return False, None
+    with open(listing_file, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    mockups = data.get("mockups", [])
+    if slot_idx < 0 or slot_idx >= len(mockups):
+        return False, None
+    mockup_path = Path(mockups[slot_idx])
+    category = mockup_path.parent.name
+    mockup_files = list((MOCKUPS_DIR / category).glob("*.png"))
+    if not mockup_files:
+        return False, None
+    new_mockup = random.choice(mockup_files)
+    aspect = data.get("aspect_ratio")
+    coords_path = COORDS_ROOT / aspect / f"{new_mockup.stem}.json"
+    art_path = folder / f"{seo_folder}.jpg"
+    output_path = folder / f"{seo_folder}-MU-{slot_idx+1:02d}.jpg"
+    try:
+        with open(coords_path, "r", encoding="utf-8") as cf:
+            c = json.load(cf)["corners"]
+        dst = [[c[0]["x"], c[0]["y"]], [c[1]["x"], c[1]["y"]], [c[3]["x"], c[3]["y"]], [c[2]["x"], c[2]["y"]]]
+        art_img = Image.open(art_path).convert("RGBA")
+        art_img = resize_image_for_long_edge(art_img)
+        mock_img = Image.open(new_mockup).convert("RGBA")
+        composite = apply_perspective_transform(art_img, mock_img, dst)
+        composite.convert("RGB").save(output_path, "JPEG", quality=85)
+        # Update mockup path in JSON
+        data["mockups"][slot_idx] = str(new_mockup)
+        with open(listing_file, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+        return True, f"{seo_folder}-MU-{slot_idx+1:02d}.jpg"
+    except Exception as e:
+        print(f"AJAX Regenerate error: {e}")
+        return False, None
 
 # --- 4.5. Static & Utility Routes ---
 
@@ -529,14 +769,80 @@ def reset():
     session.clear()
     return redirect(url_for("select"))
 
+# --- 4.7. Swap Composite Category for a Slot ---
+
+@app.route("/swap_composite/<seo_folder>/<int:slot_index>", methods=["POST"])
+def swap_composite(seo_folder, slot_index):
+    new_category = request.form.get("new_category")
+    folder = ARTWORK_PROCESSED_DIR / seo_folder
+    listing_path = folder / f"{seo_folder}-listing.json"
+    if not listing_path.exists():
+        flash("Listing metadata missing", "danger")
+        return redirect(url_for("review_artwork", aspect="", filename=""))
+    with open(listing_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    mockups = data.get("mockups", [])
+    if slot_index < 0 or slot_index >= len(mockups):
+        flash("Invalid slot", "danger")
+        return redirect(url_for("review_artwork", aspect="", filename=""))
+    # Replace the mockup for that slot with a new random image from the selected category
+    category_dir = MOCKUPS_DIR / new_category
+    images = [str(x) for x in category_dir.glob("*.png")]
+    if not images:
+        flash("No mockups in selected category", "danger")
+        return redirect(url_for("review_artwork", aspect="", filename=""))
+    new_mockup_path = random.choice(images)
+    mockups[slot_index] = new_mockup_path
+    data["mockups"] = mockups
+    with open(listing_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2)
+    # Regenerate the composite for that slot
+    aspect = data.get("aspect_ratio", "4x5")
+    coords_path = COORDS_ROOT / aspect / f"{Path(new_mockup_path).stem}.json"
+    art_path = folder / f"{seo_folder}.jpg"
+    output_path = folder / f"{seo_folder}-MU-{slot_index+1:02d}.jpg"
+    try:
+        with open(coords_path, "r", encoding="utf-8") as cf:
+            c = json.load(cf)["corners"]
+        dst = [[c[0]["x"], c[0]["y"]], [c[1]["x"], c[1]["y"]], [c[3]["x"], c[3]["y"]], [c[2]["x"], c[2]["y"]]]
+        art_img = Image.open(art_path).convert("RGBA")
+        art_img = resize_image_for_long_edge(art_img)
+        mock_img = Image.open(new_mockup_path).convert("RGBA")
+        composite = apply_perspective_transform(art_img, mock_img, dst)
+        composite.convert("RGB").save(output_path, "JPEG", quality=85)
+        flash("Composite swapped and regenerated!", "success")
+    except Exception as e:
+        flash(f"Failed to swap/regenerate composite: {e}", "danger")
+    # Redirect back to review page
+    # You may want to be smarter about getting aspect/filename here:
+    return redirect(url_for("review_artwork", aspect=aspect, filename=f"{seo_folder}.jpg"))
+
 # ========== SECTION 5. MENU FUNCTION ==========
 
 def get_menu():
-    return [
-        {"name": "Mockup Selector", "url": url_for("select")},
+    """
+    Returns a list of dicts for navigation.
+    - Home: Always present
+    - Artwork Gallery: Always present
+    - Review Latest Listing: Only enabled if there is a latest artwork
+    """
+    menu = [
+        {"name": "Home", "url": url_for("home")},
         {"name": "Artwork Gallery", "url": url_for("artworks")},
-        {"name": "Artwork Review", "url": url_for("artwork_review")},
     ]
+    latest = latest_analyzed_artwork()
+    if latest:
+        menu.append({
+            "name": "Review Latest Listing",
+            "url": url_for("review_artwork", aspect=latest["aspect"], filename=latest["filename"])
+        })
+    else:
+        menu.append({
+            "name": "Review Latest Listing",
+            "url": None
+        })
+    return menu
+
 
 # ========== SECTION 6. APP RUNNER ==========
 
