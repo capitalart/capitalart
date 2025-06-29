@@ -1,46 +1,50 @@
 {% extends "main.html" %}
 {% block title %}Artwork Gallery | CapitalArt{% endblock %}
 {% block content %}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.6.2/css/bootstrap.min.css">
-<div class="container mt-4">
+
+<div class="gallery-section">
+
   {% if ready_artworks %}
-  <h2 class="mb-3">Ready to Analyze</h2>
-  <div class="row">
-    {% for art in ready_artworks %}
-    <div class="col-sm-6 col-md-4 mb-4">
-      <div class="card h-100">
-        <img class="card-img-top" src="{{ url_for('artwork_image', aspect=art.aspect, filename=art.filename) }}" alt="{{ art.title }}">
-        <div class="card-body text-center">
-          <h5 class="card-title">{{ art.title }}</h5>
+    <h2 class="mb-3">Ready to Analyze</h2>
+    <div class="artwork-grid">
+      {% for art in ready_artworks %}
+      <div class="gallery-card">
+        <div class="card-thumb">
+          <img class="card-img-top"
+               src="{{ url_for('artwork_image', aspect=art.aspect, filename=art.filename) }}"
+               alt="{{ art.title }}">
         </div>
-        <div class="card-footer bg-white text-center">
+        <div class="card-details">
+          <div class="card-title">{{ art.title }}</div>
           <form method="post" action="{{ url_for('analyze_artwork', aspect=art.aspect, filename=art.filename) }}">
             <button type="submit" class="btn btn-primary">Analyze</button>
           </form>
         </div>
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
-  </div>
   {% endif %}
 
   {% if processed_artworks %}
-  <h2 class="mb-3 mt-5">Processed Artworks</h2>
-  <div class="row">
-    {% for art in processed_artworks %}
-    <div class="col-sm-6 col-md-4 mb-4">
-      <div class="card h-100">
-        <img class="card-img-top" src="{{ url_for('processed_image', seo_folder=art.seo_folder, filename=art.thumb) }}" alt="{{ art.title }}">
-        <div class="card-body text-center">
-          <h5 class="card-title">{{ art.title }}</h5>
+    <h2 class="mb-3 mt-5">Processed Artworks</h2>
+    <div class="artwork-grid">
+      {% for art in processed_artworks %}
+      <div class="gallery-card">
+        <div class="card-thumb">
+          <img class="card-img-top"
+               src="{{ url_for('processed_image', seo_folder=art.seo_folder, filename=art.thumb) }}"
+               alt="{{ art.title }}">
         </div>
-        <div class="card-footer bg-white text-center">
-          <a href="{{ url_for('review_artwork', aspect=art.aspect, filename=art.filename) }}" class="btn btn-secondary">Review</a>
+        <div class="card-details">
+          <div class="card-title">{{ art.title }}</div>
+          <a href="{{ url_for('review_artwork', aspect=art.aspect, filename=art.filename) }}"
+             class="btn btn-secondary">Review</a>
         </div>
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
-  </div>
   {% endif %}
+
 </div>
+
 {% endblock %}
