@@ -662,6 +662,20 @@ def mockup_img(category, filename):
 def composite_img(folder, filename):
     return send_from_directory(COMPOSITES_DIR / folder, filename)
 
+# --- Test Route: Display Combined Description ---
+@app.route("/test-description")
+def test_description():
+    """Simple route to verify template context for combined_description."""
+    test_text = (
+        "This is a hardcoded test string for combined_description.\n"
+        "If you see this text, the variable was passed correctly."
+    )
+    return render_template(
+        "test_description.html",
+        combined_description=test_text,
+        menu=get_menu(),
+    )
+
 @app.route("/composites-preview")
 def composites_preview():
     latest = latest_composite_folder()
