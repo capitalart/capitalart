@@ -391,39 +391,45 @@ def review_artwork(aspect, filename):
 
     # --- 4.4.3. Extract all fields for display ---
     ai_listing = listing_json.get("ai_listing", {})
-    desc = None
+    parsed_fallback = {}
     fallback_text = None
-    ai_title = None
     if isinstance(ai_listing, dict):
-        ai_title = ai_listing.get("title")
-        desc = ai_listing.get("description")
         fallback_text = ai_listing.get("fallback_text")
-    elif isinstance(ai_listing, str):
-        desc = ai_listing
-    if not desc and isinstance(ai_listing, dict) and "fallback_text" in ai_listing:
-        fallback_text = ai_listing["fallback_text"]
-        desc = fallback_text
-    if not desc:
-        desc = listing_json.get("generic_text", "(No AI listing description found)")
-    tags = listing_json.get("tags") or (ai_listing.get("tags", []) if isinstance(ai_listing, dict) else [])
-    materials = listing_json.get("materials") or (ai_listing.get("materials", []) if isinstance(ai_listing, dict) else [])
+        if fallback_text:
+            try:
+                parsed_fallback = json.loads(fallback_text)
+            except Exception:
+                parsed_fallback = {}
+    desc = (
+        parsed_fallback.get("description")
+        or (ai_listing.get("description") if isinstance(ai_listing, dict) else None)
+        or listing_json.get("generic_text", "")
+    )
+    ai_title = (
+        parsed_fallback.get("title")
+        or (ai_listing.get("title") if isinstance(ai_listing, dict) else None)
+        or listing_json.get("title")
+    )
+    tags = (
+        listing_json.get("tags")
+        or (ai_listing.get("tags") if isinstance(ai_listing, dict) else None)
+        or parsed_fallback.get("tags")
+        or []
+    )
+    materials = (
+        listing_json.get("materials")
+        or (ai_listing.get("materials") if isinstance(ai_listing, dict) else None)
+        or parsed_fallback.get("materials")
+        or []
+    )
     generic_text = listing_json.get("generic_text", "")
 
     # --- 4.4.4. Combine & clean description blocks ---
-    parts_to_combine = []
-    if desc:
-        cleaned_desc = clean_display_text(desc)
-        if cleaned_desc:
-            parts_to_combine.append(cleaned_desc)
-    if generic_text:
-        cleaned_generic_text = clean_display_text(generic_text)
-        if cleaned_generic_text:
-            parts_to_combine.append(cleaned_generic_text)
-    full_listing_text = "\n\n".join(filter(None, parts_to_combine))
+    full_listing_text = build_full_listing_text(desc, generic_text)
 
     # --- 4.4.5. Extract mockup previews, categories, and meta ---
-    primary_colour = listing_json.get("primary_colour", "")
-    secondary_colour = listing_json.get("secondary_colour", "")
+    primary_colour = listing_json.get("primary_colour") or parsed_fallback.get("primary_colour", "")
+    secondary_colour = listing_json.get("secondary_colour") or parsed_fallback.get("secondary_colour", "")
     used_fallback_naming = bool(listing_json.get("used_fallback_naming", False))
     raw_ai_output = (
         json.dumps(ai_listing, indent=2, ensure_ascii=False)[:800]

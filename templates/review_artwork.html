@@ -45,7 +45,7 @@
     <h1>{{ artwork.title }}</h1>
     <div class="desc-panel">
       <h2>📝 Etsy Listing Description (Combined)</h2>
-      <div class="desc-text" style="white-space: pre-wrap; background: #fafbfc; border-radius: 8px; box-shadow: 0 1px 4px #0001; padding: 16px; min-height: 110px; max-height: 350px; overflow-y: auto; font-size: 1.05em;">
+      <div class="desc-text">
         {#
           IMPORTANT: The combined description is now fully pre-processed in capitalart.py.
           We no longer conditionally add <br><br> here, as that would introduce
@@ -87,7 +87,7 @@
   </div>
 </div>
 
-<div id="mockup-modal-bg" class="modal-bg" style="display:none;">
+<div id="mockup-modal-bg" class="modal-bg">
   <button id="mockup-modal-close" class="modal-close" aria-label="Close modal">&times;</button>
   <div class="modal-img">
     <img id="mockup-modal-img" src="" alt="Full-size Mockup Preview" />
