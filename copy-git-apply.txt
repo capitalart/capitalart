@@ -1,0 +1,182 @@
+diff --git a/capitalart.py b/capitalart.py
+index c90018d863a274d96b67f4314f4276a9bb7566d7..d9b68ce4cf07dba4b972f9d53701aeb2e53def25 100644
+--- a/capitalart.py
++++ b/capitalart.py
+@@ -10,50 +10,51 @@
+ import os
+ import sys
+ import json
+ import uuid
+ import subprocess
+ import random
+ import shutil
+ import logging
+ from pathlib import Path
+ from dotenv import load_dotenv
+ from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory, flash
+ from PIL import Image, ImageDraw
+ import cv2
+ import numpy as np
+ 
+ # === [ 1. ENVIRONMENT & PATHS ] ===
+ 
+ BASE_DIR = Path(__file__).parent.resolve()
+ MOCKUPS_DIR = BASE_DIR / "inputs" / "mockups" / "4x5-categorised"
+ ARTWORKS_DIR = BASE_DIR / "inputs" / "artworks"
+ ARTWORK_PROCESSED_DIR = BASE_DIR / "outputs" / "processed"
+ SELECTIONS_DIR = BASE_DIR / "outputs" / "selections"
+ LOGS_DIR = BASE_DIR / "logs"
+ COMPOSITES_DIR = BASE_DIR / "outputs" / "composites"
+ FINALISED_DIR = BASE_DIR / "outputs" / "finalised-artwork"
++COORDS_ROOT = BASE_DIR / "inputs" / "coords"
+ 
+ ANALYZE_SCRIPT_PATH = BASE_DIR / "scripts" / "analyze_artwork.py"
+ 
+ load_dotenv()
+ app = Flask(__name__)
+ app.secret_key = os.getenv("FLASK_SECRET_KEY", "mockup-secret-key")
+ LOGS_DIR.mkdir(parents=True, exist_ok=True)
+ logging.basicConfig(
+     filename=LOGS_DIR / "composites-workflow.log",
+     level=logging.INFO,
+     format="%(asctime)s [%(levelname)s] %(message)s",
+ )
+ 
+ 
+ def get_categories():
+     return sorted(
+         [folder.name for folder in MOCKUPS_DIR.iterdir() if folder.is_dir() and folder.name.lower() != "uncategorised"]
+     )
+ 
+ 
+ def random_image(category):
+     cat_dir = MOCKUPS_DIR / category
+     images = [f.name for f in cat_dir.glob("*.png")]
+     return random.choice(images) if images else None
+ 
+@@ -91,56 +92,65 @@ def apply_perspective_transform(art_img: Image.Image, mockup_img: Image.Image, d
+     mask = np.any(warped > 0, axis=-1).astype(np.uint8) * 255
+     mask = Image.fromarray(mask).convert("L")
+     composite = Image.composite(Image.fromarray(warped), mockup_img, mask)
+     return composite
+ 
+ 
+ def latest_composite_folder() -> str | None:
+     """Return the folder name containing the most recently modified composite."""
+     latest_time = 0
+     latest_folder = None
+     for folder in ARTWORK_PROCESSED_DIR.iterdir():
+         if not folder.is_dir():
+             continue
+         images = list(folder.glob("*-MU-*.jpg"))
+         if not images:
+             continue
+         recent = max(images, key=lambda p: p.stat().st_mtime)
+         if recent.stat().st_mtime > latest_time:
+             latest_time = recent.stat().st_mtime
+             latest_folder = folder.name
+     return latest_folder
+ 
+ 
+ def list_artworks():
+     artworks = []
++    finalised = set()
++    if FINALISED_DIR.exists():
++        finalised = {d.name for d in FINALISED_DIR.iterdir() if d.is_dir()}
+     for aspect_dir in sorted(ARTWORKS_DIR.iterdir()):
+         if not aspect_dir.is_dir():
+             continue
+         for img in aspect_dir.glob("*.[jJ][pP][gG]"):
++            if img.stem in finalised:
++                continue
+             artworks.append(
+-                {"aspect": aspect_dir.name, "filename": img.name, "title": img.stem.replace("-", " ").title()}
++                {
++                    "aspect": aspect_dir.name,
++                    "filename": img.name,
++                    "title": img.stem.replace("-", " ").title(),
++                }
+             )
+     artworks = sorted(artworks, key=lambda x: (x["aspect"], x["filename"]))
+     return artworks
+ 
+ 
+ @app.route("/")
+ def home():
+     return render_template("index.html", menu=get_menu())
+ 
+ 
+ @app.route("/select", methods=["GET", "POST"])
+ def select():
+     if "slots" not in session or request.args.get("reset") == "1":
+         init_slots()
+     slots = session["slots"]
+     options = compute_options(slots)
+     zipped = list(zip(slots, options))
+     return render_template("mockup_selector.html", zipped=zipped, menu=get_menu())
+ 
+ 
+ @app.route("/regenerate", methods=["POST"])
+ def regenerate():
+     slot_idx = int(request.form["slot"])
+     slots = session.get("slots", [])
+     if 0 <= slot_idx < len(slots):
+@@ -444,53 +454,57 @@ def regenerate_composite(seo_folder, slot_index):
+         logging.error("Error regenerating composite %s slot %s: %s", seo_folder, slot_index, e)
+         flash("Failed to regenerate composite", "danger")
+     return redirect(url_for("composites_specific", seo_folder=seo_folder))
+ 
+ 
+ @app.route("/approve_composites/<seo_folder>", methods=["POST"])
+ def approve_composites(seo_folder):
+     """Finalize and copy composites to the finalised folder."""
+     folder = ARTWORK_PROCESSED_DIR / seo_folder
+     listing_path = folder / f"{seo_folder}-listing.json"
+     if not listing_path.exists():
+         flash("Listing not found", "danger")
+         return redirect(url_for("composites_specific", seo_folder=seo_folder))
+     with open(listing_path, "r", encoding="utf-8") as f:
+         data = json.load(f)
+     data["composites_approved"] = True
+     with open(listing_path, "w", encoding="utf-8") as f:
+         json.dump(data, f, indent=2)
+     final_root = FINALISED_DIR / seo_folder
+     final_root.mkdir(parents=True, exist_ok=True)
+     for img in folder.glob(f"{seo_folder}-MU-*.jpg"):
+         shutil.copy2(img, final_root / img.name)
+     shutil.copy2(listing_path, final_root / listing_path.name)
+     shutil.copy2(folder / f"{seo_folder}.jpg", final_root / f"{seo_folder}.jpg")
+     shutil.make_archive(str(final_root), "zip", final_root)
++    try:
++        shutil.rmtree(folder)
++    except Exception as e:
++        logging.error("Failed to remove processed folder %s: %s", folder, e)
+     logging.info("Approved composites for %s", seo_folder)
+     flash("Composites approved and finalised", "success")
+-    return redirect(url_for("composites_specific", seo_folder=seo_folder))
++    return redirect(url_for("artworks"))
+ 
+ 
+ @app.route("/reset", methods=["POST"])
+ def reset():
+     session.clear()
+     return redirect(url_for("select"))
+ 
+ 
+ @app.route("/analyze/<aspect>/<filename>", methods=["POST"])
+ def analyze_artwork(aspect, filename):
+     artwork_path = ARTWORKS_DIR / aspect / filename
+     script_path = ANALYZE_SCRIPT_PATH
+     log_id = str(uuid.uuid4())
+     log_file = LOGS_DIR / f"analyze_{log_id}.log"
+     feedback = request.form.get("feedback", "")
+     try:
+         LOGS_DIR.mkdir(parents=True, exist_ok=True)
+         cmd = ["python3", str(script_path), str(artwork_path)]
+         if feedback.strip():
+             print(f"[Analysis Feedback]: {feedback}")
+             # Optionally, save feedback to a temp file for the script to use
+         result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=300)
+         with open(log_file, "w") as log:
+             log.write("=== STDOUT ===\n")
+             log.write(result.stdout)
