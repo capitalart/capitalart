@@ -1,0 +1,135 @@
+diff --git a/capitalart.py b/capitalart.py
+index 50dfb21bbeff7439e608d0fc322247439f5fc0dc..26c741bd359a30e59cb3c52fd6c36c2db8a1d35a 100644
+--- a/capitalart.py
++++ b/capitalart.py
+@@ -90,70 +90,95 @@ def apply_perspective_transform(art_img: Image.Image, mockup_img: Image.Image, d
+     dst_points = np.float32(dst_coords)
+     matrix = cv2.getPerspectiveTransform(src_points, dst_points)
+     art_np = np.array(art_img)
+     warped = cv2.warpPerspective(art_np, matrix, (mockup_img.width, mockup_img.height))
+     mask = np.any(warped > 0, axis=-1).astype(np.uint8) * 255
+     mask = Image.fromarray(mask).convert("L")
+     composite = Image.composite(Image.fromarray(warped), mockup_img, mask)
+     return composite
+ 
+ ## 3.7. Find most recent composite output folder
+ def latest_composite_folder() -> str | None:
+     latest_time = 0
+     latest_folder = None
+     for folder in ARTWORK_PROCESSED_DIR.iterdir():
+         if not folder.is_dir():
+             continue
+         images = list(folder.glob("*-MU-*.jpg"))
+         if not images:
+             continue
+         recent = max(images, key=lambda p: p.stat().st_mtime)
+         if recent.stat().st_mtime > latest_time:
+             latest_time = recent.stat().st_mtime
+             latest_folder = folder.name
+     return latest_folder
+ 
+-## 3.8. List all artworks available for analysis
++## 3.8. Find most recent analyzed artwork
++def latest_analyzed_artwork() -> dict | None:
++    latest_time = 0
++    latest_info = None
++    for folder in ARTWORK_PROCESSED_DIR.iterdir():
++        if not folder.is_dir():
++            continue
++        listing = folder / f"{folder.name}-listing.json"
++        if not listing.exists():
++            continue
++        t = listing.stat().st_mtime
++        if t > latest_time:
++            latest_time = t
++            try:
++                with open(listing, "r", encoding="utf-8") as f:
++                    data = json.load(f)
++                latest_info = {
++                    "aspect": data.get("aspect_ratio"),
++                    "filename": data.get("filename"),
++                }
++            except Exception:
++                continue
++    return latest_info
++
++## 3.9. List all artworks available for analysis
+ def list_artworks():
+     artworks = []
+     for aspect_dir in sorted(ARTWORKS_DIR.iterdir()):
+         if not aspect_dir.is_dir():
+             continue
+         for img in aspect_dir.glob("*.[jJ][pP][gG]"):
+             artworks.append(
+                 {"aspect": aspect_dir.name, "filename": img.name, "title": img.stem.replace("-", " ").title()}
+             )
+     artworks = sorted(artworks, key=lambda x: (x["aspect"], x["filename"]))
+     return artworks
+ 
+ # ========== SECTION 4. MAIN ROUTES ==========
+ 
+ # --- 4.1. Home and Artwork Gallery ---
+ 
+ @app.route("/")
+ def home():
+-    return render_template("index.html", menu=get_menu())
++    latest = latest_analyzed_artwork()
++    return render_template("index.html", menu=get_menu(), latest_artwork=latest)
+ 
+ @app.route("/artworks")
+ def artworks():
+     return render_template("artworks.html", artworks=list_artworks(), menu=get_menu())
+ 
+ # --- 4.2. Mockup Selector UI ---
+ 
+ @app.route("/select", methods=["GET", "POST"])
+ def select():
+     if "slots" not in session or request.args.get("reset") == "1":
+         init_slots()
+     slots = session["slots"]
+     options = compute_options(slots)
+     zipped = list(zip(slots, options))
+     return render_template("mockup_selector.html", zipped=zipped, menu=get_menu())
+ 
+ @app.route("/regenerate", methods=["POST"])
+ def regenerate():
+     slot_idx = int(request.form["slot"])
+     slots = session.get("slots", [])
+     if 0 <= slot_idx < len(slots):
+         cat = slots[slot_idx]["category"]
+         slots[slot_idx]["image"] = random_image(cat)
+         session["slots"] = slots
+     return redirect(url_for("select"))
+diff --git a/templates/index.html b/templates/index.html
+index d718d2e049ca0b2f61b80aae06de22f9e3a85827..833272f5bfcc5d424a1029910b73f9765e6c5185 100644
+--- a/templates/index.html
++++ b/templates/index.html
+@@ -1,24 +1,27 @@
+ {% extends "main.html" %}
+ {% block title %}CapitalArt Home{% endblock %}
+ {% block content %}
+ <div class="home-hero">
+   <h1>🎨 Welcome to CapitalArt Listing Machine</h1>
+   <p style="font-size:1.15em; max-width:600px; margin:1em auto 2em auto;">
+     G’day! This is your one-stop hub for prepping, previewing, and perfecting your artwork listings, mockups, and all things gallery magic.  
+     <br><br>
+     <strong>Workflow:</strong> Select your dream mockup lineup, review the listing with full Pulitzer-worthy description, and get everything export-ready for Etsy, Sellbrite, or wherever your art’s headed.
+   </p>
+ </div>
+ <div class="home-actions" style="display:flex;flex-wrap:wrap;justify-content:center;gap:2em;">
+   <a href="{{ url_for('select') }}" class="composite-btn" style="min-width:200px;text-align:center;">🖼️ Start Mockup Selection</a>
+-  <a href="{{ url_for('review') }}" class="composite-btn" style="background:#666;">🔎 Review Latest Listing</a>
++  {% if latest_artwork %}
++  <a href="{{ url_for('review_artwork', aspect=latest_artwork.aspect, filename=latest_artwork.filename) }}" class="composite-btn" style="background:#666;">🔎 Review Latest Listing</a>
++  {% endif %}
++  <a href="{{ url_for('artwork_review') }}" class="composite-btn" style="background:#444;">📚 Review All Artworks</a>
+ </div>
+ <section style="max-width:700px;margin:3em auto 0 auto;text-align:left;">
+   <h2>How It Works</h2>
+   <ol style="font-size:1.08em;line-height:1.6;">
+     <li><b>Mockup Selector:</b> Pick one hero image from each room/category. Regenerate or swap till you love the lineup.</li>
+     <li><b>Review:</b> See all chosen mockups, the main artwork, and your custom AI-powered listing description in one tidy spot.</li>
+     <li><b>Approval & Export:</b> When you’re happy, lock it in for final export—ready for uploading and selling. (Export coming soon!)</li>
+   </ol>
+ </section>
+ {% endblock %}

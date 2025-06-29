@@ -1,0 +1,22 @@
+=== GIT PATCH APPLY LOG ===
+Patch file: /Users/robin/capitalart/patches/codex_patch_2025-06-29_16-45-56.patch
+Return Code: 128
+
+=== STDOUT ===
+(no output)
+
+=== STDERR ===
+error: corrupt patch at line 135
+
+=== GIT STATUS ===
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	logs/patch-log-2025-06-29_16-42-47.txt
+	logs/patch-log-2025-06-29_16-45-56.txt
+	patches/codex_patch_2025-06-29_16-42-47.patch
+	patches/codex_patch_2025-06-29_16-45-56.patch
+
+nothing added to commit but untracked files present (use "git add" to track)
