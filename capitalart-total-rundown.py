@@ -6,12 +6,12 @@
 # 🚀 Ultimate Dev Toolkit by Robbie Mode™
 #
 # USAGE EXAMPLES:
-#   python3 capitalart-total-nuclear-v2.py
-#   python3 capitalart-total-nuclear-v2.py --no-zip
-#   python3 capitalart-total-nuclear-v2.py --skip-git --skip-env
+#   python3 capitalart-total-rundown.py
+#   python3 capitalart-total-rundown.py --no-zip
+#   python3 capitalart-total-rundown.py --skip-git --skip-env
 # ===========================================
 
-# --- [ 1a: Standard Library Imports | nuclear-1a ] ---
+# --- [ 1a: Standard Library Imports | rundown-1a ] ---
 import os
 import sys
 import datetime
@@ -22,7 +22,7 @@ from pathlib import Path
 from typing import Generator
 import argparse
 
-# --- [ 1b: Snapshot Configuration | nuclear-1b ] ---
+# --- [ 1b: Snapshot Configuration | rundown-1b ] ---
 ALLOWED_EXTENSIONS = {".py", ".sh", ".jsx", ".txt", ".html", ".js", ".css"}
 EXCLUDED_EXTENSIONS = {".json"}
 EXCLUDED_FOLDERS = {"venv", ".venv", "__MACOSX", ".git", ".vscode", "reports", "backups", "node_modules", ".idea"}
