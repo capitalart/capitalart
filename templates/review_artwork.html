@@ -2,9 +2,7 @@
 {% block title %}Review Artwork | CapitalArt{% endblock %}
 {% block content %}
 
-<!-- ======================= [RA.1] Review Artwork Grid Layout ======================= -->
 <div class="review-artwork-grid">
-  <!-- === [RA.1.1] LEFT COLUMN: MOCKUP PREVIEWS + CONTROLS === -->
   <div class="mockup-col">
     <div class="main-thumb">
       <a href="{{ url_for('processed_image', seo_folder=artwork.seo_name, filename=artwork.main_image.split('/')[-1]) }}" target="_blank">
@@ -19,7 +17,6 @@
       <div class="mockup-preview-grid">
         {% for mockup in mockup_previews %}
         <div class="mockup-card">
-          <!-- [RA.1.1.1] Modal Preview Link -->
           <a href="{{ url_for('processed_image', seo_folder=artwork.seo_name, filename=mockup.filename) }}"
              class="mockup-img-link"
              data-img="{{ url_for('processed_image', seo_folder=artwork.seo_name, filename=mockup.filename) }}"
@@ -30,7 +27,6 @@
               class="mockup-thumb-img">
           </a>
           <div class="mockup-number">Mockup #{{ loop.index }}</div>
-          <!-- [RA.1.1.2] Swap Category Form -->
           <form method="POST" action="{{ url_for('swap_composite', seo_folder=artwork.seo_name, slot_index=mockup.index) }}">
             <select name="new_category">
               {% for cat in categories %}
@@ -45,29 +41,28 @@
     </div>
   </div>
 
-  <!-- === [RA.1.2] RIGHT COLUMN: COMBINED DESCRIPTION + INFO === -->
   <div class="desc-col">
     <h1>{{ artwork.title }}</h1>
     <div class="desc-panel">
       <h2>📝 Etsy Listing Description (Combined)</h2>
-      <div class="desc-text"
-           style="white-space: pre-wrap; background: #fafbfc; border-radius: 8px; box-shadow: 0 1px 4px #0001; padding: 16px; min-height: 110px; max-height: 350px; overflow-y: auto; font-size: 1.05em; margin-bottom: 1em;">
-        {{ combined_description }}
+      <div class="desc-text" style="white-space: pre-wrap; background: #fafbfc; border-radius: 8px; box-shadow: 0 1px 4px #0001; padding: 16px; min-height: 110px; max-height: 350px; overflow-y: auto; font-size: 1.05em;">
+        {#
+          IMPORTANT: The combined description is now fully pre-processed in capitalart.py.
+          We no longer conditionally add <br><br> here, as that would introduce
+          redundant line breaks if the Python side already added them.
+          The `white-space: pre-wrap;` CSS will render newlines as they appear
+          in the `artwork.full_listing_text` variable.
+        #}
+        {{ artwork.full_listing_text | safe }}
       </div>
       {% if tags %}
-        <div class="desc-tags"
-             style="margin-top: 8px; margin-bottom: 6px; font-size: 1em; background: #f7f7f9; border-radius: 6px; padding: 7px 13px;">
-          <strong>Tags:</strong> {{ tags|join(', ') }}
-        </div>
+        <div><strong>Tags:</strong> {{ tags|join(', ') }}</div>
       {% endif %}
       {% if materials %}
-        <div class="desc-materials"
-             style="margin-bottom: 8px; font-size: 1em; background: #f9f7f7; border-radius: 6px; padding: 7px 13px;">
-          <strong>Materials:</strong> {{ materials|join(', ') }}
-        </div>
+        <div><strong>Materials:</strong> {{ materials|join(', ') }}</div>
       {% endif %}
       {% if used_fallback_naming %}
-        <div class="fallback-warning" style="margin-top:7px;">⚠️ SEO Filename used fallback extraction.</div>
+        <div class="fallback-warning">⚠️ SEO Filename used fallback extraction.</div>
       {% endif %}
     </div>
     <div class="colour-info-grid">
@@ -92,7 +87,6 @@
   </div>
 </div>
 
-<!-- ======================= [RA.2] Mockup Fullscreen Modal ======================= -->
 <div id="mockup-modal-bg" class="modal-bg" style="display:none;">
   <button id="mockup-modal-close" class="modal-close" aria-label="Close modal">&times;</button>
   <div class="modal-img">
@@ -100,7 +94,6 @@
   </div>
 </div>
 
-<!-- ======================= [RA.3] Modal JS ======================= -->
 <script>
   document.querySelectorAll('.mockup-img-link').forEach(link => {
     link.addEventListener('click', function(e) {

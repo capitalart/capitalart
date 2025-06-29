@@ -23,6 +23,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, s
 from PIL import Image, ImageDraw
 import cv2
 import numpy as np
+import re # ADDED: Import the 're' module for regular expressions
 
 # ========== SECTION 1. PATHS & CONSTANTS ==========
 
@@ -151,6 +152,21 @@ def list_artworks():
             )
     artworks = sorted(artworks, key=lambda x: (x["aspect"], x["filename"]))
     return artworks
+
+## 3.10. Aggressively clean text for display (new)
+def clean_display_text(text: str) -> str:
+    if not text:
+        return ""
+    # Strip all leading/trailing whitespace, including newlines
+    cleaned = text.strip()
+    # Replace sequences of 2 or more newlines with exactly two newlines (one blank line)
+    # This also handles cases where text might start with multiple newlines internally
+    cleaned = re.sub(r'\n{2,}', '\n\n', cleaned)
+    # Optional: Remove any leading/trailing spaces on lines *within* the text (e.g., "  line" -> "line")
+    # This is more aggressive and might not always be desired if internal indentation matters.
+    # For a general listing, it's usually fine.
+    # cleaned = '\n'.join(line.strip() for line in cleaned.splitlines())
+    return cleaned
 
 # ========== SECTION 4. MAIN ROUTES ==========
 
@@ -359,6 +375,7 @@ def review_artwork(aspect, filename):
                 "materials": [],
                 "primary_colour": "",
                 "secondary_colour": "",
+                "full_listing_text": "(No AI listing description found. Try re-analyzing.)" # ADDED: Fallback for full_listing_text
             },
             mockup_previews=[],
             categories=[],
@@ -394,9 +411,33 @@ def review_artwork(aspect, filename):
         ai_listing.get("materials", []) if isinstance(ai_listing, dict) else []
     )
     generic_text = listing_json.get("generic_text", "")
-    combined_description = desc.strip()
+
+    # MODIFIED: Logic to prepare the combined listing text with proper spacing
+    parts_to_combine = []
+
+    # AI Description (cleaned)
+    if desc:
+        # Use the new aggressive cleaner for the AI description
+        cleaned_desc = clean_display_text(desc)
+        if cleaned_desc: # Only add if it's not an empty string after cleaning
+            parts_to_combine.append(cleaned_desc)
+
+    # Generic Text (cleaned and appended after AI description if present)
     if generic_text:
-        combined_description += "\n\n" + generic_text.strip()
+        # Use the new aggressive cleaner for the generic text
+        cleaned_generic_text = clean_display_text(generic_text)
+        if cleaned_generic_text: # Only add if it's not an empty string after cleaning
+            parts_to_combine.append(cleaned_generic_text)
+
+    # Combine all parts with two newlines as standard paragraph separators
+    # Filter out any empty strings that might result from stripping
+    full_listing_text = "\n\n".join(filter(None, parts_to_combine))
+
+    # The final .strip() might still be useful just in case, but clean_display_text
+    # should largely handle the leading/trailing issues.
+    # full_listing_text = full_listing_text.strip()
+    # END MODIFIED SECTION
+
     primary_colour = listing_json.get("primary_colour", "")
     secondary_colour = listing_json.get("secondary_colour", "")
     used_fallback_naming = bool(listing_json.get("used_fallback_naming", False))
@@ -432,7 +473,7 @@ def review_artwork(aspect, filename):
         "title": ai_title or listing_json.get("title") or seo_folder.replace("-", " ").title(),
         "main_image": f"outputs/processed/{seo_folder}/{seo_folder}.jpg",
         "thumb": f"outputs/processed/{seo_folder}/{seo_folder}-THUMB.jpg",
-        "description": combined_description.strip(),
+        # REMOVED: "description": combined_description.strip(),
         "aspect": aspect,
         "tags": tags,
         "materials": materials,
@@ -440,6 +481,7 @@ def review_artwork(aspect, filename):
         "has_materials": bool(materials),
         "primary_colour": primary_colour,
         "secondary_colour": secondary_colour,
+        "full_listing_text": full_listing_text, # ADDED: Pass the new full_listing_text to the artwork dict
     }
 
     # === [4.4.8] Render template with all context ===
@@ -457,6 +499,7 @@ def review_artwork(aspect, filename):
         mockup_previews=mockup_previews,
         categories=categories,
         menu=get_menu(),
+        # REMOVED: full_listing_text=full_listing_text, (because it's now inside artwork dict)
     )
 
 # --- 4.4b. Review Page: Individual Mockup Regenerate/Swap Actions ---
@@ -865,4 +908,3 @@ if __name__ == "__main__":
     debug = os.getenv("DEBUG", "true").lower() == "true"
     print(f"🎨 Starting CapitalArt UI at http://localhost:{port}/ ...")
     app.run(debug=debug, port=port)
-
